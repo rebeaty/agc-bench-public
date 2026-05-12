@@ -1,0 +1,82 @@
+dataset,domain
+aidanbench,Brainstorming
+alpaca_eval_2,Literary and Narrative
+amuse_chord_generation,STEM
+analobench,Brainstorming
+arastories,Literary and Narrative
+arena_hard_creative,Literary and Narrative
+arn,Problem Solving
+balancecc_prompt_generation,Visual and Design
+balderdash,Humor
+brainteaser,Problem Solving
+c3_crosstalk,Humor
+cap_design,Visual and Design
+chinese_homophonic_puns,Humor
+conceptual_design,Visual and Design
+cpers,Literary and Narrative
+creative_process,Brainstorming
+creativemath,STEM
+creatset,Literary and Narrative
+crowd_vote,Literary and Narrative
+crowdcounter,Literary and Narrative
+cue_word_story,Brainstorming
+data_narrative,Literary and Narrative
+discovery_bench,STEM
+eqbench_creative_writing_v3,Literary and Narrative
+fig_qa,Literary and Narrative
+future_ideas,Brainstorming
+futuregen,Brainstorming
+gauss,STEM
+geo_story,Literary and Narrative
+grapheval_ai_researcher,STEM
+grapheval_iclr,STEM
+grapheval_review_advisor,STEM
+graphrag_bench,STEM
+historical_analogy,Literary and Narrative
+humor_transfer,Humor
+hypobench,STEM
+hypogen,STEM
+irfl,Literary and Narrative
+lcc_metaphor,Literary and Narrative
+liveideabench,Brainstorming
+macgyver,STEM
+meta4xnli,Literary and Narrative
+metaphor_generation,Literary and Narrative
+metaphoric_analogies,Problem Solving
+moh_x,Literary and Narrative
+mops,STEM
+munch,Problem Solving
+newyorker_humor,Humor
+nyt_connections,Problem Solving
+ocw,Problem Solving
+ocw_connections,Problem Solving
+outline_to_story,Literary and Narrative
+permpst,Literary and Narrative
+poetmt,Literary and Narrative
+pollux_creativity,Literary and Narrative
+pron_vs_prompt,Literary and Narrative
+proparalogy,Problem Solving
+pun_eval,Humor
+puntuguese,Humor
+recombination_extraction,Brainstorming
+riddlesense,Problem Solving
+scar,Problem Solving
+schnovel,Literary and Narrative
+science_analogies,Problem Solving
+scimon,STEM
+sdat,Brainstorming
+showerthoughts,Humor
+simile_generation,Literary and Narrative
+slang_generation,Literary and Narrative
+sonnet_or_not_bot,Literary and Narrative
+speak_to_structure,STEM
+ss_gen,Literary and Narrative
+story_generation_rocstories,Literary and Narrative
+story_quality,Literary and Narrative
+thenextchapter,Literary and Narrative
+tinyfabulist,Literary and Narrative
+tinystories,Literary and Narrative
+ttcw,Literary and Narrative
+twistlist,Literary and Narrative
+unfun_corpus,Humor
+writingbench,Literary and Narrative

@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agc-bench"
+version = "1.0.1"
+description = "AGC-Bench: HELM-compatible benchmark suite for artificial general creativity"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    # HELM evaluation framework — brings in datasets, numpy, pandas, torch,
+    # torchvision, transformers, nltk, scipy, scikit-learn, spacy, tqdm, etc.
+    "crfm-helm>=0.5.12",
+
+    # Multimodal scenarios — PIL images passed to MediaObject
+    "Pillow>=10.0",
+    "bert-score>=0.3.13",  # semantic reference metric used by YesBut and other text-gen repairs
+    "pycocoevalcap>=1.2",  # CIDEr caption metric used by ESP Dataset and related multimodal repairs
+
+    # Data format support not bundled with crfm-helm
+    "openpyxl>=3.1",        # Excel files (2 scenarios)
+    "h5py>=3.9",            # HDF5 files
+    "PyYAML>=6.0",          # YAML config parsing
+    "fuzzywuzzy>=0.18",     # DuanzAI PER similar-match accuracy scorer
+    "rdkit>=2026.3",        # chemistry-aware molecule evaluation for S2-Bench
+    "rake-nltk>=1.0",       # paragraph-level keyword extraction for Outline-to-Story
+    "decorator>=4.0",       # transitive requirement of jsonpath-rw used by HELM
+
+    # Network & HuggingFace access used directly in scenarios
+    "requests>=2.31",
+    "huggingface_hub>=0.20", # hf_hub_download / snapshot_download for gated repos
+
+    # Google Gemini API access (used by HELM's GoogleGenAIClient)
+    "google-genai>=1.0",
+
+    # OpenAI SDK — required by helm.clients.openai_client; OpenRouterClient
+    # extends it. crfm-helm leaves this in optional extras so we pin it here.
+    "openai>=1.0",
+    # Anthropic SDK — referenced by helm.clients.anthropic_client when the
+    # registry imports it lazily. Pinning avoids late ImportError.
+    "anthropic>=0.18",
+]
+
+[project.optional-dependencies]
+# Image-generation evaluation metrics (fscg8 and similar eval scripts only)
+eval = [
+    "diffusers>=0.25",
+    "pytorch-fid>=0.3",
+    "clip-score>=0.1",
+    "vendi-score>=0.0.3",
+]
+
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["scenarios*", "run_specs*", "metrics*", "llm_judge*", "clients*"]

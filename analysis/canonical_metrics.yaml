@@ -1,0 +1,120 @@
+# Path B canonical creativity metric per benchmark.
+# Each bench contributes 1-2 metrics covering the source paper's primary
+# creativity dimension(s). Auxiliary metrics (parse rates, reliability
+# indicators, sub-rubric breakdowns) are excluded.
+#
+# Used by prepare_ft_splits.py and build_ft_jsonl.py to select the FT corpus.
+
+canonical_metrics:
+  # (alpaca_eval_2 entry removed; see skip list below)
+  arastories:
+    - variety                          # TinyStories-style creativity dim
+  arena_hard_creative:
+    - battle_scores                    # pairwise win-rate
+  conceptual_design:
+    - novelty                          # source-paper primary metric
+  cpers:
+    - overall_creativity               # TTCT composite
+    - originality                      # primary discriminator
+  creatset:
+    - verdict                          # binary creative/not
+  crowd_vote:
+    - originality
+    - creative_potential
+  cue_word_story:
+    - llm_judge_creativity
+    - llm_judge_originality
+  data_narrative:
+    - data_narrative_narrative_quality
+  eqbench_creative_writing_v3:
+    - eqbench_creative_score           # 0-100 composite
+  fann_or_flop:
+    - overall_score
+  future_ideas:
+    - llm_judge_novelty
+  hypogen:
+    - hypogen_proxy_novelty
+  liveideabench:
+    - mean_originality                 # liveideabench asks for multiple ideas per prompt; raters compute mean across ideas
+  mops:
+    - mops_quality_score
+    - fascination_score
+  pollux_creativity:
+    - pollux_score
+  pron_vs_prompt:
+    - plot_originality
+  pun_eval:
+    - pun_detection_rate               # binary creativity outcome
+  rpgbench:
+    - interestingness
+  showerthoughts:
+    - llm_judge_creativity
+  ss_gen:
+    - llm_judge_descriptiveness
+  thenextchapter:
+    - thenextchapter_interestingness
+  tinyfabulist:
+    - creativity_score
+  tinystories:
+    - tinystories_creativity_score
+  writingbench:
+    - writingbench_score
+
+# Benches deliberately excluded from FT corpus (not creativity, sparse, or
+# scoring is judge-reliability-dominated):
+skip:
+  - aidanbench         # config-scalar metrics only, no creativity rating
+  - critics_story      # excluded from release set
+  - creativemath       # math correctness, not creativity dimension
+  - discovery_bench    # scientific reasoning
+  - gauss              # math reasoning
+  - geo_story          # emotion classification, not creativity
+  - macgyver           # problem-solving, no multi-rater coverage
+  - creative_process   # Snath 2024 (arXiv 2405.00899): mixes VF (semantic
+                        # fluency, "Think of 30 animals" — cognitive measure
+                        # of executive function, NOT creativity) with AUT
+                        # (Guilford Alternate Uses Test, IS creativity but
+                        # already covered by the AGC-Human battery).
+                        # Excluded from release set.
+  - alpaca_eval_2      # Dubois 2024 (arXiv 2404.04475): pairwise preference
+                        # benchmark designed for debiasing automatic preference
+                        # judges, NOT creativity. The `preference` metric scores
+                        # general instruction-following helpfulness vs a
+                        # GPT-4-Turbo baseline. No creativity dimension.
+                        # Excluded from release set.
+  - graphrag_bench     # Xiang 2025 (arXiv 2506.02404): GraphRAG-Bench evaluates
+                        # graph-RAG pipelines (graph construction, retrieval,
+                        # answer generation) on closed/open-ended QA across 16
+                        # academic disciplines. Domain-specific reasoning, not
+                        # creativity. Excluded from release set.
+  # Note on cross-domain analogy: cross-domain analogical reasoning is a
+  # canonical creative-cognition skill in the creative-cognition literature (e.g. Abraham 2018
+  # neural overlap of analogy and creativity). The recognition-vs-generation
+  # distinction we initially used was too strict.
+  - crowdcounter       # Counterspeech generation against hate speech.
+                        # Strategic rhetorical communication (6 styles:
+                        # contradiction, empathy, humour, questions, shaming,
+                        # warning), not creative ideation. Excluded after
+                        # creativity-researcher hand-review.
+  - sonnet_or_not_bot  # MCQ classification of poem form (sonnet, villanelle,
+                        # ghazal, etc.) given the poem text. Pure form-
+                        # recognition over expert-tagged forms, not creativity.
+                        # Excluded after creativity-researcher hand-review.
+  - balderdash         # Hejabi 2024 (arXiv 2411.10422). HELM port wires only
+                        # exact-match against the real definition (rewards
+                        # accidental real-definition production, INVERTED from
+                        # the task). Paper's TDR metric requires an LLM-judge
+                        # binary semantic-equivalence pass (annotator built but
+                        # not wired). Re-running 83 models on 50 items not
+                        # worth the lift; held for a future release.
+  - recombination_extraction  # Sternlicht 2025 (arXiv 2505.20779, CHIMERA-KB).
+                        # HELM port scores only Level-1 relevance (binary
+                        # parse). Paper's full eval has Level-2 entity
+                        # extraction (LLM-based F1 via GPT-4o-mini) and Level-3
+                        # relation extraction. Re-running for Level-2 not
+                        # worth the lift; held for a future release.
+  - amuse_chord_generation  # Music chord-progression composition. Singleton
+                        # in current taxonomy (no Music/Performing-Arts domain;
+                        # music ≠ STEM, ≠ narrative, ≠ Brainstorming).
+                        # Held for a future release that onboards more
+                        # arts/composition benches.

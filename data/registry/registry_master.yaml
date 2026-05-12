@@ -1,0 +1,1769 @@
+datasets:
+  aaar:
+    display_name: AAAR-1.0 (Assessing AI's Potential to Assist Research)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2410.22394
+    source_repo: https://github.com/RenzeLou/AAAR-1.0
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  aidanbench:
+    display_name: AidanBench
+    released_in_v1: false
+    source_paper: https://openreview.net/forum?id=fz969ahcvJ
+    source_repo: https://github.com/aidanmclaughlin/AidanBench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+    license: Unknown
+  alpaca_eval_2:
+    display_name: AlpacaEval 2
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2404.04475
+    source_repo: https://github.com/tatsu-lab/alpaca_eval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+    license: Apache-2.0
+  amuse_chord_generation:
+    display_name: Amuse Chord Generation
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2412.18940
+    source_repo: https://github.com/elianakim/Amuse
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+    license: Unknown
+  analobench:
+    display_name: AnaloBench
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2402.12370
+    source_repo: https://github.com/jhu-clsp/AnaloBench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/analobench_scenario.py
+    has_reference_target: true
+    license: Unknown
+  arastories:
+    display_name: AraStories
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2407.07551
+    source_repo: https://github.com/UBC-NLP/arastories
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/arastories_scenario.py
+    has_reference_target: false
+    license: Unknown
+  arena_hard_creative:
+    display_name: Arena Hard Creative
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2406.11939
+    source_repo: https://github.com/lmarena/arena-hard-auto
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/arena_hard_creative_scenario.py
+    has_reference_target: false
+    license: Apache-2.0
+  arena_hard_v01:
+    display_name: Arena Hard v0.1
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2406.11939
+    source_repo: https://github.com/lmarena/arena-hard-auto
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  arn:
+    display_name: ARN (Analogical Reasoning Network)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2310.00996
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/arn_scenario.py
+    has_reference_target: true
+    license: Unknown
+  artinsight:
+    display_name: ArtInsight
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2502.19263
+    source_repo: https://github.com/makeabilitylab/ArtInsight
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/artinsight_scenario.py
+    has_reference_target: false
+    license: MIT
+  assocam:
+    display_name: AssoCiAm
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2509.14171
+    source_repo: https://github.com/lyf15/AssoCiAm
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  ava:
+    display_name: AVA (Aesthetic Visual Analysis)
+    released_in_v1: false
+    source_paper: https://refbase.cvc.uab.es/files/MMP2012a.pdf
+    source_repo: https://github.com/imfing/ava_downloader
+    input_modality:
+    - image
+    output_modality:
+    - text
+    has_reference_target: true
+  balancecc_prompt_generation:
+    display_name: BalanceCC Prompt Generation Proxy
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2309.16496
+    source_repo: https://github.com/RuoyuFeng/CCEdit
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  balderdash:
+    display_name: Balderdash
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2411.10422
+    source_repo: https://github.com/ParsaHejabi/Simulation-Framework-for-Multi-Agent-Balderdash
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+    license: Unknown
+  banner_request_400:
+    display_name: Banner Request 400
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2503.11060
+    source_repo: https://github.com/sony/BannerAgency
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - image
+    scenario_file: scenarios/banner_request_400_scenario.py
+    has_reference_target: false
+    license: MIT
+  bhp_hypothesis_generation:
+    display_name: BHP Hypothesis Generation
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2407.08940
+    source_repo: https://github.com/TsinghuaC3I/LLM4BioHypoGen
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  brainteaser:
+    display_name: BrainTeaser
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2310.05057
+    source_repo: https://github.com/1171-jpg/BrainTeaser
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/brainteaser_scenario.py
+    has_reference_target: true
+    license: Unknown
+  c3_crosstalk:
+    display_name: C3 Crosstalk Generation
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2207.00735
+    source_repo: https://github.com/FreedomIntelligence/crosstalk-generation
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/c3_crosstalk_scenario.py
+    has_reference_target: true
+    license: Apache-2.0
+  calligrapher:
+    display_name: Calligrapher
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2506.24123
+    source_repo: https://github.com/Calligrapher2025/Calligrapher
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - image
+    has_reference_target: false
+  cdat:
+    display_name: CDAT (Conditional Divergent Association Task)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2601.20546
+    source_repo: https://github.com/knakajima1225/beyond_divergent_creativity
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  chinese_homophonic_puns:
+    display_name: Chinese Homophonic Puns
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2405.15818
+    source_repo: https://github.com/YesianRohn/DuanzAI
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/chinese_homophonic_puns_scenario.py
+    has_reference_target: true
+    license: Unknown
+  cii_bench:
+    display_name: CII-Bench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2401.11944
+    source_repo: https://github.com/MING-ZCH/CII-Bench
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  clef_joker_2025_task2:
+    display_name: CLEF JOKER 2025 Task 2
+    released_in_v1: false
+    source_paper: https://ceur-ws.org/Vol-3978/
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  cm3d:
+    display_name: CM3D
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2501.02434
+    source_repo: null
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  conceptual_design:
+    display_name: Conceptual Design
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2306.01779
+    source_repo: https://github.com/kevinma1515/gpt_idetc
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/conceptual_design_scenario.py
+    has_reference_target: true
+    license: Unknown
+  convbench:
+    display_name: ConvBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2403.20194
+    source_repo: https://github.com/shirlyliu64/ConvBench
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  cpers:
+    display_name: CPERS
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2509.18401
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/cpers_scenario.py
+    has_reference_target: true
+    license: Unknown
+  creai_cps:
+    display_name: CREAI CPS
+    released_in_v1: false
+    source_paper: null
+    source_repo: https://github.com/[anon-org]/CREAI-item-generation
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  creation_mmbench:
+    display_name: Creation-MMBench
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2503.14478
+    source_repo: https://github.com/open-compass/Creation-MMBench
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/creation_mmbench_scenario.py
+    has_reference_target: true
+    license: Unknown
+  creative_pair:
+    display_name: Creative Pair
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2508.12628
+    source_repo: null
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  creative_process:
+    display_name: Creative Process
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2405.00899
+    source_repo: https://github.com/surabhisnath/Creative_Process
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+    license: Unknown
+  creativemath:
+    display_name: CreativeMath
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2410.18336
+    source_repo: https://github.com/JunyiYe/CreativeMath
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+    license: MIT
+  creatset:
+    display_name: CrEval / CrEatSet
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2505.19236
+    source_repo: https://github.com/Aman-4-Real/CrEval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/creatset_scenario.py
+    has_reference_target: true
+    license: MIT
+  critics_story:
+    display_name: CritiCS Story
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2410.02428
+    source_repo: https://github.com/EMNLP-2024-CritiCS/Collective-Critics-for-Creative-Story-Generation
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  crowd_vote:
+    display_name: CrowdVote
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2509.09702
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/crowd_vote_scenario.py
+    has_reference_target: false
+    license: Unknown
+  crowdcounter:
+    display_name: CrowdCounter
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2410.01400
+    source_repo: https://github.com/hate-alert/CrowdCounter
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+    license: MIT
+  cs4:
+    display_name: CS4 (Creative and Structural Story Scoring)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2410.04197
+    source_repo: https://github.com/anirudhlakkaraju/cs4_benchmark
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  csd100:
+    display_name: CSD100
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2507.13984
+    source_repo: null
+    input_modality:
+    - image
+    output_modality:
+    - image
+    has_reference_target: true
+  cue_word_story:
+    display_name: Cue Word Story Generation
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2411.02316
+    source_repo: https://github.com/mismayil/creative-story-gen
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/cue_word_story_scenario.py
+    has_reference_target: true
+    license: Unknown
+  d_humor:
+    display_name: D-Humor
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2509.06771
+    source_repo: null
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  dat:
+    display_name: DAT (Divergent Association Task)
+    released_in_v1: false
+    source_paper: https://aclanthology.org/2023.findings-emnlp.858
+    source_repo: https://github.com/DingNLab/probing_creativity
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  dat_creative_writing:
+    display_name: DAT Creative Writing
+    released_in_v1: false
+    source_paper: https://doi.org/10.1038/s41562-024-02046-9
+    source_repo: https://github.com/AntoineBellemare/DAT_GPT
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  data_narrative:
+    display_name: DataNarrative
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2408.05346
+    source_repo: https://github.com/saidul-islam98/DataNarrative
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/data_narrative_scenario.py
+    has_reference_target: true
+    license: Unknown
+  deep_math:
+    display_name: DeepMath
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2505.08744
+    source_repo: https://github.com/DeepMathLLM/DeepMath
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  dialogue_diversity:
+    display_name: Dialogue Diversity
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2412.03343
+    source_repo: https://github.com/mailong25/peft_diversity
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  discovery_bench:
+    display_name: DiscoveryBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2407.01725
+    source_repo: https://github.com/allenai/discoverybench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+    license: ODC-By-1.0
+  diverse_not_short:
+    display_name: Diverse Not Short
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2505.16245
+    source_repo: https://github.com/text-machine-lab/diverse-not-short
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  dpt:
+    display_name: DPT (Divergent Problem Task)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2502.03253
+    source_repo: https://github.com/[anon-org]/CogSci-2025-Scientific-Creativity
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  eqbench_creative_writing_v3:
+    display_name: EQBench Creative Writing v3
+    released_in_v1: true
+    source_paper: https://eqbench.com/creative_writing.html
+    source_repo: https://github.com/EQ-bench/creative-writing-bench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/eqbench_creative_writing_v3_scenario.py
+    has_reference_target: false
+    license: Unknown
+  esp_dataset:
+    display_name: ESP Dataset (Esper)
+    released_in_v1: true
+    source_paper: https://openaccess.thecvf.com/content/CVPR2023/html/Yu_Fusing_Pre-Trained_Language_Models_With_Multimodal_Prompts_Through_Reinforcement_Learning_CVPR_2023_paper.html
+    source_repo: https://github.com/JiwanChung/esper
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/esp_dataset_scenario.py
+    has_reference_target: true
+    license: Unknown
+  fann_or_flop:
+    display_name: Fann or Flop
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2505.18152
+    source_repo: https://github.com/mbzuai-oryx/FannOrFlop
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/fann_or_flop_scenario.py
+    has_reference_target: true
+    license: Unknown
+  fig_qa:
+    display_name: Fig-QA
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2204.12632
+    source_repo: https://github.com/nightingal3/Fig-QA
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/fig_qa_scenario.py
+    has_reference_target: true
+    license: MIT
+  flute_filtered:
+    display_name: FLUTE Filtered
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2505.22792
+    source_repo: https://github.com/ColumbiaNLP/FLUTE
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  fscg8:
+    display_name: FSCG8 (Few-Shot Creative Generation)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2408.02226
+    source_repo: null
+    input_modality:
+    - image
+    output_modality:
+    - image
+    has_reference_target: false
+  funqa:
+    display_name: FunQA
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2306.14899
+    source_repo: null
+    input_modality:
+    - video
+    output_modality:
+    - text
+    has_reference_target: true
+  future_ideas:
+    display_name: Future Ideas
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2409.06185
+    source_repo: https://github.com/sandeep82945/Future-Idea-Generation
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/future_ideas_scenario.py
+    has_reference_target: false
+    license: MIT
+  futuregen:
+    display_name: FutureGen
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2503.16561
+    source_repo: https://github.com/IbrahimAlAzhar/FutureWorkGeneration
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/futuregen_scenario.py
+    has_reference_target: false
+    license: Unknown
+  fuxibench:
+    display_name: FuxiBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2503.15837
+    source_repo: https://github.com/cubenlp/FuxiBench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  gauss:
+    display_name: GAUSS (General Ability of Understanding and Solving Science)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2509.18122
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+    license: Unknown
+  geo_story:
+    display_name: Geo Story
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2411.07320
+    source_repo: https://github.com/FLAIR-IISc/richer-countries-have-richer-output
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+    license: Unknown
+  grapheval_ai_researcher:
+    display_name: GraphEval AI Researcher
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2503.12600
+    source_repo: https://github.com/ulab-uiuc/GraphEval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/grapheval_ai_researcher_scenario.py
+    has_reference_target: false
+    license: MIT
+  grapheval_iclr:
+    display_name: GraphEval ICLR
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2503.12600
+    source_repo: https://github.com/ulab-uiuc/GraphEval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/grapheval_iclr_scenario.py
+    has_reference_target: false
+    license: MIT
+  grapheval_review_advisor:
+    display_name: GraphEval Review Advisor
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2503.12600
+    source_repo: https://github.com/ulab-uiuc/GraphEval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/grapheval_review_advisor_scenario.py
+    has_reference_target: false
+    license: MIT
+  graphrag_bench:
+    display_name: GraphRAG Bench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2506.05690
+    source_repo: https://github.com/GraphRAG-Bench/GraphRAG-Benchmark
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+    license: MIT
+  historical_analogy:
+    display_name: Historical Analogy
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2409.14820
+    source_repo: https://github.com/Nianqi-Li/Historical-Analogy-of-LLMs
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/historical_analogy_scenario.py
+    has_reference_target: true
+    license: Unknown
+  hummus:
+    display_name: HuMMuS (Humorous Multimodal Metaphor Use)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2504.02983
+    source_repo: https://github.com/xiaoyuisrain/humorous-multimodal-metaphor-use
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/hummus_scenario.py
+    has_reference_target: true
+    license: CC-BY-NC-SA-4.0
+  humor_transfer:
+    display_name: Humor Transfer
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2508.19402
+    source_repo: https://github.com/morturr/HumorTransferLearning
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/humor_transfer_scenario.py
+    has_reference_target: true
+    license: Unknown
+  humordb:
+    display_name: HumorDB
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2406.13564
+    source_repo: https://github.com/kreimanlab/HumorDB
+    input_modality:
+    - image
+    output_modality:
+    - text
+    has_reference_target: true
+  hypobench:
+    display_name: HypoBench
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2504.11524
+    source_repo: https://github.com/ChicagoHAI/hypothesis-generation
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/hypobench_scenario.py
+    has_reference_target: false
+    license: MIT
+  hypogen:
+    display_name: HypoGen-DR1 bit-flip proxy
+    released_in_v1: true
+    source_paper: null
+    source_repo: https://huggingface.co/datasets/UniverseTBD/hypogen-dr1
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/hypogen_scenario.py
+    has_reference_target: false
+    license: Unknown
+  idrbench:
+    display_name: IDRBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2507.15736
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  ii_bench:
+    display_name: II-Bench
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2406.05862
+    source_repo: https://github.com/II-Bench/II-Bench
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/ii_bench_scenario.py
+    has_reference_target: true
+    license: Unknown
+  infochartqa:
+    display_name: InfoChartQA
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2505.19028
+    source_repo: https://github.com/CoolDawnAnt/InfoChartQA
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/infochartqa_scenario.py
+    has_reference_target: true
+    license: Apache-2.0
+  irfl:
+    display_name: IRFL (Idiomatic Recognition of Figurative Language)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2303.15445
+    source_repo: https://github.com/irfl-dataset/IRFL
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/irfl_scenario.py
+    has_reference_target: true
+    license: Unknown
+  javanese_sundanese_story_cloze:
+    display_name: Javanese-Sundanese Story Cloze
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2502.12932
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  kiva:
+    display_name: KiVA
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2407.17773
+    source_repo: https://github.com/ey242/KiVA
+    input_modality:
+    - image
+    output_modality:
+    - text
+    has_reference_target: true
+  layoutsam_eval:
+    display_name: LayoutSAM Eval
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2412.03859
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  lcc_metaphor:
+    display_name: LCC Metaphor
+    released_in_v1: true
+    source_paper: https://aclanthology.org/2022.acl-long.measurement
+    source_repo: https://github.com/EhsanAghazadeh/Metaphors_in_PLMs
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/lcc_metaphor_scenario.py
+    has_reference_target: true
+    license: Unknown
+  litbench:
+    display_name: LitBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2507.00769
+    source_repo: https://github.com/drfein/LitBench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  liveideabench:
+    display_name: LiveIdeaBench
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2412.17596
+    source_repo: https://github.com/x66ccff/liveideabench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/liveideabench_scenario.py
+    has_reference_target: false
+    license: MIT
+  llm4biohypogen:
+    display_name: LLM4BioHypoGen
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2407.08940
+    source_repo: https://github.com/TsinghuaC3I/LLM4BioHypoGen
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  llm_discussion:
+    display_name: LLM Discussion
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2405.06373
+    source_repo: https://github.com/lawraa/LLM-Discussion
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  llm_review_focus:
+    display_name: LLM Review Focus
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2502.17086
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  llm_srbench:
+    display_name: LLM-SRBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2504.10415
+    source_repo: https://github.com/deep-symbolic-mathematics/llm-srbench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  macgyver:
+    display_name: MacGyver
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2311.09682
+    source_repo: https://github.com/allenai/MacGyver
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+    license: Apache-2.0
+  mars:
+    display_name: MARS (Multimodal Analogy Reasoning)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2210.00312
+    source_repo: https://github.com/zjunlp/MKG_Analogy
+    input_modality:
+    - image
+    - text
+    - graph
+    output_modality:
+    - text
+    scenario_file: scenarios/mars_scenario.py
+    has_reference_target: true
+    license: MIT
+  matdesign:
+    display_name: MatDesign
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2501.13299
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  memecap:
+    display_name: MemeCap
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2305.13703
+    source_repo: https://github.com/eujhwang/meme-cap
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  met_meme:
+    display_name: MET-Meme
+    released_in_v1: false
+    source_paper: null
+    source_repo: https://github.com/liaolianfoka/MET-Meme
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  meta4xnli:
+    display_name: Meta4XNLI
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2404.07053
+    source_repo: https://github.com/elisanchez-beep/meta4xnli
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/meta4xnli_scenario.py
+    has_reference_target: true
+    license: Apache-2.0
+  metaphor_generation:
+    display_name: Metaphor Generation (MERMAID)
+    released_in_v1: true
+    source_paper: https://aclanthology.org/2021.naacl-main.336
+    source_repo: https://github.com/tuhinjubcse/MetaphorGenNAACL2021
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/metaphor_generation_scenario.py
+    has_reference_target: true
+    license: Unknown
+  metaphoric_analogies:
+    display_name: Metaphoric Analogies Extraction
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2412.15375
+    source_repo: https://github.com/Mionies/metaphoric-analogies-extraction
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/metaphoric_analogies_scenario.py
+    has_reference_target: true
+    license: Unknown
+  mineanybuild:
+    display_name: MineAnyBuild
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2505.20148
+    source_repo: https://github.com/MineAnyBuild/MineAnyBuild
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  miqa:
+    display_name: MiQA (Metaphorical Inference QA)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2210.07993
+    source_repo: https://github.com/google-research/language/tree/master/language/miqa
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  mixassist:
+    display_name: MixAssist
+    released_in_v1: false
+    source_paper: null
+    source_repo: https://huggingface.co/datasets/mclemcrew/MixAssist
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  moh_x:
+    display_name: MOH-X Metaphor Detection
+    released_in_v1: true
+    source_paper: https://aclanthology.org/S16-2003/
+    source_repo: https://github.com/gao-g/metaphor-in-context
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/moh_x_scenario.py
+    has_reference_target: true
+    license: Unknown
+  mops:
+    display_name: MoPS (Modular Story Premise Synthesis)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2406.05690
+    source_repo: https://huggingface.co/datasets/ManTle/mops
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/mops_scenario.py
+    has_reference_target: true
+    license: Unknown
+  munch:
+    display_name: MUNCH (Metaphor Understanding Challenge)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2403.11810
+    source_repo: https://github.com/xiaoyuisrain/metaphor-understanding-challenge
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/munch_scenario.py
+    has_reference_target: true
+    license: CC-BY-4.0
+  muse_perception:
+    display_name: MuSe-Perception
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2406.07753
+    source_repo: https://github.com/amirip/MuSe-2024
+    input_modality:
+    - video
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  music_theory_bench:
+    display_name: MusicTheoryBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2402.16153
+    source_repo: https://github.com/hf-lin/ChatMusician
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  neocoder:
+    display_name: NEOCODER
+    released_in_v1: false
+    source_paper: https://aclanthology.org/2025.naacl-long.141/
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  newyorker_caption:
+    display_name: New Yorker Caption Contest
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2406.10522
+    source_repo: https://github.com/yguooo/cartoon-caption-generation
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  newyorker_humor:
+    display_name: New Yorker Humor Understanding
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2209.06293
+    source_repo: https://huggingface.co/datasets/jmhessel/newyorker_caption_contest
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/newyorker_humor_scenario.py
+    has_reference_target: true
+    license: CC-BY-4.0
+  noveltybench:
+    display_name: NoveltyBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2504.05228
+    source_repo: https://github.com/novelty-bench/novelty-bench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  nyt_connections:
+    display_name: NYT Connections
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2412.01621
+    source_repo: https://huggingface.co/datasets/tm21cy/NYT-Connections
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/nyt_connections_scenario.py
+    has_reference_target: true
+    license: CC-BY-4.0
+  ocw:
+    display_name: Only Connect Wall (OCW)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2306.11167
+    source_repo: https://github.com/TaatiTeam/OCW
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/ocw_scenario.py
+    has_reference_target: true
+    license: MIT
+  ocw_connections:
+    display_name: Only Connect Wall - Connections Task
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2306.11167
+    source_repo: https://github.com/TaatiTeam/OCW
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/ocw_connections_scenario.py
+    has_reference_target: true
+    license: MIT
+  oogiri_go:
+    display_name: Oogiri-GO
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2312.02439
+    source_repo: https://github.com/sail-sg/CLoT
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  outline_to_story:
+    display_name: Outline to Story
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2101.00822
+    source_repo: https://github.com/fangleai/Outline2Story
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/outline_to_story_scenario.py
+    has_reference_target: true
+    license: Unknown
+  pace:
+    display_name: PACE (Parallel Association Chain Evaluation)
+    released_in_v1: false
+    source_paper: null
+    source_repo: https://github.com/ziliang6/PACE
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  permpst:
+    display_name: PerMPST
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2310.03304
+    source_repo: https://github.com/facebookresearch/perse
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/permpst_scenario.py
+    has_reference_target: true
+    license: CC-BY-NC-4.0
+  poetmt:
+    display_name: PoetMT
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2408.09945
+    source_repo: https://github.com/andongBlue/PoetMT
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/poetmt_scenario.py
+    has_reference_target: true
+    license: Unknown
+  pollux_creativity:
+    display_name: POLLUX Creativity
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2505.24616
+    source_repo: https://huggingface.co/datasets/ai-forever/POLLUX
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/pollux_creativity_scenario.py
+    has_reference_target: false
+    license: Apache-2.0
+  pron_vs_prompt:
+    display_name: Pron vs Prompt
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2407.01119
+    source_repo: https://github.com/grmarco/pron-vs-prompt
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/pron_vs_prompt_scenario.py
+    has_reference_target: true
+    license: Unknown
+  proparalogy:
+    display_name: ProPara-Logy
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2403.01139
+    source_repo: https://github.com/orensul/ParallelPARC
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/proparalogy_scenario.py
+    has_reference_target: true
+    license: MIT
+  protein_bench:
+    display_name: ProteinBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2409.06744
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  pun_eval:
+    display_name: PunEval
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2404.13599
+    source_repo: https://github.com/Zhijun-Xu/PunEval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/pun_eval_scenario.py
+    has_reference_target: true
+    license: Unknown
+  puntuguese:
+    display_name: Puntuguese
+    released_in_v1: true
+    source_paper: https://aclanthology.org/2024.lrec-main.1167/
+    source_repo: https://huggingface.co/datasets/Superar/Puntuguese
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/puntuguese_scenario.py
+    has_reference_target: true
+    license: CC-BY-SA-4.0
+  puzzleworld:
+    display_name: PuzzleWorld
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2506.06211
+    source_repo: https://github.com/MIT-MI/PuzzleWorld
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/puzzleworld_scenario.py
+    has_reference_target: true
+    license: Unknown
+  rebus_puzzle:
+    display_name: Rebus Puzzle
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2505.23759
+    source_repo: https://github.com/Kyunnilee/visual_puzzles
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/rebus_puzzle_scenario.py
+    has_reference_target: true
+    license: Unknown
+  recombination_extraction:
+    display_name: Recombination Extraction (CHIMERA-KB)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2505.20779
+    source_repo: https://github.com/noy-sternlicht/CHIMERA-KB
+    input_modality:
+    - text
+    output_modality:
+    - other
+    has_reference_target: true
+    license: Unknown
+  research_idea_execution:
+    display_name: Research Idea Execution
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2506.20803
+    source_repo: https://github.com/NoviScl/AI-Researcher
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  riddlesense:
+    display_name: RiddleSense
+    released_in_v1: true
+    source_paper: https://aclanthology.org/2021.findings-acl.131/
+    source_repo: https://github.com/INK-USC/RiddleSense
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/riddlesense_scenario.py
+    has_reference_target: true
+    license: MIT
+  robotoolbench:
+    display_name: RoboToolBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2507.12644
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  rpgbench:
+    display_name: RPGBENCH
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2502.00595
+    source_repo: https://github.com/boson-ai/rpgbench-public
+    input_modality:
+    - text
+    output_modality:
+    - other
+    scenario_file: scenarios/rpgbench_scenario.py
+    has_reference_target: false
+    license: Unknown
+  scar:
+    display_name: SCAR (Scientific Analogical Reasoning)
+    released_in_v1: true
+    source_paper: https://aclanthology.org/2023.findings-emnlp.160
+    source_repo: https://github.com/siyuyuan/scar
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/scar_scenario.py
+    has_reference_target: true
+    license: Unknown
+  schnovel:
+    display_name: SchNovel
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2409.16605
+    source_repo: https://huggingface.co/datasets/ethannlin/SchNovel
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/schnovel_scenario.py
+    has_reference_target: true
+    license: MIT
+  science_analogies:
+    display_name: Science Analogies (SAQA)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2210.04186
+    source_repo: https://github.com/Bhaavya/InstructGPT-Analogies
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/science_analogies_scenario.py
+    has_reference_target: true
+    license: Unknown
+  scimon:
+    display_name: SciMON
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2305.14259
+    source_repo: https://github.com/EagleW/Scientific-Inspiration-Machines-Optimized-for-Novelty
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/scimon_scenario.py
+    has_reference_target: true
+    license: Apache-2.0
+  sdat:
+    display_name: S-DAT (Synthetic Divergent Association Task)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2505.09068
+    source_repo: null
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/sdat_scenario.py
+    has_reference_target: false
+    license: Unknown
+  showerthoughts:
+    display_name: Showerthoughts Generation
+    released_in_v1: true
+    source_paper: https://aclanthology.org/2024.starsem-1.23/
+    source_repo: https://github.com/aiintelligentsystems/showerthoughts-dataset
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/showerthoughts_scenario.py
+    has_reference_target: false
+    license: Unknown
+  simile_generation:
+    display_name: Simile Generation (SCOPE)
+    released_in_v1: true
+    source_paper: https://aclanthology.org/2020.emnlp-main.524/
+    source_repo: https://github.com/tuhinjubcse/SimileGeneration-EMNLP2020
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/simile_generation_scenario.py
+    has_reference_target: true
+    license: Unknown
+  slang_generation:
+    display_name: Slang Generation
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2502.00000
+    source_repo: https://github.com/siyangwu1/LLM-Slang-Dictionary
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/slang_generation_scenario.py
+    has_reference_target: true
+    license: Unknown
+  sonnet_or_not_bot:
+    display_name: Sonnet or Not Bot
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2406.18906
+    source_repo: https://github.com/maria-antoniak/poetry-eval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+    license: Unknown
+  speak_to_structure:
+    display_name: Speak-to-Structure (TOMG-Bench)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2412.14642
+    source_repo: https://huggingface.co/datasets/Duke-de-Artois/TOMG-Bench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/speak_to_structure_scenario.py
+    has_reference_target: true
+    license: Unknown
+  splat:
+    display_name: SPLAT (Situation Puzzles for Lateral Thinking)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2410.06733
+    source_repo: https://github.com/chenqi008/LateralThinking
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  ss_gen:
+    display_name: SS-GEN (Social Story Generation)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2406.15695
+    source_repo: https://github.com/MIMIFY/SS-GEN
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/ss_gen_scenario.py
+    has_reference_target: true
+    license: Unknown
+  story_generation_rocstories:
+    display_name: Story Generation (ROCStories)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2303.08991
+    source_repo: https://github.com/ZhuohanX/DeltaScore
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/story_generation_rocstories_scenario.py
+    has_reference_target: true
+    license: Unknown
+  story_quality:
+    display_name: Story Quality Rating (ScratchPlot)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2206.03021
+    source_repo: https://github.com/YipingNUS/scratchplot-story-generation
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/story_quality_scenario.py
+    has_reference_target: true
+    license: Apache-2.0
+  storyer:
+    display_name: StoryER
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2210.08459
+    source_repo: https://github.com/sairin1202/StoryER
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  sudoku_bench:
+    display_name: SUDOKU-BENCH
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2505.16135
+    source_repo: https://github.com/SakanaAI/Sudoku-Bench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  textlogo3k:
+    display_name: TextLogo3K
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2204.02701
+    source_repo: https://github.com/yizhiwang96/TextLogoLayout
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - other
+    has_reference_target: true
+  thenextchapter:
+    display_name: The Next Chapter
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2301.09790
+    source_repo: https://github.com/ZhuohanX/TheNextChapter
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/thenextchapter_scenario.py
+    has_reference_target: true
+    license: Unknown
+  tiger_bench:
+    display_name: TIGeR-Bench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2406.05814
+    source_repo: https://github.com/LgQu/TIGeR
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  tinyfabulist:
+    display_name: TinyFabulist
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2504.20605
+    source_repo: https://github.com/klusai/tinyfabulist
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/tinyfabulist_scenario.py
+    has_reference_target: false
+    license: MIT
+  tinystories:
+    display_name: TinyStories
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2305.07759
+    source_repo: https://huggingface.co/datasets/roneneldan/TinyStories
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/tinystories_scenario.py
+    has_reference_target: false
+    license: CDLA-Sharing-1.0
+  ttcw:
+    display_name: TTCW (Torrance Test of Creative Writing)
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2510.05135
+    source_repo: https://huggingface.co/datasets/Salesforce/ttcw_creativity_eval
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/ttcw_scenario.py
+    has_reference_target: true
+    license: BSD-3-Clause
+  twistlist:
+    display_name: TwistList
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2306.03457
+    source_repo: https://github.com/tangg555/TwistList
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/twistlist_scenario.py
+    has_reference_target: true
+    license: MIT
+  unfun_corpus:
+    display_name: Unfun Corpus
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2403.00794
+    source_repo: https://github.com/zacharyhorvitz/Getting-Serious-With-LLMs
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/unfun_corpus_scenario.py
+    has_reference_target: true
+    license: Unknown
+  v_flute:
+    display_name: V-FLUTE (Visual Figurative Language Understanding)
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2405.01474
+    source_repo: https://github.com/asaakyan/V-FLUTE
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  vflute:
+    display_name: VFLUTE
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2405.01474
+    source_repo: https://github.com/asaakyan/V-FLUTE
+    input_modality:
+    - image
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  vgsg:
+    display_name: VGSG (Visually Grounded Story Generation)
+    released_in_v1: false
+    source_paper: https://aclanthology.org/2024.inlg-genchal.3/
+    source_repo: https://huggingface.co/datasets/tonyhong/vwp
+    input_modality:
+    - image
+    output_modality:
+    - text
+    has_reference_target: true
+  vietnamese_poem:
+    display_name: Vietnamese Poem Quality Scoring
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2401.01078
+    source_repo: https://github.com/Anshler/poem_generator
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: true
+  webnovelbench:
+    display_name: WebNovelBench
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2505.14818
+    source_repo: https://github.com/OedonLestrange42/webnovelbench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    has_reference_target: false
+  writingbench:
+    display_name: WritingBench
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2503.05244
+    source_repo: https://github.com/X-PLUG/WritingBench
+    input_modality:
+    - text
+    output_modality:
+    - text
+    scenario_file: scenarios/writingbench_scenario.py
+    has_reference_target: false
+    license: Apache-2.0
+  yesbut:
+    display_name: YesBut
+    released_in_v1: true
+    source_paper: https://arxiv.org/abs/2409.13592
+    source_repo: https://huggingface.co/datasets/bansalaman18/yesbut
+    input_modality:
+    - image
+    output_modality:
+    - text
+    scenario_file: scenarios/yesbut_scenario.py
+    has_reference_target: true
+    license: Apache-2.0
+  yesbut_v2:
+    display_name: YESBUT V2
+    released_in_v1: false
+    source_paper: https://arxiv.org/abs/2503.23137
+    source_repo: https://github.com/Tuo-Liang/YESBUT_V2
+    input_modality:
+    - image
+    output_modality:
+    - text
+    has_reference_target: true

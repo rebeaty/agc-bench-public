@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+*.swp
+*.bak
+.vscode/
+.idea/
+
+# Large local artifacts (kept out of git; regen via scripts/)
+analysis/agc_judge_merged/
+benchmark_output/
+generations/*
+!generations/
+!generations/README.md
+release_data_rebuilt_*/
+
+# Archives
+*.zip
+*.tar.gz
+
+# Internal/process docs
+PAPER_NUMERIC_AUDIT.md
+
+# Local credentials/runtime state. Keep template and default deployment config tracked.
+prod_env/credentials.conf
+prod_env/*.bak
+prod_env/*.local.yaml

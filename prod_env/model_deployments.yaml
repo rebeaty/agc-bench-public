@@ -1,0 +1,632 @@
+model_deployments:
+  # ── Task B: non-Gemini models via OpenRouter ────────────────
+  # These are the models we use for datasets with num_outputs>8 that
+  # Google's Gemini API can't serve (candidate_count capped at 8).
+  # Route explicitly through OpenRouterClient (which extends HELM's
+  # HELM OpenAIClient / ChatCompletions) so we bypass the newer
+  # openai_responses_client.py. That client's pydantic Response model
+  # rejects `prompt_cache_retention='in_memory'` from current OpenAI API
+  # responses returned by current OpenAI-compatible APIs.
+  # Keep google/gemini-* deployments out of this OpenRouter section:
+  # Gemini traffic always goes direct Google API, never OpenRouter.
+  - name: openai/gpt-5-mini
+    model_name: openai/gpt-5-mini
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-5-mini"
+
+  - name: anthropic/claude-haiku-4.5
+    model_name: anthropic/claude-haiku-4.5
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 200000
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "anthropic/claude-haiku-4.5"
+
+  - name: x-ai/grok-4.1-fast
+    model_name: x-ai/grok-4.1-fast
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "x-ai/grok-4.1-fast"
+
+  # ── Source-paper judge defaults routed through OpenRouter ────────────────
+  # These identifiers are referenced by run_specs/*.py when AGC_JUDGE_OVERRIDE
+  # is not set. The AGC-Judge release path sets AGC_JUDGE_OVERRIDE and routes
+  # the 24 LLM-judge benchmarks through AGC-Judge instead.
+  - name: anthropic/claude-3.7-sonnet
+    model_name: anthropic/claude-3.7-sonnet
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 200000
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "anthropic/claude-3.7-sonnet"
+
+  - name: openai/gpt-4
+    model_name: openai/gpt-4
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 8192
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-4"
+
+  - name: openai/gpt-4-turbo
+    model_name: openai/gpt-4-turbo
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-4-turbo"
+
+  - name: openai/gpt-4.1
+    model_name: openai/gpt-4.1
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-4.1"
+
+  - name: openai/gpt-4.1-mini
+    model_name: openai/gpt-4.1-mini
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-4.1-mini"
+
+  - name: openai/gpt-4o
+    model_name: openai/gpt-4o
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-4o"
+
+  - name: openai/gpt-4o-mini
+    model_name: openai/gpt-4o-mini
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-4o-mini"
+
+  - name: openai/o3-mini-2025-01-31
+    model_name: openai/o3-mini-2025-01-31
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 200000
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "openai/o3-mini-2025-01-31"
+
+  # ── Gemini 2.5 (GA) ──────────────────────────────────────────
+  - name: google/gemini-2.5-flash-lite
+    model_name: google/gemini-2.5-flash-lite
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+      args:
+        thinking_config:
+          thinkingBudget: 0
+
+  - name: google/gemini-2.5-flash
+    model_name: google/gemini-2.5-flash
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+      args:
+        thinking_config:
+          thinkingBudget: 0
+
+  - name: google/gemini-2.5-pro
+    model_name: google/gemini-2.5-pro
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+      args:
+        thinking_config:
+          thinkingBudget: 128
+
+  # ── Gemini 2.0 ───────────────────────────────────────────────
+  - name: google/gemini-2.0-flash
+    model_name: google/gemini-2.0-flash
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  # ── Gemini 3.x (preview) ────────────────────────────────────
+  - name: google/gemini-3-flash-preview
+    model_name: google/gemini-3-flash-preview
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      # ThinkingOffGoogleGenAIClient force-injects thinking_budget=0 for
+      # gemini-3* regardless of YAML wiring. The args.thinking_config below
+      # is included for compatibility with the parent client.
+      class_name: "clients.thinking_off_gemini_client.ThinkingOffGoogleGenAIClient"
+      args:
+        thinking_config:
+          thinkingBudget: 0
+
+  # OpenRouter-routed variant of the same model. Used as judge when the
+  # direct Google API throttles or rejects scientific content. Different
+  # safety-filter behavior because it routes through OR's provider mesh.
+  - name: openrouter/google/gemini-3-flash-preview
+    model_name: google/gemini-3-flash-preview
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.openrouter_client.OpenRouterClient"
+      args:
+        openrouter_model_name: "google/gemini-3-flash-preview"
+
+  - name: google/gemini-3.1-flash-lite-preview
+    model_name: google/gemini-3.1-flash-lite-preview
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      # Use our subclass for gemini-3* — force thinking_budget=0 defensively.
+      # Was thinkingLevel: "minimal" (still spends some tokens on thinking);
+      # standardizing on thinking_budget=0 across all gemini-3* test models.
+      class_name: "clients.thinking_off_gemini_client.ThinkingOffGoogleGenAIClient"
+      args:
+        thinking_config:
+          thinkingBudget: 0
+
+  - name: google/gemini-3-pro-preview
+    model_name: google/gemini-3-pro-preview
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 1048576
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+      args:
+        thinking_config:
+          thinkingBudget: 128
+
+  # ── Gemma 3 ──────────────────────────────────────────────────
+  - name: google/gemma-3-1b-it
+    model_name: google/gemma-3-1b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 32768
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  - name: google/gemma-3-4b-it
+    model_name: google/gemma-3-4b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  - name: google/gemma-3-12b-it
+    model_name: google/gemma-3-12b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  - name: google/gemma-3-27b-it
+    model_name: google/gemma-3-27b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  - name: google/gemma-3n-e2b-it
+    model_name: google/gemma-3n-e2b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 32768
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  - name: google/gemma-3n-e4b-it
+    model_name: google/gemma-3n-e4b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 32768
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  # ── Gemma 4 ──────────────────────────────────────────────────
+  - name: google/gemma-4-26b-a4b-it
+    model_name: google/gemma-4-26b-a4b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  - name: google/gemma-4-31b-it
+    model_name: google/gemma-4-31b-it
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.google_genai_client.GoogleGenAIClient"
+
+  # ── REASONING-DISABLED OpenRouter deployments (quality fix 2026-04-24) ──
+  # These models may emit hidden reasoning tokens that exhaust low max_tokens
+  # budgets before producing visible output. The ReasoningOffOpenRouterClient
+  # injects `reasoning.enabled=false` per OpenRouter's unified API.
+  - name: openrouter/moonshotai/kimi-k2.5
+    model_name: moonshotai/kimi-k2.5
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "moonshotai/kimi-k2.5"
+  - name: openrouter/moonshotai/kimi-k2.6
+    model_name: moonshotai/kimi-k2.6
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "moonshotai/kimi-k2.6"
+  - name: openrouter/nvidia/nemotron-3-super-120b-a12b
+    model_name: nvidia/nemotron-3-super-120b-a12b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "nvidia/nemotron-3-super-120b-a12b"
+  - name: openrouter/nvidia/nemotron-nano-12b-v2-vl
+    model_name: nvidia/nemotron-nano-12b-v2-vl
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "nvidia/nemotron-nano-12b-v2-vl"
+  - name: openrouter/nvidia/nemotron-nano-9b-v2
+    model_name: nvidia/nemotron-nano-9b-v2
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "nvidia/nemotron-nano-9b-v2"
+  - name: openrouter/qwen/qwen3.5-27b
+    model_name: qwen/qwen3.5-27b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3.5-27b"
+  - name: openrouter/qwen/qwen3.5-35b-a3b
+    model_name: qwen/qwen3.5-35b-a3b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3.5-35b-a3b"
+  - name: openrouter/qwen/qwen3.5-397b-a17b
+    model_name: qwen/qwen3.5-397b-a17b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3.5-397b-a17b"
+  - name: openrouter/qwen/qwen3.5-9b
+    model_name: qwen/qwen3.5-9b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3.5-9b"
+  - name: openrouter/qwen/qwen3-14b
+    model_name: qwen/qwen3-14b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3-14b"
+  - name: openrouter/xiaomi/mimo-v2-omni
+    model_name: xiaomi/mimo-v2-omni
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "xiaomi/mimo-v2-omni"
+  - name: openrouter/xiaomi/mimo-v2-pro
+    model_name: xiaomi/mimo-v2-pro
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "xiaomi/mimo-v2-pro"
+  - name: openrouter/xiaomi/mimo-v2.5
+    model_name: xiaomi/mimo-v2.5
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "xiaomi/mimo-v2.5"
+  - name: openrouter/xiaomi/mimo-v2.5-pro
+    model_name: xiaomi/mimo-v2.5-pro
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "xiaomi/mimo-v2.5-pro"
+  - name: openrouter/z-ai/glm-4.5-air
+    model_name: z-ai/glm-4.5-air
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-4.5-air"
+  - name: openrouter/z-ai/glm-4.5v
+    model_name: z-ai/glm-4.5v
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-4.5v"
+  - name: openrouter/z-ai/glm-4.6
+    model_name: z-ai/glm-4.6
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-4.6"
+  - name: openrouter/z-ai/glm-4.7
+    model_name: z-ai/glm-4.7
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-4.7"
+  - name: openrouter/z-ai/glm-5
+    model_name: z-ai/glm-5
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-5"
+  - name: openrouter/z-ai/glm-5-turbo
+    model_name: z-ai/glm-5-turbo
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-5-turbo"
+  - name: openrouter/z-ai/glm-5.1
+    model_name: z-ai/glm-5.1
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-5.1"
+  - name: openrouter/z-ai/glm-5v-turbo
+    model_name: z-ai/glm-5v-turbo
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "z-ai/glm-5v-turbo"
+
+
+  # Reasoning models added 2026-04-26 (reasoning-off wired)
+  - name: openrouter/openai/gpt-5.1
+    model_name: openai/gpt-5.1
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 200000
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-5.1"
+  - name: openrouter/openai/gpt-5.4
+    model_name: openai/gpt-5.4
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 200000
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-5.4"
+  - name: openrouter/openai/gpt-5.4-mini
+    model_name: openai/gpt-5.4-mini
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 200000
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-5.4-mini"
+  - name: openrouter/openai/gpt-5.5
+    model_name: openai/gpt-5.5
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 200000
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "openai/gpt-5.5"
+  - name: openrouter/deepseek/deepseek-r1
+    model_name: deepseek/deepseek-r1
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 65536
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "deepseek/deepseek-r1"
+  - name: openrouter/xiaomi/mimo-v2-flash
+    model_name: xiaomi/mimo-v2-flash
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "xiaomi/mimo-v2-flash"
+  - name: openrouter/nousresearch/hermes-4-405b
+    model_name: nousresearch/hermes-4-405b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "nousresearch/hermes-4-405b"
+  - name: openrouter/nousresearch/hermes-4-70b
+    model_name: nousresearch/hermes-4-70b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "nousresearch/hermes-4-70b"
+  - name: openrouter/aion-labs/aion-1.0
+    model_name: aion-labs/aion-1.0
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "aion-labs/aion-1.0"
+  - name: openrouter/aion-labs/aion-1.0-mini
+    model_name: aion-labs/aion-1.0-mini
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "aion-labs/aion-1.0-mini"
+  - name: openrouter/aion-labs/aion-2.0
+    model_name: aion-labs/aion-2.0
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "aion-labs/aion-2.0"
+  - name: openrouter/deepcogito/cogito-v2.1-671b
+    model_name: deepcogito/cogito-v2.1-671b
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "deepcogito/cogito-v2.1-671b"
+  - name: openrouter/minimax/minimax-m2-her
+    model_name: minimax/minimax-m2-her
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "minimax/minimax-m2-her"
+  - name: openrouter/nex-agi/deepseek-v3.1-nex-n1
+    model_name: nex-agi/deepseek-v3.1-nex-n1
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "nex-agi/deepseek-v3.1-nex-n1"
+  - name: openrouter/qwen/qwen3.5-flash-02-23
+    model_name: qwen/qwen3.5-flash-02-23
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3.5-flash-02-23"
+  - name: openrouter/qwen/qwen3.5-plus-02-15
+    model_name: qwen/qwen3.5-plus-02-15
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3.5-plus-02-15"
+  - name: openrouter/qwen/qwen3.6-plus
+    model_name: qwen/qwen3.6-plus
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "qwen/qwen3.6-plus"
+  - name: openrouter/x-ai/grok-3-mini
+    model_name: x-ai/grok-3-mini
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "x-ai/grok-3-mini"
+  - name: openrouter/x-ai/grok-4
+    model_name: x-ai/grok-4
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "x-ai/grok-4"
+  - name: openrouter/x-ai/grok-4-fast
+    model_name: x-ai/grok-4-fast
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 2000000
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "x-ai/grok-4-fast"
+  - name: openrouter/x-ai/grok-4.1-fast
+    model_name: x-ai/grok-4.1-fast
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 2000000
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "x-ai/grok-4.1-fast"
+  - name: openrouter/x-ai/grok-4.20
+    model_name: x-ai/grok-4.20
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "clients.reasoning_off_openrouter_client.ReasoningOffOpenRouterClient"
+      args:
+        openrouter_model_name: "x-ai/grok-4.20"
+
+  # AGC-Judge served by local vLLM. This entry is also regenerated by
+  # eval_scripts/run_with_agc_judge.sh --local-vllm.
+  - name: agcbench-2026/agc-judge
+    model_name: agcbench-2026/AGC-Judge
+    tokenizer_name: Qwen/Qwen3-30B-A3B-Instruct-2507
+    max_sequence_length: 8192
+    client_spec:
+      class_name: llm_judge.hf_inference_endpoint_client.HFInferenceEndpointClient
+      args:
+        base_url: http://localhost:8000/v1
+        openai_model_name: agc-judge
+        api_key: not-required-for-local-vllm

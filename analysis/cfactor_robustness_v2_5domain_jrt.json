@@ -1,0 +1,60 @@
+{
+  "partition": "v2_5domain_pooled",
+  "release_set": "strict_coverage_models_datasets_geq_78",
+  "n_models": 83,
+  "n_domains": 5,
+  "domains": [
+    "Brainstorming",
+    "Problem Solving",
+    "STEM",
+    "Literary and Narrative",
+    "Humor"
+  ],
+  "scoring": "jrt_corrected_pm1_50_with_raw_fallback",
+  "jrt_cells_in_release_models": 1743,
+  "jrt_release_models": 83,
+  "jrt_datasets": 21,
+  "eigenvalues": [
+    4.164571675149506,
+    0.3134111759352889,
+    0.2502301478111419,
+    0.2044683796812517,
+    0.06731862142281195
+  ],
+  "eig1": 4.164571675149506,
+  "alpha": 0.949547873787028,
+  "var_pct_pca": 83.2914335029901,
+  "var_explained_paf": 0.7931813401138956,
+  "loadings_pca": {
+    "Brainstorming": 0.9135748579978078,
+    "Problem Solving": 0.8981298907115092,
+    "STEM": 0.8781156317193901,
+    "Literary and Narrative": 0.9661127534411326,
+    "Humor": 0.9049057621447519
+  },
+  "loadings_pca_range": [
+    0.8781156317193901,
+    0.9661127534411326
+  ],
+  "loadings_paf": {
+    "Brainstorming": 0.8899608058490622,
+    "Problem Solving": 0.8643296174522064,
+    "STEM": 0.8344586491078834,
+    "Literary and Narrative": 0.9817670309699782,
+    "Humor": 0.875570121033335
+  },
+  "loadings_paf_range": [
+    0.8344586491078834,
+    0.9817670309699782
+  ],
+  "parallel_p95": 1.469814759008561,
+  "appendix_claim": {
+    "eig": 4.19,
+    "alpha": 0.95,
+    "var_pct": 83.8,
+    "parallel_p95": 1.36,
+    "load_min": 0.88,
+    "load_max": 0.96
+  },
+  "notes": "PCA / raw-correlation convention reproduces appendix eigenvalue (4.165 vs 4.19), alpha (0.9495 vs 0.95), var_pct (83.29% vs 83.8%), and loadings range ([+0.878, +0.966] vs [+0.88, +0.96]) within rounding tolerance. Parallel-analysis p95 recomputes to 1.47 (standard PA on the correlation matrix, n=83, k=5, n_iter=1000) and does NOT match the appendix value of 1.36. The 1.36 value sits between the empirical p50 (1.31) and p90 (1.43); it is not reproducible under standard or iterated-PAF parallel analysis. Recommendation: correct the appendix to 1.47."
+}

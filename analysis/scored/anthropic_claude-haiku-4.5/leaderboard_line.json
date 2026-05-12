@@ -1,0 +1,62 @@
+{
+  "model": "anthropic/claude-haiku-4.5",
+  "suite": "first_full_trial",
+  "composite_mean_z": 0.14136904136393735,
+  "n_datasets_scored": 67,
+  "n_primary_datasets": 67,
+  "n_missing": 0,
+  "leaderboard_rank_if_inserted": 41,
+  "release_model_count": 83,
+  "nearest_above": {
+    "model": "deepcogito/cogito-v2.1-671b",
+    "datasets": 65,
+    "n_metric_obs": 66,
+    "mean_z": 0.1448232604935073,
+    "median_z": 0.2599828720552414,
+    "n_jrt_cells": 24,
+    "rank": 40,
+    "release_model": "yes"
+  },
+  "nearest_below": {
+    "model": "mistralai/mixtral-8x22b-instruct",
+    "datasets": 66,
+    "n_metric_obs": 66,
+    "mean_z": 0.1258962637128984,
+    "median_z": 0.2303694010192829,
+    "n_jrt_cells": 24,
+    "rank": 41,
+    "release_model": "yes"
+  },
+  "per_domain": [
+    {
+      "domain": "Brainstorming",
+      "mean_z": 0.7404289196723535,
+      "n_datasets": 3
+    },
+    {
+      "domain": "Figurative Language",
+      "mean_z": 1.0907217214457303,
+      "n_datasets": 11
+    },
+    {
+      "domain": "Humor",
+      "mean_z": 0.44512939390125617,
+      "n_datasets": 9
+    },
+    {
+      "domain": "Problem Solving",
+      "mean_z": 0.4031587616320718,
+      "n_datasets": 10
+    },
+    {
+      "domain": "STEM",
+      "mean_z": -0.9343462197722792,
+      "n_datasets": 12
+    },
+    {
+      "domain": "Story / Narrative",
+      "mean_z": -0.062449244183294506,
+      "n_datasets": 19
+    }
+  ]
+}

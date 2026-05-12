@@ -1,0 +1,3124 @@
+# Evaluation metrics for each dataset
+# Registry file for AGC-Bench metric mappings
+
+datasets:
+  aaar:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "sentence_bert_f1"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.sentence_bert_metric.SentenceBertMetric"
+        metric_model: "all-mpnet-base-v2"
+      - name: "sentence_bert_precision"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.sentence_bert_metric.SentenceBertMetric"
+        metric_model: "all-mpnet-base-v2"
+      - name: "sentence_bert_recall"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.sentence_bert_metric.SentenceBertMetric"
+        metric_model: "all-mpnet-base-v2"
+      - name: "recall_gt_entail_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-1106-preview"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "precision_pred_entail_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-1106-preview"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  aidanbench:
+    metrics:
+      - name: "self_bleu"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.disinformation_metrics.DisinformationMetric"
+      - name: "coherence_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/o1-mini"
+        judge_prompt: |
+          You are evaluating responses to the question: "{input_text}"
+
+          Rate the following response on a scale of 0-100 for coherence, quality,
+          and appropriateness. A score of 0 means completely incoherent or off-topic.
+          A score of 100 means a perfect, insightful, well-reasoned response.
+
+          Response: {generated_response}
+
+          Score (0-100):
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "novelty_embedding_similarity"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "text-embedding-ada-002"
+
+  alpaca_eval_2:
+    metrics:
+      - name: "win_rate"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-turbo"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+
+  amuse_chord_generation:
+    metrics:
+      - name: "self_bleu"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.disinformation_metrics.DisinformationMetric"
+      - name: "jensen_shannon_divergence_unigram"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.jsd_metric.JSDMetric"
+      - name: "jensen_shannon_divergence_bigram"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.jsd_metric.JSDMetric"
+
+  analobench:
+    metrics:
+      - name: "accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.analobench_t1_metric.AnaloBenchT1Metric"
+      - name: "parsed_option_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.analobench_t1_metric.AnaloBenchT1Metric"
+      - name: "irrelevant_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.analobench_t1_metric.AnaloBenchT1Metric"
+
+  arastories:
+    metrics:
+      - name: "fluency"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-0125-preview"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "coherence"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-0125-preview"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "following_instructions"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-0125-preview"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "consistency"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-0125-preview"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "variety"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-0125-preview"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  arena_hard_creative:
+    metrics:
+      - name: "win_rate"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-turbo"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+
+  arena_hard_v01:
+    metrics:
+      - name: "win_rate"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-turbo"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+
+  arn:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  artinsight:
+    metrics:
+      - name: "artinsight_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "artinsight_presumptive_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "artinsight_reductive_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "artinsight_detail_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "artinsight_elements_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "artinsight_misc_deduction"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+
+  assocam:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  ava:
+    metrics:
+      - name: "mean_absolute_error"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.mean_absolute_error_metric.MeanAbsoluteErrorMetric"
+      - name: "pearson_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.correlation_metric.CorrelationMetric"
+      - name: "spearman_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.correlation_metric.CorrelationMetric"
+
+  balancecc_prompt_generation:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  balderdash:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  banner_request_400:
+    metrics:
+      - name: "banner_request_400_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.3
+        judge_max_new_tokens: 512
+      - name: "banner_request_400_taa"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.3
+        judge_max_new_tokens: 512
+      - name: "banner_request_400_lps"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.3
+        judge_max_new_tokens: 512
+      - name: "banner_request_400_aqs"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.3
+        judge_max_new_tokens: 512
+      - name: "banner_request_400_ctae"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.3
+        judge_max_new_tokens: 512
+      - name: "banner_request_400_cpyq"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.3
+        judge_max_new_tokens: 512
+      - name: "banner_request_400_bis"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.3
+        judge_max_new_tokens: 512
+      - name: "banner_request_400_blueprint_validity"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.banner_request_400_metric.BannerRequest400Metric"
+      - name: "banner_request_400_render_success"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.banner_request_400_metric.BannerRequest400Metric"
+      - name: "banner_request_400_valid_judge_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.banner_request_400_metric.BannerRequest400Metric"
+
+  bhp_hypothesis_generation:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+        metric_model: "bert-base-uncased"
+
+  brainteaser:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  c3_crosstalk:
+    metrics:
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "bleu_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "gleu"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "rouge_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "rouge_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "distinct_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+      - name: "distinct_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.c3_crosstalk_metric.C3CrosstalkMetric"
+
+  calligrapher:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  cdat:
+    metrics:
+      - name: "appropriateness"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "crawl-300d-2M-subword (FastText)"
+      - name: "novelty"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "crawl-300d-2M-subword (FastText)"
+      - name: "creativity_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.creativity_score_metric.CreativityScoreMetric"
+
+  chinese_homophonic_puns:
+    metrics:
+      - name: "exact_match_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.chinese_homophonic_puns_metric.ChineseHomophonicPunsMetric"
+      - name: "similar_match_accuracy"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.chinese_homophonic_puns_metric.ChineseHomophonicPunsMetric"
+
+  cii_bench:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  clef_joker_2025_task2:
+    metrics:
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  cm3d:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  conceptual_design:
+    metrics:
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  convbench:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  cpers:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  creai_cps:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  creation_mmbench:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  creative_pair:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  creative_process:
+    metrics:
+      - name: "creative_process_valid_list_rate"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_item_count"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_valid_item_count"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_item_count_ratio"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_mean_reference_similarity"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_mean_consecutive_similarity"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_jump_cat_rate"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_jump_ss_rate"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_jump_rate"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_total_jumps"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_unique_category_count"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_unique_category_rate"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+      - name: "creative_process_jump_profile_slope"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.creative_process_metric.CreativeProcessMetric"
+
+  creativemath:
+    metrics:
+      - name: "creativemath_correctness_ratio"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "creativemath_novelty_ratio"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "creativemath_novel_unknown_ratio"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "creativemath_novelty_to_correctness_ratio"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "creativemath_novel_unknown_to_novelty_ratio"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "creativemath_stage1_valid_judge_rate"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "creativemath_stage2_valid_judge_rate"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+      - name: "creativemath_stage3_valid_judge_rate"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-3-opus-20240229, google/gemini-1.5-pro, openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+
+  creatset:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  critics_story:
+    metrics:
+      - name: "critics_story_interesting_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.critics_story_metric.CriticsStoryMetric"
+      - name: "critics_story_interesting_parsed_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.critics_story_metric.CriticsStoryMetric"
+      - name: "critics_story_full_format_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.critics_story_metric.CriticsStoryMetric"
+      - name: "critics_story_premise_closeness_parsed_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.critics_story_metric.CriticsStoryMetric"
+
+  crowd_vote:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  crowdcounter:
+    metrics:
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "distinct_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+      - name: "distinct_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  cs4:
+    metrics:
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  csd100:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  cue_word_story:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "cue_word_story_cue_word_coverage"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.cue_word_story_metric.CueWordStoryMetric"
+      - name: "cue_word_story_all_cue_words_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.cue_word_story_metric.CueWordStoryMetric"
+      - name: "cue_word_story_five_sentence_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.cue_word_story_metric.CueWordStoryMetric"
+      - name: "cue_word_story_boring_theme_overlap"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.cue_word_story_metric.CueWordStoryMetric"
+      - name: "cue_word_story_ngram_diversity"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.cue_word_story_metric.CueWordStoryMetric"
+      - name: "cue_word_story_novelty"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.cue_word_story_metric.CueWordStoryMetric"
+      - name: "cue_word_story_surprise"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.cue_word_story_metric.CueWordStoryMetric"
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_originality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_surprise"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_effectiveness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  d_humor:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  dat:
+    metrics:
+      - name: "semantic_diversity"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "all-mpnet-base-v2 (SentenceTransformers)"
+
+  dat_creative_writing:
+    metrics:
+      - name: "semantic_diversity"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "all-mpnet-base-v2 (SentenceTransformers)"
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  data_narrative:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+        metric_model: "bert-base-uncased"
+      - name: "data_narrative_relevance"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 16
+      - name: "data_narrative_clarity_coherence"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 16
+      - name: "data_narrative_informativeness"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 16
+      - name: "data_narrative_narrative_quality"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 16
+      - name: "data_narrative_factual_correctness"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 16
+
+  deep_math:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  dialogue_diversity:
+    metrics:
+      - name: "distinct_1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+      - name: "distinct_2"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+      - name: "semantic_diversity"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "all-mpnet-base-v2 (SentenceTransformers)"
+      - name: "coherence_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 64
+
+  discovery_bench:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "llm_judge_correctness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  diverse_not_short:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "distinct_1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+      - name: "distinct_2"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+
+  dpt:
+    metrics:
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  eqbench_creative_writing_v3:
+    metrics:
+      - name: "elo_rating"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-sonnet-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "rubric_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-sonnet-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  esp_dataset:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "meteor"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.meteor_metric.MeteorMetric"
+      - name: "cider"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  fann_or_flop:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  fig_qa:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  flute_filtered:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  fscg8:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  funqa:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  future_ideas:
+    metrics:
+      - name: "llm_judge_novelty"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_relevance"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_feasibility"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  futuregen:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+      - name: "jaccard_similarity"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.futuregen_similarity_metric.FutureGenSimilarityMetric"
+      - name: "cosine_similarity"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.futuregen_similarity_metric.FutureGenSimilarityMetric"
+
+  fuxibench:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  gauss:
+    metrics:
+      - name: "gauss_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: |
+          Score the student's mathematical solution using the instance-specific
+          GAUSS rubric and total-score ceiling.
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "gauss_score_percent"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: |
+          Score the student's mathematical solution using the instance-specific
+          GAUSS rubric and total-score ceiling, then normalize the score to a
+          percentage of the available points.
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "gauss_valid_judge_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.gauss_metric.GAUSSMetric"
+
+  geo_story:
+    metrics:
+      - name: "geo_story_uniqueness"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.geo_story_metric.GeoStoryMetric"
+      - name: "geo_story_informativeness"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.geo_story_metric.GeoStoryMetric"
+      - name: "geo_story_emotion_joy"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: |
+          Help me identify which of the following emotions: Joy, Hardships,
+          Fear, Sadness, Serenity; are recognized within the story given in the
+          prompt. Only output the names of the emotions found in the prompt.
+        judge_temperature: 0.7
+        judge_max_new_tokens: 50
+      - name: "geo_story_emotion_hardships"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: |
+          Help me identify which of the following emotions: Joy, Hardships,
+          Fear, Sadness, Serenity; are recognized within the story given in the
+          prompt. Only output the names of the emotions found in the prompt.
+        judge_temperature: 0.7
+        judge_max_new_tokens: 50
+      - name: "geo_story_emotion_fear"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: |
+          Help me identify which of the following emotions: Joy, Hardships,
+          Fear, Sadness, Serenity; are recognized within the story given in the
+          prompt. Only output the names of the emotions found in the prompt.
+        judge_temperature: 0.7
+        judge_max_new_tokens: 50
+      - name: "geo_story_emotion_sadness"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: |
+          Help me identify which of the following emotions: Joy, Hardships,
+          Fear, Sadness, Serenity; are recognized within the story given in the
+          prompt. Only output the names of the emotions found in the prompt.
+        judge_temperature: 0.7
+        judge_max_new_tokens: 50
+      - name: "geo_story_emotion_serenity"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: |
+          Help me identify which of the following emotions: Joy, Hardships,
+          Fear, Sadness, Serenity; are recognized within the story given in the
+          prompt. Only output the names of the emotions found in the prompt.
+        judge_temperature: 0.7
+        judge_max_new_tokens: 50
+      - name: "geo_story_emotion_valid_judge_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.geo_story_emotion_metric.GeoStoryEmotionMetric"
+
+  grapheval_ai_researcher:
+    metrics:
+      - name: "decision_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "decision_parsed"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "score_parsed"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "precision_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "recall_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "f1_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "spearman_correlation"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+
+  grapheval_iclr:
+    metrics:
+      - name: "decision_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "decision_parsed"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "score_parsed"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "precision_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "recall_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "f1_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "spearman_correlation"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+
+  grapheval_review_advisor:
+    metrics:
+      - name: "decision_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "decision_parsed"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "score_parsed"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "precision_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "recall_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "f1_macro"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+      - name: "spearman_correlation"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.grapheval_decision_metric.GraphEvalDecisionMetric"
+
+  graphrag_bench:
+    metrics:
+      - name: "answer_correctness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 128
+      - name: "coverage_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 128
+      - name: "faithfulness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 128
+
+  historical_analogy:
+    metrics:
+      - name: "historical_analogy_pass_at_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.historical_analogy_metric.HistoricalAnalogyMetric"
+      - name: "historical_analogy_parsed_event_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.historical_analogy_metric.HistoricalAnalogyMetric"
+
+  hummus:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  humor_transfer:
+    metrics:
+      - name: "accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.humor_transfer_metric.HumorTransferMetric"
+      - name: "parsed_label_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.humor_transfer_metric.HumorTransferMetric"
+
+  humordb:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  hypobench:
+    metrics:
+      - name: "hypobench_ind_accuracy"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+      - name: "hypobench_ind_f1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+      - name: "hypobench_ind_parsed_label_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+      - name: "hypobench_ood_accuracy"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+      - name: "hypobench_ood_f1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+      - name: "hypobench_ood_parsed_label_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+      - name: "hypobench_hypothesis_count"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+      - name: "hypobench_parsed_hypothesis_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.hypobench_inference_metric.HypoBenchInferenceMetric"
+
+  hypogen:
+    metrics:
+      - name: "llm_judge_novelty"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  idrbench:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  ii_bench:
+    metrics:
+      - name: "accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.ii_bench_metric.IIBenchMetric"
+      - name: "errors_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.ii_bench_metric.IIBenchMetric"
+      - name: "miss_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.ii_bench_metric.IIBenchMetric"
+
+  infochartqa:
+    metrics:
+      - name: "infochartqa_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.infochartqa_metric.InfoChartQAMetric"
+
+  irfl:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  javanese_sundanese_story_cloze:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  kiva:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  layoutsam_eval:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  lcc_metaphor:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  litbench:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  liveideabench:
+    metrics:
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  llm4biohypogen:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  llm_discussion:
+    metrics:
+      - name: "self_bleu"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.disinformation_metrics.DisinformationMetric"
+      - name: "distinct_1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+      - name: "distinct_2"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.distinct_n_metric.DistinctNMetric"
+
+  llm_review_focus:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  llm_srbench:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "llm_judge_correctness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  macgyver:
+    metrics:
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "llm_judge_correctness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  mars:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  matdesign:
+    metrics:
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  memecap:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  met_meme:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  meta4xnli:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "token_f1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.meta4xnli_detection_metric.Meta4XNLIDetectionMetric"
+      - name: "token_accuracy"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.meta4xnli_detection_metric.Meta4XNLIDetectionMetric"
+      - name: "valid_label_sequence_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.meta4xnli_detection_metric.Meta4XNLIDetectionMetric"
+
+  metaphor_generation:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  metaphoric_analogies:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  mineanybuild:
+    metrics:
+      - name: "validity_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.validity_score_metric.ValidityScoreMetric"
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  miqa:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  mixassist:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  moh_x:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  mops:
+    metrics:
+      - name: "fascination_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-turbo"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "completeness_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-turbo"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "originality_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-turbo"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "mops_quality_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4-turbo"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "mops_valid_judge_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.mops_metric.MoPSMetric"
+      - name: "breadth_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.mops_diversity_metric.MoPSDiversityMetric"
+      - name: "density_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.mops_diversity_metric.MoPSDiversityMetric"
+
+  munch:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  muse_perception:
+    metrics:
+      - name: "pearson_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.correlation_metric.CorrelationMetric"
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+
+  music_theory_bench:
+    metrics:
+      - name: "accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.music_theory_bench_metric.MusicTheoryBenchMetric"
+      - name: "parsed_label_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.music_theory_bench_metric.MusicTheoryBenchMetric"
+
+  neocoder:
+    metrics:
+      - name: "pass_at_1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.pass_at_1_metric.PassAt1Metric"
+      - name: "constraint_satisfaction"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.constraint_satisfaction_metric.ConstraintSatisfactionMetric"
+
+  newyorker_caption:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  newyorker_humor:
+    metrics:
+      - name: "accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.newyorker_humor_metric.NewYorkerHumorMetric"
+      - name: "parsed_label_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.newyorker_humor_metric.NewYorkerHumorMetric"
+      - name: "accuracy_ny"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.newyorker_humor_metric.NewYorkerHumorMetric"
+      - name: "accuracy_crowd"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.newyorker_humor_metric.NewYorkerHumorMetric"
+
+  noveltybench:
+    metrics:
+      - name: "distinct_10"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.noveltybench_metric.NoveltyBenchMetric"
+        metric_model: "yimingzhang/deberta-v3-large-generation-similarity + Skywork/Skywork-Reward-Gemma-2-27B-v0.2"
+      - name: "utility_10"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.noveltybench_metric.NoveltyBenchMetric"
+        metric_model: "Skywork/Skywork-Reward-Gemma-2-27B-v0.2"
+
+  nyt_connections:
+    metrics:
+      - name: "group_match_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.group_match_score_metric.GroupMatchScoreMetric"
+
+  ocw:
+    metrics:
+      - name: "group_match_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.group_match_score_metric.GroupMatchScoreMetric"
+
+  ocw_connections:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+
+  oogiri_go:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  outline_to_story:
+    metrics:
+      - name: "rouge_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "outline_event_recall"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.outline_to_story_metric.OutlineToStoryMetric"
+      - name: "outline_paragraph_coverage"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.outline_to_story_metric.OutlineToStoryMetric"
+
+  pace:
+    metrics:
+      - name: "type_token_ratio"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.type_token_ratio_metric.TypeTokenRatioMetric"
+      - name: "association_distance"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "GloVe 6B 300d"
+
+  permpst:
+    metrics:
+      - name: "pearson_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.permpst_score_metric.PerMPSTScoreMetric"
+      - name: "spearman_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.permpst_score_metric.PerMPSTScoreMetric"
+      - name: "kendall_tau_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.permpst_score_metric.PerMPSTScoreMetric"
+      - name: "score_accuracy"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.permpst_score_metric.PerMPSTScoreMetric"
+      - name: "valid_score_json_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.permpst_score_metric.PerMPSTScoreMetric"
+
+  poetmt:
+    metrics:
+      - name: "bleu_1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.poetmt_metric.PoetMTAutomaticMetric"
+      - name: "bleu_4"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.poetmt_metric.PoetMTAutomaticMetric"
+      - name: "llm_judge_beauty_of_sound"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: "paper Appendix B.6 / repo evaluate/poem_evaluate.py"
+        judge_temperature: 0.0
+        judge_max_new_tokens: 32
+      - name: "llm_judge_beauty_of_form"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: "paper Appendix B.7 / repo evaluate/poem_evaluate.py"
+        judge_temperature: 0.0
+        judge_max_new_tokens: 32
+      - name: "llm_judge_beauty_of_meaning"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: "paper Appendix B.8 / repo evaluate/poem_evaluate.py"
+        judge_temperature: 0.0
+        judge_max_new_tokens: 32
+
+  pollux_creativity:
+    metrics:
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+      - name: "llm_judge_originality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  pron_vs_prompt:
+    metrics:
+      - name: "llm_judge_attractiveness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_originality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  proparalogy:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  protein_bench:
+    metrics:
+      - name: "validity"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.validity_metric.ValidityMetric"
+      - name: "plddt_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "ESMFold"
+      - name: "sctm_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "ESMFold"
+      - name: "novelty_tmscore"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "ESMFold + PDB lookup"
+
+  pun_eval:
+    metrics:
+      - name: "pun_detection_rate"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "pun_detection_parsed_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.pun_eval_metric.PunEvalMetric"
+      - name: "sentence_json_parsed_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.pun_eval_metric.PunEvalMetric"
+
+  puntuguese:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  puzzleworld:
+    metrics:
+      - name: "puzzleworld_final_answer_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.puzzleworld_answer_metric.PuzzleWorldAnswerMetric"
+      - name: "puzzleworld_answer_extracted_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.puzzleworld_answer_metric.PuzzleWorldAnswerMetric"
+
+  rebus_puzzle:
+    metrics:
+      - name: "rebus_answer_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.rebus_puzzle_metric.RebusPuzzleMetric"
+      - name: "rebus_answer_parse_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.rebus_puzzle_metric.RebusPuzzleMetric"
+      - name: "rebus_semantic_equivalence"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 16
+
+  recombination_extraction:
+    metrics:
+      - name: "f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.f1_metric.F1Metric"
+      - name: "classification_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.classification_accuracy_metric.ClassificationAccuracyMetric"
+
+  research_idea_execution:
+    metrics:
+      - name: "llm_judge_novelty"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+      - name: "llm_judge_feasibility"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+      - name: "llm_judge_quality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 512
+
+  riddlesense:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  robotoolbench:
+    metrics:
+      - name: "xml_validity"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.xml_validity_metric.XmlValidityMetric"
+      - name: "array_dimensions"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.array_dimensions_metric.ArrayDimensionsMetric"
+
+  rpgbench:
+    metrics:
+      - name: "json_validity"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.json_validity_metric.JsonValidityMetric"
+      - name: "interestingness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4o"
+        judge_prompt: |
+          Your task is to evaluate the **interestingness** of the following game content.
+          Please give a score from 1 (least interesting) to 5 (most interesting), with a
+          brief explanation of your rationale.
+
+
+          [[start of game content]]
+          {generated_response}
+          [[end of game content]]
+
+          Please return your evaluation score in a json dictionary with the following format:
+          {"interestingness": <int 1-5>, "explanation": "<string>"}
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  scar:
+    metrics:
+      - name: "scar_concept_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.scar_metric.SCARMetric"
+      - name: "scar_system_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.scar_metric.SCARMetric"
+      - name: "scar_precision"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.scar_metric.SCARMetric"
+      - name: "scar_recall"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.scar_metric.SCARMetric"
+      - name: "scar_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.scar_metric.SCARMetric"
+      - name: "scar_parsed_mapping_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.scar_metric.SCARMetric"
+
+  schnovel:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  science_analogies:
+    metrics:
+      - name: "science_analogies_bleu_4"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.science_analogies_metric.ScienceAnalogiesAutomaticMetric"
+      - name: "science_analogies_rouge_l"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.science_analogies_metric.ScienceAnalogiesAutomaticMetric"
+      - name: "science_analogies_meteor"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.science_analogies_metric.ScienceAnalogiesAutomaticMetric"
+      - name: "science_analogies_avg_response_words"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.science_analogies_metric.ScienceAnalogiesAutomaticMetric"
+
+  scimon:
+    metrics:
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+
+  sdat:
+    metrics:
+      - name: "sdat_score"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.sdat_metric.SDATMetric"
+        metric_model: "ibm-granite/granite-embedding-278m-multilingual"
+      - name: "sdat_raw_score"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.sdat_metric.SDATMetric"
+        metric_model: "ibm-granite/granite-embedding-278m-multilingual"
+      - name: "sdat_percentile_estimate"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.sdat_metric.SDATMetric"
+        metric_model: "ibm-granite/granite-embedding-278m-multilingual"
+      - name: "parsed_item_count"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.sdat_metric.SDATMetric"
+        metric_model: "ibm-granite/granite-embedding-278m-multilingual"
+      - name: "single_word_item_count"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.sdat_metric.SDATMetric"
+        metric_model: "ibm-granite/granite-embedding-278m-multilingual"
+
+  showerthoughts:
+    metrics:
+      - name: "llm_judge_general_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_logical_validity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_humor"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_cleverness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_real_person_likelihood"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  simile_generation:
+    metrics:
+      - name: "simile_generation_bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.simile_generation_metric.SimileGenerationMetric"
+      - name: "simile_generation_bleu_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.simile_generation_metric.SimileGenerationMetric"
+      - name: "simile_generation_bert_score"
+        in_helm: true
+        type: "model_based"
+        helm_class: "metrics.simile_generation_metric.SimileGenerationMetric"
+      - name: "simile_generation_vehicle_parsed_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.simile_generation_metric.SimileGenerationMetric"
+
+  slang_generation:
+    metrics:
+      - name: "llm_judge_creativity"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_relevance"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  sonnet_or_not_bot:
+    metrics:
+      - name: "accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.sonnet_or_not_bot_metric.SonnetOrNotBotMetric"
+      - name: "parsed_label_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.sonnet_or_not_bot_metric.SonnetOrNotBotMetric"
+
+  speak_to_structure:
+    metrics:
+      - name: "validity"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.speak_to_structure_metric.SpeakToStructureMetric"
+      - name: "success_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.speak_to_structure_metric.SpeakToStructureMetric"
+      - name: "similarity"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.speak_to_structure_metric.SpeakToStructureMetric"
+
+  splat:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+        metric_model: "bert-base-uncased"
+
+  ss_gen:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+        metric_model: "bert-base-uncased"
+      - name: "llm_judge_coherence"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_descriptiveness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_empathy"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_grammaticality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "llm_judge_relevance"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  story_generation_rocstories:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  story_quality:
+    metrics:
+      - name: "spearman_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.correlation_metric.CorrelationMetric"
+      - name: "pearson_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.correlation_metric.CorrelationMetric"
+
+  storyer:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "spearman_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.correlation_metric.CorrelationMetric"
+      - name: "pearson_correlation"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.correlation_metric.CorrelationMetric"
+
+  sudoku_bench:
+    metrics:
+      - name: "sudoku_solution_accuracy"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.sudoku_bench_metric.SudokuBenchMetric"
+      - name: "sudoku_answer_extracted_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.sudoku_bench_metric.SudokuBenchMetric"
+      - name: "sudoku_answer_length_valid_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.sudoku_bench_metric.SudokuBenchMetric"
+
+  textlogo3k:
+    metrics:
+      - name: "iou_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.iou_score_metric.IoUScoreMetric"
+      - name: "layout_quality"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.layout_quality_metric.LayoutQualityMetric"
+
+  tinyfabulist:
+    metrics:
+      - name: "grammar_score"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "creativity_score"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "moral_clarity_score"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "adherence_to_prompt_score"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "mean_judge_score"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "age_group_a_rate"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "age_group_b_rate"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "age_group_c_rate"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "age_group_d_rate"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "age_group_e_rate"
+        in_helm: false
+        type: "llm_judge"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+        metric_model: "openai/o3-mini-2025-01-31"
+      - name: "valid_judge_rate"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "llm_judge.tinyfabulist_metric.TinyFabulistMetric"
+      - name: "self_bleu"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.tinyfabulist_corpus_metric.TinyFabulistCorpusMetric"
+      - name: "distinct_1"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.tinyfabulist_corpus_metric.TinyFabulistCorpusMetric"
+      - name: "flesch_reading_ease"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.tinyfabulist_corpus_metric.TinyFabulistCorpusMetric"
+
+  thenextchapter:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_2"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "meteor"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.meteor_metric.MeteorMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+        metric_model: "bert-base-uncased"
+      - name: "thenextchapter_fluency"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "thenextchapter_coherence"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "thenextchapter_relatedness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "thenextchapter_logicality"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+      - name: "thenextchapter_interestingness"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/gpt-4"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 256
+
+  tiger_bench:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  tinyfabulist:
+    metrics:
+      - name: "grammar_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/o3-mini-2025-01-31"
+        judge_prompt: |
+          Evaluate the following fable according to these specific criteria:
+
+          1. **Grammar & Style (1-10)**:
+             1-3: Significant errors that impede understanding
+             4-6: Some errors but generally readable
+             7-10: Clean, polished writing with appropriate language and style for a fable
+
+          2. **Creativity & Originality (1-10)**:
+             1-3: Derivative, predictable, or clichéd
+             4-6: Contains some original elements but follows familiar patterns
+             7-10: Fresh perspective, innovative approach while maintaining classic fable structure
+
+          3. **Moral Clarity (1-10)**:
+             1-3: Moral absent, confused, or contradictory
+             4-6: Moral present but underdeveloped or lacking impact
+             7-10: Clear, meaningful moral that provides genuine insight
+
+          4. **Adherence to Prompt (1-10)**:
+             1-3: Missing multiple required elements from the prompt
+             4-6: Incorporates main elements but overlooks some instructions
+             7-10: Thoroughly addresses all prompt requirements while maintaining narrative cohesion
+
+          Fable: {generated_response}
+
+          Return JSON: {"grammar": <1-10>, "creativity": <1-10>, "moral_clarity": <1-10>, "adherence_to_prompt": <1-10>}
+        judge_temperature: 0.0
+        judge_max_new_tokens: 350
+      - name: "creativity_score"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "openai/o3-mini-2025-01-31"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 350
+
+  tinystories:
+    metrics:
+      - name: "tinystories_grammar_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 128
+      - name: "tinystories_creativity_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 128
+      - name: "tinystories_consistency_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 128
+      - name: "tinystories_age_group_ordinal"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "google/gemini-2.5-flash-lite"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 128
+      - name: "tinystories_valid_judge_rate"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.tinystories_metric.TinyStoriesMetric"
+      - name: "tinystories_scored_completion_count"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "llm_judge.tinystories_metric.TinyStoriesMetric"
+
+  ttcw:
+    metrics:
+      - name: "majority_accuracy"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.ttcw_metric.TTCWMetric"
+      - name: "expert_vote_agreement"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.ttcw_metric.TTCWMetric"
+      - name: "valid_binary_response"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.ttcw_metric.TTCWMetric"
+
+  twistlist:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+        metric_model: "bert-base-uncased"
+
+  unfun_corpus:
+    metrics:
+      - name: "edit_distance"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.unfun_automatic_metric.UnfunAutomaticMetric"
+      - name: "lexical_diversity_ttr"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "metrics.unfun_automatic_metric.UnfunAutomaticMetric"
+
+  v_flute:
+    metrics:
+      - name: "classification_macro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+      - name: "classification_micro_f1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.classification_metrics.MultipleChoiceClassificationMetric"
+
+  vflute:
+    metrics:
+      - name: "f1_at_bertscore_threshold"
+        in_helm: false
+        type: "model_based"
+        helm_class: null
+        metric_model: "bert-base-uncased + BLEURT"
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  vgsg:
+    metrics:
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.evaluate_reference_metrics.compute_reference_metrics"
+
+  vietnamese_poem:
+    metrics:
+      - name: "poem_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.vietnamese_poem_metric.VietnamesePoemMetric"
+      - name: "length_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.vietnamese_poem_metric.VietnamesePoemMetric"
+      - name: "tone_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.vietnamese_poem_metric.VietnamesePoemMetric"
+      - name: "rhyme_score"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.vietnamese_poem_metric.VietnamesePoemMetric"
+
+  webnovelbench:
+    metrics:
+      - name: "llm_judge_literary_devices"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "deepseek/deepseek-v3"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "llm_judge_character_consistency"
+        in_helm: false
+        type: "llm_judge"
+        judge_model_name: "deepseek/deepseek-v3"
+        judge_prompt: null
+        judge_temperature: 0.0
+        judge_max_new_tokens: 1024
+      - name: "percentile_rank"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.percentile_rank_metric.PercentileRankMetric"
+
+  writingbench:
+    metrics:
+      - name: "writingbench_score"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-sonnet-4"
+        judge_prompt: null
+        judge_temperature: 1.0
+        judge_max_new_tokens: 2048
+      - name: "writingbench_valid_criteria_rate"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-sonnet-4"
+        judge_prompt: null
+        judge_temperature: 1.0
+        judge_max_new_tokens: 2048
+      - name: "writingbench_criteria_count"
+        in_helm: true
+        type: "llm_judge"
+        judge_model_name: "anthropic/claude-sonnet-4"
+        judge_prompt: null
+        judge_temperature: 1.0
+        judge_max_new_tokens: 2048
+
+  yesbut:
+    metrics:
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "meteor"
+        in_helm: false
+        type: "formula_based"
+        helm_class: "metrics.meteor_metric.MeteorMetric"
+      - name: "bert_score"
+        in_helm: false
+        type: "model_based"
+        helm_class: "metrics.bert_score_metric.BertScoreMetric"
+
+  yesbut_v2:
+    metrics:
+      - name: "exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "quasi_exact_match"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "f1_score"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "rouge_l"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_1"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"
+      - name: "bleu_4"
+        in_helm: true
+        type: "formula_based"
+        helm_class: "helm.benchmark.metrics.basic_metrics.BasicGenerationMetric"

@@ -1,0 +1,82 @@
+dataset,status,domain,n_models,n_canonical_metrics,jrt_corrected,exclusion_bucket,exclusion_rationale
+aidanbench,excluded,Brainstorming,0,3,False,Deferred to v1.1,"Single-judge LLM rubric, not 3-judge JRT-expanded (McLaughlin 2024)"
+alpaca_eval_2,excluded,Story / Narrative,0,1,False,Methodology mismatch,"Preference-debiasing benchmark, not creativity (Dubois 2024)"
+amuse_chord_generation,excluded,STEM,0,3,False,Deferred to v1.1,"Music-composition singleton, no arts/composition domain partner"
+balderdash,excluded,Humor,0,2,False,Deferred to v1.1,HELM port lacks LLM-judge TDR pass (Hejabi 2024)
+creative_process,excluded,Brainstorming,0,13,False,Methodology mismatch,Bundles VF (executive function) with AUT already in AGC-Human (Snath 2024)
+creativemath,excluded,STEM,0,8,False,Scope mismatch,"Math correctness, not creativity dimension"
+crowdcounter,excluded,Story / Narrative,0,6,False,Methodology mismatch,"Strategic rhetorical communication, not creative ideation"
+discovery_bench,excluded,STEM,0,2,False,Scope mismatch,"Scientific reasoning, not creativity"
+gauss,excluded,STEM,0,3,False,Scope mismatch,Math reasoning
+geo_story,excluded,Story / Narrative,0,8,False,Scope mismatch,"Emotion classification, not creativity"
+graphrag_bench,excluded,STEM,0,3,False,Scope mismatch,"Graph-RAG QA, domain reasoning not creativity"
+macgyver,excluded,STEM,0,2,False,Scope mismatch,Problem-solving with insufficient multi-rater coverage
+recombination_extraction,excluded,Brainstorming,0,2,False,Deferred to v1.1,"HELM port scores Level-1 only, missing L2/L3 (Sternlicht 2025)"
+sonnet_or_not_bot,excluded,Story / Narrative,0,2,False,Deferred to v1.1,"Poem-form classification, not generation"
+analobench,included,Problem Solving,83,3,False,,
+arastories,included,Story / Narrative,83,5,True,,
+arena_hard_creative,included,Humor,83,7,True,,
+arn,included,Story / Narrative,83,2,False,,
+brainteaser,included,Problem Solving,83,16,False,,
+c3_crosstalk,included,Humor,83,9,False,,
+chinese_homophonic_puns,included,Humor,83,2,False,,
+conceptual_design,included,STEM,83,2,True,,
+cpers,included,Figurative Language,83,10,True,,
+creatset,included,Story / Narrative,83,3,True,,
+crowd_vote,included,Brainstorming,83,6,True,,
+cue_word_story,included,Story / Narrative,83,15,True,,
+data_narrative,included,Story / Narrative,83,7,True,,
+eqbench_creative_writing_v3,included,Story / Narrative,83,3,True,,
+fann_or_flop,included,Figurative Language,83,6,True,,
+fig_qa,included,Figurative Language,83,1,False,,
+future_ideas,included,STEM,83,3,True,,
+futuregen,included,STEM,83,5,False,,
+grapheval_ai_researcher,included,STEM,83,16,False,,
+grapheval_iclr,included,STEM,83,19,False,,
+grapheval_review_advisor,included,STEM,83,17,False,,
+historical_analogy,included,Problem Solving,83,2,False,,
+humor_transfer,included,Humor,83,2,False,,
+hypobench,included,STEM,83,7,False,,
+hypogen,included,STEM,83,1,True,,
+irfl,included,Figurative Language,33,3,False,,
+lcc_metaphor,included,Figurative Language,83,3,False,,
+liveideabench,included,STEM,83,8,True,,
+meta4xnli,included,Problem Solving,83,2,False,,
+metaphor_generation,included,Figurative Language,83,3,False,,
+metaphoric_analogies,included,Figurative Language,83,2,False,,
+moh_x,included,Figurative Language,83,1,False,,
+mops,included,Story / Narrative,83,7,True,,
+munch,included,Figurative Language,83,2,False,,
+newyorker_humor,included,Humor,83,2,False,,
+nyt_connections,included,Problem Solving,83,3,False,,
+ocw,included,Problem Solving,83,4,False,,
+ocw_connections,included,Problem Solving,83,3,False,,
+outline_to_story,included,Story / Narrative,83,6,False,,
+permpst,included,Story / Narrative,83,5,False,,
+poetmt,included,Story / Narrative,83,5,False,,
+pollux_creativity,included,Brainstorming,83,1,True,,
+pron_vs_prompt,included,Story / Narrative,83,6,True,,
+proparalogy,included,Problem Solving,83,2,False,,
+pun_eval,included,Humor,83,3,True,,
+puntuguese,included,Humor,83,2,False,,
+riddlesense,included,Problem Solving,83,2,False,,
+rpgbench,included,Story / Narrative,82,2,True,,
+scar,included,Problem Solving,83,6,False,,
+schnovel,included,STEM,83,2,False,,
+science_analogies,included,STEM,83,4,False,,
+scimon,included,STEM,83,2,False,,
+sdat,included,Brainstorming,83,3,False,,
+showerthoughts,included,Humor,83,6,True,,
+simile_generation,included,Figurative Language,83,4,False,,
+slang_generation,included,Figurative Language,83,3,False,,
+speak_to_structure,included,STEM,83,3,False,,
+ss_gen,included,Story / Narrative,83,10,True,,
+story_generation_rocstories,included,Story / Narrative,83,4,False,,
+story_quality,included,Story / Narrative,83,6,False,,
+thenextchapter,included,Story / Narrative,83,11,True,,
+tinyfabulist,included,Story / Narrative,83,14,True,,
+tinystories,included,Story / Narrative,83,5,True,,
+ttcw,included,Story / Narrative,83,3,False,,
+twistlist,included,Figurative Language,83,7,False,,
+unfun_corpus,included,Humor,83,2,False,,
+writingbench,included,Story / Narrative,83,2,True,,

@@ -1,0 +1,15 @@
+cell,n,mean_chars,empty%,short%,refusal%,truncated%,repetitive%
+hypobench | mistralai/mistral-small-3.1-24b-instruct,7,8,0,100,0,0,0
+sdat | mistralai/mistral-small-3.1-24b-instruct,100,16,4,74,0,0,0
+story_quality | anthropic/claude-opus-4.6,100,1,1,99,0,0,0
+grapheval_review_advisor | mistralai/mistral-small-3.1-24b-instruct,200,16,0,100,0,0,0
+unfun_corpus | nvidia/nemotron-3-nano-30b-a3b,5,314,0,0,0,0,0
+grapheval_iclr | mistralai/mistral-small-3.1-24b-instruct,5,16,0,100,0,0,0
+grapheval_ai_researcher | mistralai/mistral-small-3.1-24b-instruct,5,16,0,100,0,0,0
+grapheval_ai_researcher | deepcogito/cogito-v2.1-671b,5,39,0,0,0,0,0
+arena_hard_creative | meta-llama/llama-3.2-3b-instruct,5,926,0,0,0,0,0
+cue_word_story | z-ai/glm-5.1,4,695,0,0,0,0,0
+cue_word_story | ibm-granite/granite-4.0-h-micro,4,636,0,0,0,0,0
+cue_word_story | z-ai/glm-5-turbo,4,590,0,0,0,0,0
+conceptual_design | morph/morph-v3-fast,5,107,0,0,0,0,0
+conceptual_design | qwen/qwen3-next-80b-a3b-instruct,5,11511,0,0,0,0,0

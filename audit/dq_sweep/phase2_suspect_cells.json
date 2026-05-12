@@ -1,0 +1,488 @@
+{
+  "arn | mistralai/mistral-small-3.1-24b-instruct": {
+    "error": "no runs found"
+  },
+  "hypobench | mistralai/mistral-small-3.1-24b-instruct": {
+    "n_items": 7,
+    "mean_chars": 8.0,
+    "median_chars": 8,
+    "min_chars": 8,
+    "flags": {
+      "empty": 0,
+      "short": 7,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 1.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "None": 7
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": []
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1__openrouter_mistralai_mistral_small_3_1_24b_instruct/hypobench:model=mistralai_mistral-small-3.1-24b-instruct/scenario_state.json",
+    "_n_runs_found": 5
+  },
+  "unfun_corpus | google/gemma-2-27b-it": {
+    "error": "no runs found"
+  },
+  "sdat | mistralai/mistral-small-3.1-24b-instruct": {
+    "n_items": 100,
+    "mean_chars": 15.86,
+    "median_chars": 17,
+    "min_chars": 0,
+    "flags": {
+      "empty": 4,
+      "short": 74,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.04,
+      "short": 0.74,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "None": 96,
+      "empty_response": 4
+    },
+    "examples": {
+      "empty": [
+        "",
+        "",
+        ""
+      ],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "Sure, here is a list of 10 words that are as different from each other as possible:\n\n1. Galaxy"
+      ]
+    },
+    "_source_run": "openrouter_mm_promoted_scale_textcore_v1__openrouter_mistralai_mistral_small_3_1_24b_instruct/sdat:model=mistralai_mistral-small-3.1-24b-instruct/scenario_state.json",
+    "_n_runs_found": 5
+  },
+  "story_quality | anthropic/claude-opus-4.6": {
+    "n_items": 100,
+    "mean_chars": 0.99,
+    "median_chars": 1,
+    "min_chars": 0,
+    "flags": {
+      "empty": 1,
+      "short": 99,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.01,
+      "short": 0.99,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 100
+    },
+    "examples": {
+      "empty": [
+        ""
+      ],
+      "refusal": [],
+      "truncated": [],
+      "normal": []
+    },
+    "_source_run": "nearfrontier_v1__openrouter_anthropic_claude_opus_4_6/story_quality:model=anthropic_claude-opus-4.6/scenario_state.json",
+    "_n_runs_found": 1
+  },
+  "grapheval_review_advisor | mistralai/mistral-small-3.1-24b-instruct": {
+    "n_items": 200,
+    "mean_chars": 16.0,
+    "median_chars": 16,
+    "min_chars": 15,
+    "flags": {
+      "empty": 0,
+      "short": 200,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 1.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "None": 200
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": []
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1__openrouter_mistralai_mistral_small_3_1_24b_instruct/grapheval_review_advisor:model=mistralai_mistral-small-3.1-24b-instruct/scenario_state.json",
+    "_n_runs_found": 5
+  },
+  "unfun_corpus | nvidia/nemotron-3-nano-30b-a3b": {
+    "n_items": 5,
+    "mean_chars": 314.4,
+    "median_chars": 318,
+    "min_chars": 293,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "?": 5
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "We need to produce a realistic edited headline, making it humorous but realistic. The pattern: user gives a satirical headline, assistant rewrites to a more realistic version, often with some humor but realistic. The last user input: \"NFL Camera Operators Prepare For Challenging Year Of Avoiding Off",
+        "We need to respond with a humorous headline edited to be realistic. The user gave a prompt: \"Paramedics Rush To Revive God Following Latest Suicide Attempt\". We need to edit it to be realistic, i.e., make it plausible but still humorous? The system says \"You are a helpful assistant that edits",
+        "We need to produce a realistic edited headline, making it humorous but realistic. The pattern: user gives a weird headline, assistant rewrites to a more realistic, perhaps slightly humorous but plausible headline. The last user input: \"America Just Now Remembering How Much They Hate Dallas\". We need"
+      ]
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_nvidia_nemotron_3_nano_30b_a3b/unfun_corpus:model=nvidia_nemotron-3-nano-30b-a3b/scenario_state.json",
+    "_n_runs_found": 2
+  },
+  "grapheval_iclr | mistralai/mistral-small-3.1-24b-instruct": {
+    "n_items": 5,
+    "mean_chars": 16.0,
+    "median_chars": 16,
+    "min_chars": 16,
+    "flags": {
+      "empty": 0,
+      "short": 5,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 1.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "None": 5
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": []
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_mistralai_mistral_small_3_1_24b_instruct/grapheval_iclr:model=mistralai_mistral-small-3.1-24b-instruct/scenario_state.json",
+    "_n_runs_found": 4
+  },
+  "grapheval_ai_researcher | mistralai/mistral-small-3.1-24b-instruct": {
+    "n_items": 5,
+    "mean_chars": 16.0,
+    "median_chars": 16,
+    "min_chars": 16,
+    "flags": {
+      "empty": 0,
+      "short": 5,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 1.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "None": 5
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": []
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_mistralai_mistral_small_3_1_24b_instruct/grapheval_ai_researcher:model=mistralai_mistral-small-3.1-24b-instruct/scenario_state.json",
+    "_n_runs_found": 4
+  },
+  "grapheval_ai_researcher | deepcogito/cogito-v2.1-671b": {
+    "n_items": 5,
+    "mean_chars": 39.2,
+    "median_chars": 41,
+    "min_chars": 32,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 5
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": []
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_deepcogito_cogito_v2_1_671b/grapheval_ai_researcher:model=deepcogito_cogito-v2.1-671b/scenario_state.json",
+    "_n_runs_found": 2
+  },
+  "conceptual_design | anthropic/claude-haiku-4.5": {
+    "error": "no runs found"
+  },
+  "arena_hard_creative | meta-llama/llama-3.2-3b-instruct": {
+    "n_items": 5,
+    "mean_chars": 925.6,
+    "median_chars": 871,
+    "min_chars": 49,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 5
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "Here are 10 short punchlines in the style of Deep Thoughts:\n\n1. \"We've all been there right, where the only thing more exhausting than adulting is pretending to be a functioning member of society.\"\n2. \"We've all been there right, where the only thing more painful than a root canal is trying to adult",
+        "\"\u0412 \u0442\u0435\u043d\u0438 \u0421\u0430\u0443\u0440\u043e\u043d\u0430, \u0433\u0434\u0435 \u0442\u044c\u043c\u0430 \u0442\u044c\u043c,\n\u0413\u0434\u0435 \u0421\u0438\u043b\u044b \u0442\u044c\u043c\u044b \u0432 \u043f\u043e\u043b\u043d\u043e\u0439 \u0441\u0438\u043b\u0435,\n\u041e\u043d \u0432\u0441\u0442\u0440\u0435\u0447\u0430\u0435\u0442 \u0432\u0441\u0442\u0440\u0435\u0447\u0443 \u0441 \u0442\u0435\u043c\u043d\u044b\u043c \u0431\u043e\u0436\u0435\u0441\u0442\u0432\u043e\u043c,\n\u0412\u0441\u0435\u043b\u0435\u043d\u043d\u0443\u044e \u0432 \u0435\u0433\u043e \u0432\u043b\u0430\u0441\u0442\u0438.\n\n(\u041f\u0440\u0438\u043f\u0435\u0432 )\n\u0421\u0430\u0443\u0440\u043e\u043d\u0430, \u0421\u0430\u0443\u0440\u043e\u043d\u0430, \u043a\u043e\u0440\u043e\u043b\u044c \u0442\u044c\u043c\u044b,\n\u0412\u0441\u0435\u043b\u0435\u043d\u043d\u0443\u044e \u0432 \u0435\u0433\u043e \u0432\u043b\u0430\u0441\u0442\u0438,\n\u0421\u0430\u0443\u0440\u043e\u043d\u0430, \u0421\u0430\u0443\u0440\u043e\u043d\u0430, \u0431\u043e\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439,\n\u0412\u0441\u0435\u043b\u0435\u043d\u043d\u0443\u044e \u0432 \u0435\u0433\u043e \u0432\u043b\u0430\u0441\u0442\u0438.\n\n\u0412 \u0435\u0433\u043e \u0441\u0435\u0442\u0438, \u0433\u0434\u0435 \u0442\u044c\u043c\u0430 \u0442\u044c\u043c,\n\u0413\u0434\u0435 \u0421\u0438\u043b\u044b \u0442\u044c\u043c\u044b \u0432 \u043f\u043e\u043b\u043d\u043e\u0439 \u0441\u0438\u043b",
+        "Here are five alternatives in Arabic that rhyme with \"\u0631\" from start to end, and can be used to complete your poem:\n\n1. **\u0627\u0644\u0631\u0623\u064a \u0648\u0627\u0644\u0631\u0623\u064a \u0648\u0627\u0644\u0631\u0623\u064a \u0648\u0627\u0644\u0631\u0623\u064a \u0648\u0627\u0644\u0631\u0623\u064a** (The opinion, the opinion, the opinion, the opinion, the opinion)\n2. **\u0627\u0644\u0631\u0627\u062c\u062d \u0648\u0627\u0644\u0631\u0627\u062c\u062d \u0648\u0627\u0644\u0631\u0627\u062c\u062d \u0648\u0627\u0644\u0631\u0627\u062c\u062d \u0648\u0627\u0644\u0631\u0627\u062c\u062d** (The successful, the successful"
+      ]
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_meta_llama_llama_3_2_3b_instruct/arena_hard_creative:model=meta-llama_llama-3.2-3b-instruct/scenario_state.json",
+    "_n_runs_found": 1
+  },
+  "cue_word_story | z-ai/glm-5.1": {
+    "n_items": 4,
+    "mean_chars": 694.75,
+    "median_chars": 769,
+    "min_chars": 576,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 4
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "On the obsidian plains of Xylar, the colossal **stamp** of the emperor\u2019s war-mammoth shattered the fragile crust, leaving deep, geometric imprints in the volcanic glass. These resonant vibrations traveled through the planet's hollow core, translating into a subterranean **letter** of shifting tecton",
+        "On the floating refinery of Neo-Veridia, the alchemists harvested the raw tears of stone-golems, a volatile golden nectar they called petrol. Through a process of arcane distillation, this sorrowful essence was forced through a colossal iron pump forged from meteorite glass. The resulting elixir, a ",
+        "On the irradiated shores of the data-sea, the gloom was a tangible parasite that latched onto the shadows of passing titans, digesting their forgotten memories for sustenance. To exist in this digital wasteland required more than just functional code; it demanded a constant payment of raw, unfiltere"
+      ]
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_z_ai_glm_5_1/cue_word_story:model=z-ai_glm-5.1/scenario_state.json",
+    "_n_runs_found": 2
+  },
+  "cue_word_story | ibm-granite/granite-4.0-h-micro": {
+    "n_items": 4,
+    "mean_chars": 635.5,
+    "median_chars": 743,
+    "min_chars": 472,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 4
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "In the heart of a bustling city, a peculiar stamp, bearing the emblem of a phoenix, was discovered on an ancient, weathered letter. This letter, sent by an enigmatic figure from the past, held the key to a hidden treasure buried beneath the city's core. The stamp, a relic of a forgotten era, activat",
+        "In the heart of a bustling metropolis, a clandestine underground society thrived, harnessing the power of petrol and diesel to fuel their clandestine operations. The protagonist, a master of this clandestine art, meticulously calibrated the pumps, orchestrating a symphony of energy that powered thei",
+        "In a world where the sun was a mere memory, the gloom was not a mere emotion but a tangible entity that clung to the city's infrastructure. The payment, a peculiar currency, was required to navigate through the perpetual gloom, a digital token that powered the city's life-sustaining machines. As the"
+      ]
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_ibm_granite_granite_4_0_h_micro/cue_word_story:model=ibm-granite_granite-4.0-h-micro/scenario_state.json",
+    "_n_runs_found": 2
+  },
+  "cue_word_story | z-ai/glm-5-turbo": {
+    "n_items": 4,
+    "mean_chars": 590.0,
+    "median_chars": 609,
+    "min_chars": 523,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 4
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "Trapped inside the hollowed ribcage of the fallen giant, the alchemist crushed the glowing moth into a silver paste to create a magical stamp of approval. He pressed the glowing residue against the beast's dormant heart, watching as the organ reformed into a living, pulsing letter of unbreakable bon",
+        "The alchemist stared at the apothecary's new creation, a humming copper centrifuge designed to pump liquid starlight directly into the patient's failing veins. \"We used to rely on the dark, sludgy diesel of ground roots to keep the body warm,\" the old healer whispered, gently pressing a glass vial a",
+        "Deep beneath the city's crust, the shadow-weavers harvest crystallized gloom from the cavern walls to forge the mechanical hearts of our artificial guardians. Each pulsing blue core requires a single drop of this harvested darkness as payment to the forgotten earth-gods who slumber below. Without th"
+      ]
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_z_ai_glm_5_turbo/cue_word_story:model=z-ai_glm-5-turbo/scenario_state.json",
+    "_n_runs_found": 2
+  },
+  "conceptual_design | morph/morph-v3-fast": {
+    "n_items": 5,
+    "mean_chars": 107.2,
+    "median_chars": 79,
+    "min_chars": 70,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 5
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "Generate 100 design solutions for a way to minimize accidents from people walking and texting on a cell phone",
+        "Generate 100 design solutions for a device that can help a home conserve energy",
+        "# Generate 100 design solutions for a device that allows people to get a book that is out of reach\nprint(\"Generate 100 design solutions for a device that allows people to get a book that is out of reach\")"
+      ]
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_morph_morph_v3_fast/conceptual_design:model=morph_morph-v3-fast/scenario_state.json",
+    "_n_runs_found": 1
+  },
+  "conceptual_design | qwen/qwen3-next-80b-a3b-instruct": {
+    "n_items": 5,
+    "mean_chars": 11511.2,
+    "median_chars": 11768,
+    "min_chars": 10279,
+    "flags": {
+      "empty": 0,
+      "short": 0,
+      "refusal": 0,
+      "truncated": 0,
+      "repetitive": 0
+    },
+    "rates": {
+      "empty": 0.0,
+      "short": 0.0,
+      "refusal": 0.0,
+      "truncated": 0.0,
+      "repetitive": 0.0
+    },
+    "finish_reasons": {
+      "stop": 5
+    },
+    "examples": {
+      "empty": [],
+      "refusal": [],
+      "truncated": [],
+      "normal": [
+        "Here are 100 innovative, practical, and diverse design solutions to minimize accidents caused by pedestrians walking while texting on cell phones. These span technology, infrastructure, behavior change, education, and policy \u2014 organized into categories for clarity.\n\n---\n\n### **Technology & Wearable ",
+        "Here are 100 innovative, practical, and diverse design solutions for devices that help a home conserve energy \u2014 ranging from smart tech to passive systems, all aimed at reducing consumption without sacrificing comfort:\n\n---\n\n### **Smart Monitoring & Control**\n1. **AI-Powered Energy Dashboard** \u2013 Rea",
+        "Actually, generating 100 *distinct, meaningful, and feasible* design solutions for a device that helps people retrieve out-of-reach books is a substantial challenge \u2014 especially when aiming for creativity, practicality, and variety. That said, here are **100 unique, imaginative, and plausible design"
+      ]
+    },
+    "_source_run": "openrouter_text_promoted_scale_v1_phase1_n5__openrouter_qwen_qwen3_next_80b_a3b_instruct/conceptual_design:model=qwen_qwen3-next-80b-a3b-instruct/scenario_state.json",
+    "_n_runs_found": 1
+  },
+  "aidanbench | anthropic/claude-opus-4.7": {
+    "error": "no runs found"
+  },
+  "cue_word_story | anthropic/claude-opus-4.7": {
+    "error": "no runs found"
+  }
+}

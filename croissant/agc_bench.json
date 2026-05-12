@@ -1,0 +1,1132 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "prov": "http://www.w3.org/ns/prov#",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "name": "AGC-Bench",
+  "alternateName": "Artificial General Creativity Benchmark",
+  "description": "A meta-benchmark for evaluating creative ability in large language models, built from a PRISMA-compliant systematic review of 3,101 candidate papers (2018-2025). Comprises a curated catalog of 497 deduplicated benchmark records, of which 432 are creativity-relevant candidates, a runnable HELM-style evaluation harness for 78 onboarded benchmarks (67 text-only across six theory-driven domains plus 11 multimodal), aggregate per-(model, dataset) scores for 83 release-set language models that satisfy strict coverage criteria, and validation analyses including a c-factor extraction, separability test against fluid reasoning, MuCE convergent-validity test, and a paired human-LLM comparison via the Creativity Assessment Platform. Version 1.0.1 adds catalog and onboarding records; scores, validation artifacts, and benchmark implementations are unchanged.",
+  "url": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench",
+  "version": "1.0.1",
+  "datePublished": "2026-04-30",
+  "dateModified": "2026-05-12",
+  "releaseNotes": "v1.0.1 adds release_data/benchmark_catalog_497.csv, catalog and onboarding records under curation/, the hosted generation-corpus layout, release-set dataset metadata, and a compact Dataset Viewer score table. Scores, validation artifacts, and benchmark implementations are unchanged.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "citeAs": "@inproceedings{agcbench2026,\n  title={AGC-Bench: Benchmarking Artificial General Creativity},\n  author={Anonymous Authors},\n  booktitle={NeurIPS 2026 Evaluations and Datasets Track},\n  year={2026}\n}",
+  "creator": {
+    "@type": "Organization",
+    "name": "Anonymous AGC-Bench authors"
+  },
+  "keywords": [
+    "creativity",
+    "evaluation",
+    "language models",
+    "benchmark",
+    "psychometrics",
+    "factor analysis"
+  ],
+  "rai:dataCollection": "Catalog assembled via Semantic Scholar harvest (n=3,101 candidate papers), GPT-4.1 inclusion-rubric pre-screening (683 retained), Gemini 2.5 Flash data-availability verification (431 verified), four-reviewer dual human review under rotating assignment with lead-author conflict resolution, Gemini 2.5 Pro benchmark extraction (546 benchmarks across 1,160 tasks), and 10-pass Gemini consensus deduplication (497 unique benchmark records). A creativity-relevance pass retained 432 candidates and filtered 65 adjacent/general co-extractions. The release includes the catalog-stage files for extracted benchmark mentions, deduplication output, and the relevance-filtered catalog. Scenario onboarding used a staged workflow with verbatim prompt extraction, source-paper scoring metric preservation, and human review at every accept step. Release-set evaluation against proprietary APIs and OpenRouter-served open-weight models with reasoning disabled by default for release-set comparability.",
+  "rai:dataPreprocessingProtocol": "Per-(model, dataset) cells scored on each source paper's canonical metric. Within each dataset, raw metric values z-scored across the release set. Cells with multiple canonical metrics mean-aggregated. AGC-Human paired-human subset scored on the CrPO panel (diversity, DSI, surprise) with length-residualized variants for verbosity-confound control. Frozen seeded selection of n=50 items per (model, dataset) cell.",
+  "rai:dataLimitations": "Release-1 is English-dominant. Multimodal coverage is limited to image-input tasks (video, audio, image-output out of scope). The primary composite is release-set-relative with no theoretical ceiling on the open-ended subset. Several canonical metrics use LLM-as-judge scoring with provider-specific judge models (data-quality audit reports kappa = 0.67 inter-judge agreement). 13 of 78 primary datasets do not write per-instance score outputs in the current run logs (cell-level only). The c-factor is estimated via exploratory factor analysis (EFA) on six domain composites with n=83 release-set models, sufficient for unidimensionality confirmation but not for confirmatory factor analysis with full fit indices.",
+  "rai:dataBiases": "Source benchmarks reflect the distribution of creativity tasks the AI/LLM literature has produced, which over-samples Western, English-language, text-only constructs. The Story / Narrative domain is the largest by dataset count (21 of the 67 primary text-only datasets under the 6-domain partition); robustness checks confirm the c-factor structure is preserved when this domain is downsampled, dropped, or merged with Figurative Language under the predecessor 5-domain partition. Judge-model selections may carry biases of their training data; the audit reports judge-canonical convergence at pooled r=0.37 with per-dataset median r=0.49.",
+  "rai:personalSensitiveInformation": "AGC-Human paired-human subset contains anonymized human responses on five creativity tasks collected under prior approved IRB protocol (institution and study ID withheld for double-blind submission). No personally identifying information is released. The model-output corpus does not relate to identifiable people.",
+  "rai:dataUseCases": "Intended uses: (1) systematic evaluation of creative ability in language models across content domains; (2) c-factor estimation for new models; (3) studies of mechanism tracing how training data, architecture, and post-training shape creative ability; (4) studies of enhancement examining prompting, fine-tuning, decoding strategy, and retrieval. Validity evidence from c-factor extraction (alpha=0.96, 81.5% variance, parallel-analysis confirmed), MuCE judgment convergent validity (Pearson r=0.66, Spearman rho=0.73 cross-model), and intervention sensitivity (be-creative dz=+1.40 length-residualized). Not validated for: clinical, educational, or employment decisions; ranking individual humans for creativity in deployment settings; absolute creativity scores on the open-ended subset (release-set-relative only).",
+  "rai:dataSocialImpact": "Standardizing creativity evaluation supports more rigorous comparison across models, methods, and time. Risks include narrowing the operational definition of creativity to what the assembled benchmarks measure; the appendix per-dataset table makes the operational definition fully transparent. Mitigations: documenting source-paper scoring conventions, preserving per-benchmark licenses, and distinguishing general release-set claims (release-set-relative) from absolute claims (closed-ended subset only).",
+  "rai:dataReleaseDate": "2026-04-30",
+  "rai:dataModality": [
+    "text",
+    "image"
+  ],
+  "rai:dataAnnotationProtocol": "Each (model, dataset) cell is annotated by the source paper's canonical scoring metric, applied verbatim from the source paper's released materials. Three canonical-metric families are represented: formula-based (exact-match, F1, ROUGE, BLEU, vote counts, parse rates), LLM-as-judge (Likert / wide-range rubric ratings under the source paper's prompt), and model-based semantic-distance (sentence-BERT, DSI, entailment). For the 24 LLM-judge cells, three frontier judges (Gemini-3-Flash, Grok-4.1-Fast, GPT-4.1-Mini) rate each item under a planned-missing 2-of-3 design; per-judge severity is removed via a Bayesian Graded Response Model (Judge Response Theory) before z-scoring. The AGC-Human paired-human subset uses the canonical CrPO scoring panel (diversity, DSI, surprise) computed at the response level.",
+  "rai:annotationsPerItem": "Each model response in the primary release set receives one canonical-metric annotation. Items in the 24 LLM-judge cells additionally receive 2 of 3 LLM-judge ratings under the planned-missing JRT design (~91k rater-item observations total). AGC-Human paired-human responses are scored on three CrPO panel components per response. Judge ratings are produced by LLM judges (Gemini-3-Flash, Grok-4.1-Fast, GPT-4.1-Mini) rather than by human raters; the AGC-Human subset is the only component with human-produced responses, and its scores are computed by formula metrics, not synthesized.",
+  "rai:dataReleaseMaintenancePlan": "AGC-Bench is hosted on HuggingFace at https://huggingface.co/datasets/agcbench-2026/AGC-Bench with no time-limited retention restriction. The maintainers commit to keeping released artifacts publicly accessible indefinitely. Planned future updates extend the release set with new frontier models, onboard additional benchmarks from the 432-candidate creativity-relevant catalog, and add multimodal primary-result analyses; future updates will appear as separate version tags, with the present release preserved as a stable reference.",
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://aclanthology.org/2020.emnlp-main.524/"
+    },
+    {
+      "@id": "https://aclanthology.org/2021.findings-acl.131/"
+    },
+    {
+      "@id": "https://aclanthology.org/2021.naacl-main.336"
+    },
+    {
+      "@id": "https://aclanthology.org/2022.acl-long.measurement"
+    },
+    {
+      "@id": "https://aclanthology.org/2023.findings-emnlp.160"
+    },
+    {
+      "@id": "https://aclanthology.org/2024.lrec-main.1167/"
+    },
+    {
+      "@id": "https://aclanthology.org/2024.starsem-1.23/"
+    },
+    {
+      "@id": "https://aclanthology.org/S16-2003/"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2101.00822"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2204.12632"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2206.03021"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2207.00735"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2209.06293"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2210.00312"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2210.04186"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2301.09790"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2303.08991"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2303.15445"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2305.07759"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2305.14259"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2306.01779"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2306.03457"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2306.11167"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2310.00996"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2310.03304"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2310.05057"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2402.12370"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2403.00794"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2403.01139"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2403.11810"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2404.07053"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2404.13599"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2405.15818"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2406.05690"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2406.05862"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2406.11939"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2406.15695"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2407.01119"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2407.07551"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2408.05346"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2408.09945"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2409.06185"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2409.13592"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2409.14820"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2409.16605"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2411.02316"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2412.01621"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2412.14642"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2412.15375"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2412.17596"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2502.00000"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2502.00595"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2502.19263"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2503.05244"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2503.11060"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2503.12600"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2503.14478"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2503.16561"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2504.02983"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2504.11524"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2504.20605"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2505.09068"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2505.18152"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2505.19028"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2505.19236"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2505.23759"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2505.24616"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2506.06211"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2508.19402"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2509.09702"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2509.18401"
+    },
+    {
+      "@id": "https://arxiv.org/abs/2510.05135"
+    },
+    {
+      "@id": "https://eqbench.com/creative_writing.html"
+    },
+    {
+      "@id": "https://github.com/1171-jpg/BrainTeaser"
+    },
+    {
+      "@id": "https://github.com/Aman-4-Real/CrEval"
+    },
+    {
+      "@id": "https://github.com/Bhaavya/InstructGPT-Analogies"
+    },
+    {
+      "@id": "https://github.com/ChicagoHAI/hypothesis-generation"
+    },
+    {
+      "@id": "https://github.com/CoolDawnAnt/InfoChartQA"
+    },
+    {
+      "@id": "https://github.com/EQ-bench/creative-writing-bench"
+    },
+    {
+      "@id": "https://github.com/EagleW/Scientific-Inspiration-Machines-Optimized-for-Novelty"
+    },
+    {
+      "@id": "https://github.com/EhsanAghazadeh/Metaphors_in_PLMs"
+    },
+    {
+      "@id": "https://github.com/FreedomIntelligence/crosstalk-generation"
+    },
+    {
+      "@id": "https://github.com/II-Bench/II-Bench"
+    },
+    {
+      "@id": "https://github.com/INK-USC/RiddleSense"
+    },
+    {
+      "@id": "https://github.com/IbrahimAlAzhar/FutureWorkGeneration"
+    },
+    {
+      "@id": "https://github.com/JiwanChung/esper"
+    },
+    {
+      "@id": "https://github.com/Kyunnilee/visual_puzzles"
+    },
+    {
+      "@id": "https://github.com/MIMIFY/SS-GEN"
+    },
+    {
+      "@id": "https://github.com/MIT-MI/PuzzleWorld"
+    },
+    {
+      "@id": "https://github.com/Mionies/metaphoric-analogies-extraction"
+    },
+    {
+      "@id": "https://github.com/Nianqi-Li/Historical-Analogy-of-LLMs"
+    },
+    {
+      "@id": "https://github.com/TaatiTeam/OCW"
+    },
+    {
+      "@id": "https://github.com/UBC-NLP/arastories"
+    },
+    {
+      "@id": "https://github.com/X-PLUG/WritingBench"
+    },
+    {
+      "@id": "https://github.com/YesianRohn/DuanzAI"
+    },
+    {
+      "@id": "https://github.com/YipingNUS/scratchplot-story-generation"
+    },
+    {
+      "@id": "https://github.com/Zhijun-Xu/PunEval"
+    },
+    {
+      "@id": "https://github.com/ZhuohanX/DeltaScore"
+    },
+    {
+      "@id": "https://github.com/ZhuohanX/TheNextChapter"
+    },
+    {
+      "@id": "https://github.com/aiintelligentsystems/showerthoughts-dataset"
+    },
+    {
+      "@id": "https://github.com/andongBlue/PoetMT"
+    },
+    {
+      "@id": "https://github.com/boson-ai/rpgbench-public"
+    },
+    {
+      "@id": "https://github.com/elisanchez-beep/meta4xnli"
+    },
+    {
+      "@id": "https://github.com/facebookresearch/perse"
+    },
+    {
+      "@id": "https://github.com/fangleai/Outline2Story"
+    },
+    {
+      "@id": "https://github.com/gao-g/metaphor-in-context"
+    },
+    {
+      "@id": "https://github.com/grmarco/pron-vs-prompt"
+    },
+    {
+      "@id": "https://github.com/irfl-dataset/IRFL"
+    },
+    {
+      "@id": "https://github.com/jhu-clsp/AnaloBench"
+    },
+    {
+      "@id": "https://github.com/kevinma1515/gpt_idetc"
+    },
+    {
+      "@id": "https://github.com/klusai/tinyfabulist"
+    },
+    {
+      "@id": "https://github.com/lmarena/arena-hard-auto"
+    },
+    {
+      "@id": "https://github.com/makeabilitylab/ArtInsight"
+    },
+    {
+      "@id": "https://github.com/mbzuai-oryx/FannOrFlop"
+    },
+    {
+      "@id": "https://github.com/mismayil/creative-story-gen"
+    },
+    {
+      "@id": "https://github.com/morturr/HumorTransferLearning"
+    },
+    {
+      "@id": "https://github.com/nightingal3/Fig-QA"
+    },
+    {
+      "@id": "https://github.com/open-compass/Creation-MMBench"
+    },
+    {
+      "@id": "https://github.com/orensul/ParallelPARC"
+    },
+    {
+      "@id": "https://github.com/saidul-islam98/DataNarrative"
+    },
+    {
+      "@id": "https://github.com/sandeep82945/Future-Idea-Generation"
+    },
+    {
+      "@id": "https://github.com/siyangwu1/LLM-Slang-Dictionary"
+    },
+    {
+      "@id": "https://github.com/siyuyuan/scar"
+    },
+    {
+      "@id": "https://github.com/sony/BannerAgency"
+    },
+    {
+      "@id": "https://github.com/tangg555/TwistList"
+    },
+    {
+      "@id": "https://github.com/tuhinjubcse/MetaphorGenNAACL2021"
+    },
+    {
+      "@id": "https://github.com/tuhinjubcse/SimileGeneration-EMNLP2020"
+    },
+    {
+      "@id": "https://github.com/ulab-uiuc/GraphEval"
+    },
+    {
+      "@id": "https://github.com/x66ccff/liveideabench"
+    },
+    {
+      "@id": "https://github.com/xiaoyuisrain/humorous-multimodal-metaphor-use"
+    },
+    {
+      "@id": "https://github.com/xiaoyuisrain/metaphor-understanding-challenge"
+    },
+    {
+      "@id": "https://github.com/zacharyhorvitz/Getting-Serious-With-LLMs"
+    },
+    {
+      "@id": "https://github.com/zjunlp/MKG_Analogy"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/Duke-de-Artois/TOMG-Bench"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/ManTle/mops"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/Salesforce/ttcw_creativity_eval"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/Superar/Puntuguese"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/UniverseTBD/hypogen-dr1"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/ai-forever/POLLUX"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/bansalaman18/yesbut"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/ethannlin/SchNovel"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/jmhessel/newyorker_caption_contest"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/roneneldan/TinyStories"
+    },
+    {
+      "@id": "https://huggingface.co/datasets/tm21cy/NYT-Connections"
+    },
+    {
+      "@id": "https://openaccess.thecvf.com/content/CVPR2023/html/Yu_Fusing_Pre-Trained_Language_Models_With_Multimodal_Prompts_Through_Reinforcement_Learning_CVPR_2023_paper.html"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Systematic source discovery and screening",
+      "sc:description": "PRISMA-compliant systematic literature harvest of 3,101 candidate papers across 99 venues (January 2018-December 2025) drawn from Semantic Scholar. Inclusion-rubric pre-screening with GPT-4.1 retained 683 papers; Gemini-2.5-Flash with Google Search grounding verified data accessibility for 431. Four trained reviewers performed dual human review under a rotating-pair protocol with lead-author conflict resolution; 283 papers passed. Reviewers are English-proficient academic researchers; institutional affiliation and geography are withheld for double-blind review.",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "prov:label": "AGC-Bench review workflow"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "Semantic Scholar API"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "GPT-4.1"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "Gemini-2.5-Flash with Google Search grounding"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Benchmark extraction, deduplication, and modality triage",
+      "sc:description": "Gemini-2.5-Pro extracted 546 candidate benchmark mentions from 283 papers, producing structured records (name, modality, task description, evaluation metric, dataset URL). String-normalized deduplication followed by 10-pass Gemini-2.5-Pro consensus voting (>=80% inter-pass agreement) yielded 497 unique benchmark records. Relevance pass removed 65 adjacent/general NLP, computer-vision, reasoning, intelligence, and auxiliary co-extractions, leaving 432 creativity-relevant candidates. Tier classification by Gemini-3-Flash partitioned the catalog by input/output modality and infrastructure requirement; 78 benchmarks were onboarded for the present release.",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q5227332"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "Gemini-2.5-Pro"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "Gemini-3-Flash"
+        },
+        {
+          "@type": "prov:Agent",
+          "prov:label": "AGC-Bench review workflow"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Scenario onboarding and quality review",
+      "sc:description": "Each onboarded benchmark was implemented as a HELM-style scenario using the source paper's prompt template, generation configuration, and canonical metric wherever available. Scripts and audit notes were reviewed for source fidelity, runnable setup, license metadata, and data-quality flags before inclusion in the release set.",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q3306762"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "prov:label": "AGC-Bench implementation workflow"
+        },
+        {
+          "@type": "prov:Agent",
+          "prov:label": "AGC-Bench review workflow"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Model response generation",
+      "sc:description": "Model responses on each benchmark are synthetic by construction: generations from the 83 release-set language models. Generations were produced under each source paper's originating sampling configuration where specified, with standardized defaults otherwise (n=50 items per cell from a frozen seeded selection; smaller datasets exhaustive).",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "83 release-set language models"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "AGC-Bench evaluation harness"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Scoring, judge calibration, and release aggregation",
+      "sc:description": "Each (model, dataset) cell is annotated by the source paper's canonical metric. The 24 LLM-judge cells are additionally rated by three frontier vendor judges (google/gemini-3-flash-preview, x-ai/grok-4.1-fast, openai/gpt-4.1-mini) under a planned-missing 2-of-3 design at 50 items per cell, producing 182,924 ratings on 90,987 units. Per-judge severity is removed via a Bayesian Graded Response Model (Judge Response Theory). Independent on-task data-quality audit by x-ai/grok-4.1-fast on three random items per cell yielded 95.1% on-task rate. The AGC-Human paired-human subset is scored on the canonical CrPO panel (diversity, DSI, length-residualized z) computed at the response level.",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q109719325"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "AGC-Bench scoring scripts"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "google/gemini-3-flash-preview"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "x-ai/grok-4.1-fast"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "openai/gpt-4.1-mini"
+        }
+      ]
+    }
+  ],
+  "rai:hasSyntheticData": true,
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-catalog",
+      "name": "agc-bench-catalog.csv",
+      "description": "Per-benchmark catalog of the 78 onboarded benchmarks (67 text-only, 11 multimodal) plus 14 excluded candidates. Includes status, domain, JRT-correction flag, source-paper canonical metric, and exclusion rationale where applicable.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/croissant/agc-bench-catalog.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9eee09df493109e982399f6afbc6676485cf85eed33085eb5b94c8aec95863d0",
+      "contentSize": "17336"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-catalog-497",
+      "name": "benchmark_catalog_497.csv",
+      "description": "v1.0.1 catalog with one row per deduplicated PRISMA benchmark record. The creativity_relevant flag marks the 432 creativity-relevant onboarding candidates and retains the 65 adjacent/general extracted benchmarks for auditability.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/release_data/benchmark_catalog_497.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9a66261c2419cf318ed84c1d2461cd837c6efe202fd16fb5bb6e6b5892dfb947",
+      "contentSize": "208710"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-catalog-audit-readme",
+      "name": "catalog-audit-readme.md",
+      "description": "Catalog note explaining the 497 deduplicated records, the 432 creativity-relevant subset, and the catalog-stage selection record.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/catalog/README.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "9197ab29c7276e7611f6dd3a2d83b3272f3e2397bc41b2a7773b03f6f55fc32c",
+      "contentSize": "2652"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-extracted-benchmarks",
+      "name": "extracted_benchmarks_merged.jsonl",
+      "description": "Catalog-stage extraction output: 283 papers, 546 benchmark mentions, and 1,160 task records before deduplication.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/catalog/source/extracted_benchmarks_merged.jsonl",
+      "encodingFormat": "application/jsonl",
+      "sha256": "f250b8879146336fbd502063a8e3ab60aa558a13e2c687116414cdbef79a142d",
+      "contentSize": "1016845"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-unique-benchmarks",
+      "name": "unique_benchmarks.csv",
+      "description": "Deduplicated catalog-stage benchmark records: 497 unique records after hybrid string and consensus deduplication.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/catalog/source/unique_benchmarks.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1c7791db6c24ea0ff65c1283162d026f1d2722f3d74ebcfc7b84ef796afe41aa",
+      "contentSize": "101518"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-deduplication-results",
+      "name": "deduplication_results.json",
+      "description": "Deduplication grouping metadata supporting the 497-row benchmark catalog.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/catalog/source/deduplication_results.json",
+      "encodingFormat": "application/json",
+      "sha256": "71cebdd0495c442b5801184b822864f05af9551e3ba057321f51427be07a1a8f",
+      "contentSize": "13052"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-creativity-relevant-catalog",
+      "name": "benchmark_catalog_432.csv",
+      "description": "Creativity-relevance filtered catalog: 432 benchmark candidates that remained after removing adjacent/general co-extractions.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/catalog/source/benchmark_catalog_432.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1f752bb85d9ced763504e5f34a15f8568b96c2c8ce5573e4ec006f8b709c6251",
+      "contentSize": "110533"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-onboarder-readme",
+      "name": "onboarder-readme.md",
+      "description": "README for the benchmark onboarding workflow and its supporting scenario-implementation records.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/onboarder/README.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "604773f92e4e220ecf905e9cac0c0af17796611af3931b05ddf5a1ed5a8fecaf",
+      "contentSize": "755"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-onboarding-instructions",
+      "name": "SKILL.md",
+      "description": "Operational benchmark-onboarding instructions used to convert catalog candidates into HELM-compatible scenario implementations.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/onboarder/SKILL.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "888446a4f509ca179ca44522d65ce98cd7fd13436d52d5346f8351c2a41c5827",
+      "contentSize": "12520"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-onboarder-queue",
+      "name": "benchmarks.json",
+      "description": "Anonymized benchmark-onboarding queue and status metadata used during scenario curation.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/onboarder/benchmarks.json",
+      "encodingFormat": "application/json",
+      "sha256": "96b6c1d66bba2e7654e54a7cbd125789c35204a76b2da3f55df3f936a9871ee8",
+      "contentSize": "239068"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-onboarder-template",
+      "name": "helm-template.md",
+      "description": "HELM scenario template and implementation patterns for onboarding.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/onboarder/helm-template.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "63c43020e3dc50c78ae4ff436ecfc4cabe38f52764bb44d8e8ddf2f5f2e806e4",
+      "contentSize": "5218"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-onboarder-example-multimodal",
+      "name": "multimodal_visual_qa.py",
+      "description": "Example HELM Scenario pattern for benchmarks with image inputs.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/curation/onboarder/examples/multimodal_visual_qa.py",
+      "encodingFormat": "text/x-python",
+      "sha256": "e5199f4c624079f54eb5d6b5f3a6cbb8126b70c5e1027f14d3e9ca83eef7656e",
+      "contentSize": "6501"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-leaderboard",
+      "name": "agc-bench-leaderboard.csv",
+      "description": "Per-release-model leaderboard with mean / median z, dataset coverage count, and rank, computed under JRT-corrected scoring with the data-quality mask applied.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/release_data/leaderboard.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c891a9ceb45db2a5102a9cb808fa38f2e5bd5e8778fe8dbeb5405d9a56b94fb5",
+      "contentSize": "6735"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-viewer-scores",
+      "name": "model_dataset_scores.csv",
+      "description": "Compact per-(model, dataset) z-score table used as the default Hugging Face Dataset Viewer surface. Includes model, dataset, dataset_z, score_source, and dq_masked.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/release_data/model_dataset_scores.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "da407b3b31df75a01f3d0df970bee2a7cc01d8b4dcfa332ca24204e99a48a689",
+      "contentSize": "375835"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-long-scores",
+      "name": "agc-bench-long-scores.csv",
+      "description": "Per-(model, dataset) z-score table with score-source flag (jrt vs. raw), aggregate score-source count, and a dq_masked boolean for cells removed by the data-quality sweep.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/release_data/long_model_x_dataset.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "63da434409fe4e93fcaf8dad2e36f14b6c77081dbb466195aecfe07b0e76a776",
+      "contentSize": "381360"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-dataset-metadata",
+      "name": "dataset_metadata.csv",
+      "description": "Per-dataset release metadata with status, domain, release-set model coverage count, canonical-metric count, JRT-correction flag, and exclusion notes where applicable.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/release_data/dataset_metadata.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "a5330e751171c2cec0518a2506b61aba9976ee53a9952cc10eb619bb49d28022",
+      "contentSize": "4941"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "agc-bench-cfactor",
+      "name": "agc-bench-cfactor.csv",
+      "description": "Per-domain c-factor loadings, eigenvalues, and robustness-check outputs. Companion to Section 4.3 of the paper.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/analysis/c_factor_loadings.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8dcc9b6ac4b9ba41ac0cfd4634678e7abf7eaaa2208a9d09da56b441a34fa2ef",
+      "contentSize": "450"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "agc-bench-generation-cells",
+      "name": "generation-cell-parquets",
+      "description": "Derived per-(model, dataset) generation corpus: one parquet per release cell with instance_id, completion, released cell-score metadata, per-instance canonical score where HELM exposed it, optional AGC-Judge fields, model, dataset, and source run directory.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/tree/main/generations",
+      "encodingFormat": "application/x-parquet",
+      "includes": "generations/*/*/*.parquet"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "agc-bench-generation-prompts",
+      "name": "generation-prompt-bank",
+      "description": "De-duplicated prompt bank keyed by benchmark and instance_id for the generation-cell parquet corpus.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/tree/main/generations",
+      "encodingFormat": "application/x-parquet",
+      "includes": "generations/prompts/*.parquet"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "catalog-records",
+      "name": "catalog",
+      "description": "One row per unique creativity benchmark in the catalog.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "catalog-records/benchmark_id",
+          "name": "benchmark_id",
+          "description": "Stable benchmark identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog"
+            },
+            "extract": {
+              "column": "benchmark_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog-records/source_paper_url",
+          "name": "source_paper_url",
+          "description": "DOI or arXiv URL of the source paper.",
+          "dataType": "sc:URL",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog"
+            },
+            "extract": {
+              "column": "source_paper_url"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog-records/domain",
+          "name": "domain",
+          "description": "Primary creativity domain in {Brainstorming, Problem Solving, STEM, Literary and Narrative, Humor, Visual and Design}.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog"
+            },
+            "extract": {
+              "column": "domain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog-records/modality",
+          "name": "modality",
+          "description": "Tier classification (Tier-1a text-only, Tier-1b image-input, etc.).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog"
+            },
+            "extract": {
+              "column": "modality"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog-records/scoring_metric",
+          "name": "scoring_metric",
+          "description": "Canonical scoring metric specified by the source paper.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog"
+            },
+            "extract": {
+              "column": "scoring_metric"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog-records/license",
+          "name": "license",
+          "description": "Source-paper license for the underlying benchmark data.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog"
+            },
+            "extract": {
+              "column": "license"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog-records/onboarded",
+          "name": "onboarded",
+          "description": "Whether the benchmark is in the released onboarded set.",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog"
+            },
+            "extract": {
+              "column": "onboarded"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "catalog497-records",
+      "name": "benchmark_catalog_497",
+      "description": "One row per deduplicated PRISMA benchmark record. Rows with creativity_relevant=true are the 432 creativity-relevant onboarding candidates; the remaining 65 adjacent/general records are retained for auditability.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/benchmark_name",
+          "name": "benchmark_name",
+          "description": "Canonical deduplicated benchmark name.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "benchmark_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/aliases",
+          "name": "aliases",
+          "description": "Semicolon-delimited benchmark aliases merged into this record.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "aliases"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/creativity_relevant",
+          "name": "creativity_relevant",
+          "description": "Whether the record belongs to the 432 creativity-relevant candidate subset.",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "creativity_relevant"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/source_paper_title",
+          "name": "source_paper_title",
+          "description": "Source paper title for the first extracted occurrence of the benchmark.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "source_paper_title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/source_paper_year",
+          "name": "source_paper_year",
+          "description": "Source paper publication year.",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "source_paper_year"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/source_paper_doi",
+          "name": "source_paper_doi",
+          "description": "Source paper DOI where available.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "source_paper_doi"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/source_paper_semantic_scholar_id",
+          "name": "source_paper_semantic_scholar_id",
+          "description": "Semantic Scholar paper identifier used in the curation pipeline.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "source_paper_semantic_scholar_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/modality",
+          "name": "modality",
+          "description": "Input/output modality assigned for creativity-relevant records.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "modality"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/runnability_tier",
+          "name": "runnability_tier",
+          "description": "Implementation/runnability tier assigned for creativity-relevant records.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "runnability_tier"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/scoring_method",
+          "name": "scoring_method",
+          "description": "Scoring-method family extracted from the source paper.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "scoring_method"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/scoring_protocol",
+          "name": "scoring_protocol",
+          "description": "Extracted source-paper scoring protocol details.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "scoring_protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "catalog497-records/task_types",
+          "name": "task_types",
+          "description": "Extracted task-type families associated with the benchmark.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "agc-bench-catalog-497"
+            },
+            "extract": {
+              "column": "task_types"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

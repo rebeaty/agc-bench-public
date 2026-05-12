@@ -1,0 +1,76 @@
+benchmark,domain,domain_method,task_type,task_type_method,domain_votes,task_type_votes
+aidanbench,Brainstorming,unanimous,Generation,majority,Brainstorming|Brainstorming|Brainstorming,Generation|Generation|Evaluation
+analobench,Problem Solving,majority,Evaluation,unanimous,Story / Narrative|Problem Solving|Problem Solving,Evaluation|Evaluation|Evaluation
+arastories,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+arena_hard_creative,Humor,majority,Generation,majority,Brainstorming|Humor|Humor,Evaluation|Generation|Generation
+arn,Story / Narrative,unanimous,Evaluation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Evaluation|Evaluation|Evaluation
+brainteaser,Problem Solving,unanimous,Generation,unanimous,Problem Solving|Problem Solving|Problem Solving,Generation|Generation|Generation
+c3_crosstalk,Humor,majority,Generation,unanimous,Humor|Story / Narrative|Humor,Generation|Generation|Generation
+cap_aut,Brainstorming,unanimous,Generation,unanimous,Brainstorming|Brainstorming|Brainstorming,Generation|Generation|Generation
+cap_design,Brainstorming,majority,Generation,unanimous,Brainstorming|Problem Solving|Brainstorming,Generation|Generation|Generation
+cap_metaphor,Figurative Language,unanimous,Generation,unanimous,Figurative Language|Figurative Language|Figurative Language,Generation|Generation|Generation
+cap_sctt,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+cap_story,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+chinese_homophonic_puns,Humor,unanimous,Evaluation,unanimous,Humor|Humor|Humor,Evaluation|Evaluation|Evaluation
+cpers,Figurative Language,unanimous,Evaluation,majority,Figurative Language|Figurative Language|Figurative Language,Generation|Evaluation|Evaluation
+creativemath,STEM,unanimous,Evaluation,majority,STEM|STEM|STEM,Generation|Evaluation|Evaluation
+creatset,Story / Narrative,hand_v2,Generation,hand_v2,Brainstorming|Story / Narrative|Story / Narrative,Evaluation|Evaluation|Generation
+crowd_vote,Brainstorming,unanimous,Generation,majority,Brainstorming|Brainstorming|Brainstorming,Generation|Generation|Evaluation
+cue_word_story,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+data_narrative,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+discovery_bench,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+eqbench_creative_writing_v3,Story / Narrative,unanimous,Generation,majority,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Evaluation
+fig_qa,Figurative Language,unanimous,Evaluation,unanimous,Figurative Language|Figurative Language|Figurative Language,Evaluation|Evaluation|Evaluation
+future_ideas,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+futuregen,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+gauss,STEM,unanimous,Generation,majority,STEM|STEM|STEM,Generation|Generation|Evaluation
+geo_story,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+grapheval_ai_researcher,STEM,unanimous,Evaluation,unanimous,STEM|STEM|STEM,Evaluation|Evaluation|Evaluation
+grapheval_iclr,STEM,unanimous,Evaluation,unanimous,STEM|STEM|STEM,Evaluation|Evaluation|Evaluation
+grapheval_review_advisor,STEM,unanimous,Evaluation,unanimous,STEM|STEM|STEM,Evaluation|Evaluation|Evaluation
+historical_analogy,Problem Solving,majority,Generation,unanimous,Figurative Language|Problem Solving|Problem Solving,Generation|Generation|Generation
+humor_transfer,Humor,unanimous,Evaluation,unanimous,Humor|Humor|Humor,Evaluation|Evaluation|Evaluation
+hypobench,STEM,majority,Generation,unanimous,STEM|Brainstorming|STEM,Generation|Generation|Generation
+hypogen,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+irfl,Figurative Language,hand,Evaluation,unanimous,Figurative Language|nan|Problem Solving,Evaluation|nan|Evaluation
+lcc_metaphor,Figurative Language,unanimous,Evaluation,unanimous,Figurative Language|Figurative Language|Figurative Language,Evaluation|Evaluation|Evaluation
+liveideabench,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+macgyver,Problem Solving,unanimous,Generation,majority,Problem Solving|Problem Solving|Problem Solving,Generation|Generation|Evaluation
+meta4xnli,Problem Solving,majority,Evaluation,unanimous,Figurative Language|Problem Solving|Problem Solving,Evaluation|Evaluation|Evaluation
+metaphor_generation,Figurative Language,unanimous,Generation,unanimous,Figurative Language|Figurative Language|Figurative Language,Generation|Generation|Generation
+metaphoric_analogies,Figurative Language,unanimous,Generation,unanimous,Figurative Language|Figurative Language|Figurative Language,Generation|Generation|Generation
+moh_x,Figurative Language,unanimous,Evaluation,unanimous,Figurative Language|Figurative Language|Figurative Language,Evaluation|Evaluation|Evaluation
+mops,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+munch,Figurative Language,majority,Evaluation,unanimous,Figurative Language|Problem Solving|Figurative Language,Evaluation|Evaluation|Evaluation
+newyorker_humor,Humor,unanimous,Evaluation,unanimous,Humor|Humor|Humor,Evaluation|Evaluation|Evaluation
+nyt_connections,Problem Solving,unanimous,Generation,unanimous,Problem Solving|Problem Solving|Problem Solving,Generation|Generation|Generation
+ocw,Problem Solving,unanimous,Generation,unanimous,Problem Solving|Problem Solving|Problem Solving,Generation|Generation|Generation
+ocw_connections,Problem Solving,unanimous,Generation,unanimous,Problem Solving|Problem Solving|Problem Solving,Generation|Generation|Generation
+outline_to_story,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+permpst,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+poetmt,Story / Narrative,unanimous,Evaluation,majority,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Evaluation|Evaluation
+pollux_creativity,Brainstorming,unanimous,Generation,unanimous,Brainstorming|Brainstorming|Brainstorming,Generation|Generation|Generation
+pron_vs_prompt,Story / Narrative,unanimous,Generation,majority,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Evaluation
+proparalogy,Problem Solving,unanimous,Evaluation,unanimous,Problem Solving|Problem Solving|Problem Solving,Evaluation|Evaluation|Evaluation
+pun_eval,Humor,unanimous,Generation,unanimous,Humor|Humor|Humor,Generation|Generation|Generation
+puntuguese,Humor,unanimous,Evaluation,unanimous,Humor|Humor|Humor,Evaluation|Evaluation|Evaluation
+riddlesense,Problem Solving,unanimous,Generation,majority,Problem Solving|Problem Solving|Problem Solving,Generation|Generation|Evaluation
+scar,Problem Solving,unanimous,Generation,unanimous,Problem Solving|Problem Solving|Problem Solving,Generation|Generation|Generation
+schnovel,STEM,unanimous,Evaluation,unanimous,STEM|STEM|STEM,Evaluation|Evaluation|Evaluation
+science_analogies,STEM,majority,Generation,unanimous,STEM|Figurative Language|STEM,Generation|Generation|Generation
+scimon,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+sdat,Brainstorming,unanimous,Generation,unanimous,Brainstorming|Brainstorming|Brainstorming,Generation|Generation|Generation
+showerthoughts,Humor,majority,Generation,unanimous,Brainstorming|Humor|Humor,Generation|Generation|Generation
+simile_generation,Figurative Language,unanimous,Generation,unanimous,Figurative Language|Figurative Language|Figurative Language,Generation|Generation|Generation
+slang_generation,Figurative Language,unanimous,Generation,unanimous,Figurative Language|Figurative Language|Figurative Language,Generation|Generation|Generation
+speak_to_structure,STEM,unanimous,Generation,unanimous,STEM|STEM|STEM,Generation|Generation|Generation
+ss_gen,Story / Narrative,unanimous,Generation,majority,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Evaluation
+story_generation_rocstories,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+story_quality,Story / Narrative,unanimous,Evaluation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Evaluation|Evaluation|Evaluation
+thenextchapter,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+tinyfabulist,Story / Narrative,unanimous,Generation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Generation
+tinystories,Story / Narrative,unanimous,Generation,majority,Story / Narrative|Story / Narrative|Story / Narrative,Generation|Generation|Evaluation
+ttcw,Story / Narrative,unanimous,Evaluation,unanimous,Story / Narrative|Story / Narrative|Story / Narrative,Evaluation|Evaluation|Evaluation
+twistlist,Figurative Language,unanimous,Generation,unanimous,Figurative Language|Figurative Language|Figurative Language,Generation|Generation|Generation
+unfun_corpus,Humor,unanimous,Generation,unanimous,Humor|Humor|Humor,Generation|Generation|Generation
+writingbench,Story / Narrative,hand,Generation,majority,Story / Narrative|Story / Narrative|STEM,Generation|Generation|Evaluation

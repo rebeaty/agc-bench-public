@@ -1,0 +1,734 @@
+# Generation parameters for model inference
+# Registry file for AGC-Bench inference settings
+
+defaults:
+  temperature: 0.7
+  max_new_tokens: 512
+  num_return_sequences: 1
+  top_p: null
+  top_k: null
+  stop_sequences: null
+  do_sample: true
+
+datasets:
+  aaar:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  aidanbench:
+    num_return_sequences: 30
+    temperature: 0.7
+    max_new_tokens: 512
+    top_p: null
+    top_k: null
+    stop_sequences: null
+    do_sample: true
+    source: "metric_notes/aidanbench_eval_metrics_notes.md — batch prompting N=30 responses"
+
+  alpaca_eval_2:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  amuse_chord_generation:
+    num_return_sequences: 30
+    temperature: 0.7
+    max_new_tokens: 512
+    top_p: null
+    top_k: null
+    stop_sequences: null
+    do_sample: true
+    source: "metric_notes/amuse_chord_generation_eval_metrics_notes.md — 30 chord progressions per keyword"
+
+  analobench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  arastories:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  arena_hard_creative:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  arena_hard_v01:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  arn:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  artinsight:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  assocam:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  ava:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  balancecc_prompt_generation:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  balderdash:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  banner_request_400:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  bhp_hypothesis_generation:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  brainteaser:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  c3_crosstalk:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  calligrapher:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  cdat:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  chinese_homophonic_puns:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  cii_bench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  clef_joker_2025_task2:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  cm3d:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  conceptual_design:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  convbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  cpers:
+    temperature: 1.0
+    max_new_tokens: 512
+    num_return_sequences: 1
+    top_p: null
+    top_k: null
+    stop_sequences: null
+    do_sample: true
+    source: "scenario file comment — temperature=1 noted for creative generation"
+
+  creai_cps:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  creation_mmbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  creative_pair:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  creative_process:
+    _use_defaults: false
+    source: "repo prompt script (`scripts_LLM/together_call.py`) and paper task description"
+    notes:
+      - "Exact repo prompt family is preserved in the scenario."
+      - "Local benchmark now exposes explicit task variants for `vf`, `aut_brick`, and `aut_paperclip`."
+      - "Temperature is fixed at 0.8 to match the released prompt-calling script, but the paper's full 11-point sweep is not automated in one HELM run."
+
+  creativemath:
+    num_outputs: 1
+    max_tokens: 1024
+    temperature: 0.7
+    judge_models:
+      - "anthropic/claude-3-opus-20240229"
+      - "google/gemini-1.5-pro"
+      - "openai/gpt-4"
+    source: "generation budget raised to match the paper/repo setup more closely; staged evaluator uses the paper's three-judge lineup by default"
+
+  creatset:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  critics_story:
+    temperature: 0.0
+    max_tokens: 512
+    num_outputs: 1
+    max_train_instances: 0
+    source: "run_specs/critics_story_run_specs.py — deterministic pairwise verdict generation for the default judgment surface"
+
+  crowd_vote:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  crowdcounter:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  cs4:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  csd100:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  cue_word_story:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  d_humor:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  dat:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  dat_creative_writing:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  data_narrative:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  deep_math:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  dialogue_diversity:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  discovery_bench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  diverse_not_short:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  dpt:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  eqbench_creative_writing_v3:
+    temperature: 0.7
+    max_new_tokens: 2048
+    num_return_sequences: 3
+    top_p: null
+    top_k: null
+    stop_sequences: null
+    do_sample: true
+    source: "scenario file docstring — temperature=0.7, num_iterations=3 (3 per prompt)"
+
+  esp_dataset:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  fann_or_flop:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  fig_qa:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  flute_filtered:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  fscg8:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  funqa:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  future_ideas:
+    _use_defaults: true
+    source: "paper Section 4.1 prompt, adapted in scenario file; default run spec covers domain=all"
+
+  futuregen:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  fuxibench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  gauss:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  geo_story:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  grapheval_ai_researcher:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  grapheval_iclr:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  grapheval_review_advisor:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  graphrag_bench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  historical_analogy:
+    _use_defaults: true
+    source: "repo direct_generation.py; deterministic single-line event-name decoding with newline stop as a HELM approximation"
+
+  hummus:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  humor_transfer:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  humordb:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  hypobench:
+    temperature: 0.0
+    max_new_tokens: 1024
+    num_return_sequences: 1
+    top_p: null
+    top_k: null
+    stop_sequences: null
+    do_sample: false
+    source: "metric_notes/hypobench_eval_metrics_notes.md — released zero-shot generation prompt plus held-out inference evaluation"
+
+  hypogen:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  idrbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  ii_bench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  infochartqa:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  irfl:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  javanese_sundanese_story_cloze:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  kiva:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  layoutsam_eval:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  lcc_metaphor:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  litbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  liveideabench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  llm4biohypogen:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  llm_discussion:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  llm_review_focus:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  llm_srbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  macgyver:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  mars:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  matdesign:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  memecap:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  met_meme:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  meta4xnli:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  metaphor_generation:
+    temperature: 0.7
+    max_tokens: 48
+    num_outputs: 1
+    max_train_instances: 0
+    stop_sequences: ["\n"]
+    source: "paper repo `fairseq/inference.py` uses short stochastic seq2seq decoding (`temperature=0.7`, short output budget); local HELM adapts that to a single-sentence chat rewrite path"
+
+  metaphoric_analogies:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  mineanybuild:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  miqa:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  mixassist:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  moh_x:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  mops:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  munch:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  muse_perception:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  music_theory_bench:
+    _use_defaults: true
+    source: "paper Section 3.3 + eval OpenCompass config; local run uses deterministic zero-shot multiple-choice decoding as a HELM approximation"
+
+  neocoder:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  newyorker_caption:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  newyorker_humor:
+    temperature: 0.0
+    max_new_tokens: 8
+    num_return_sequences: 1
+    top_p: null
+    top_k: null
+    stop_sequences: ["\n"]
+    source: "metric_notes/newyorker_humor_eval_metrics_notes.md — deterministic answer-letter evaluation for matching/ranking"
+
+  noveltybench:
+    temperature: 0.7
+    max_new_tokens: 512
+    num_return_sequences: 10
+    top_p: null
+    top_k: null
+    stop_sequences: null
+    do_sample: true
+    source: "metric_notes/noveltybench_eval_metrics_notes.md — N=10 outputs per prompt, temperature 0.7-1.0 recommended"
+
+  nyt_connections:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  ocw:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  ocw_connections:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  oogiri_go:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  outline_to_story:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  pace:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  permpst:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  poetmt:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  pollux_creativity:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  pron_vs_prompt:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  proparalogy:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  protein_bench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  pun_eval:
+    temperature: 0.7
+    max_tokens: 300
+    num_outputs: 1
+    max_train_instances: 0
+    source: "upstream pun generation notebook uses temperature 0.7 and short JSON sentence generation; local benchmark keeps that generation setup and restores Notebook 6 binary pun detection for evaluation"
+
+  puntuguese:
+    temperature: 0.0
+    max_tokens: 4
+    num_outputs: 1
+    max_train_instances: 0
+    source: "local HELM zero-shot Portuguese yes/no adaptation; paper reports supervised classifier results instead of generation settings"
+
+  puzzleworld:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  rebus_puzzle:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  recombination_extraction:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  research_idea_execution:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  riddlesense:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  robotoolbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  rpgbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  scar:
+    temperature: 0.0
+    max_new_tokens: 512
+    num_return_sequences: 1
+    top_p: null
+    top_k: null
+    stop_sequences: []
+    source: "metric_notes/scar_eval_metrics_notes.md — deterministic single-output decoding for structured mapping generation"
+
+  schnovel:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  science_analogies:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  scimon:
+    generation:
+      temperature: 0.2
+      max_tokens: 96
+      num_outputs: 1
+      stop_sequences: ["\n"]
+    source: "run_specs/scimon_run_specs.py — tightened for single-sentence gold-subset generation"
+
+  sdat:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  showerthoughts:
+    temperature: 0.7
+    max_new_tokens: 64
+    num_return_sequences: 1
+    top_p: null
+    top_k: null
+    stop_sequences: ["\n"]
+    source: "metric_notes/showerthoughts_eval_metrics_notes.md — paper-inspired single-item Showerthought generation with newline stop for concise standalone outputs"
+
+  simile_generation:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  slang_generation:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  sonnet_or_not_bot:
+    temperature: 0.0
+    max_new_tokens: 8
+    num_return_sequences: 1
+    top_p: null
+    top_k: null
+    stop_sequences: ["\n"]
+    source: "metric_notes/sonnet_or_not_bot_eval_metrics_notes.md — deterministic answer selection for poetic-form classification"
+
+  speak_to_structure:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  splat:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  ss_gen:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  story_generation_rocstories:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  story_quality:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  storyer:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  sudoku_bench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  textlogo3k:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  thenextchapter:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  tiger_bench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  tinyfabulist:
+    temperature: 0.7
+    max_new_tokens: 512
+    num_return_sequences: 1
+    top_p: null
+    top_k: null
+    stop_sequences: []
+    source: "metric_notes/tinyfabulist_eval_metrics_notes.md — benchmark prompt generation with local HELM settings; paper focuses on evaluator outputs rather than publishing one canonical decoding block"
+
+  tinystories:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  ttcw:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  twistlist:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  unfun_corpus:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  v_flute:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  vflute:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  vgsg:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  vietnamese_poem:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  webnovelbench:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  writingbench:
+    temperature: 0.7
+    max_new_tokens: 16000
+    num_return_sequences: 1
+    top_p: 0.8
+    top_k: 20
+    stop_sequences: null
+    do_sample: true
+    source: "scenario file / README — top_p=0.8, top_k=20, temperature=0.7, max_length=16000"
+
+  yesbut:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"
+
+  yesbut_v2:
+    _use_defaults: true
+    source: "not specified in paper or repo; using benchmark defaults"

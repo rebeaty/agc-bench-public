@@ -1,0 +1,1737 @@
+# AUTO-GENERATED RUBRICS — Review before running evaluations.
+# Rubrics marked [PAPER] were extracted from the paper/docs.
+# Rubrics marked [GENERATED] were auto-generated and should be verified.
+
+datasets:
+  aaar:
+    task_description: Task for aaar
+    paper_link: https://arxiv.org/abs/2410.22394
+    metrics:
+      recall_gt_entail_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate whether the generated research content covers the key points from the ground-truth reference.
+
+
+          Score 1: Generated text covers almost none of the reference key points
+
+          Score 2: Generated text covers less than half the reference key points
+
+          Score 3: Generated text covers roughly half the reference key points
+
+          Score 4: Generated text covers most of the reference key points
+
+          Score 5: Generated text fully covers all key points from the reference'
+        score_min: 1
+        score_max: 5
+      precision_pred_entail_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the precision of the generated research content relative to the ground-truth reference.
+
+
+          Score 1: Almost all generated points are irrelevant to the reference
+
+          Score 2: Most generated points are irrelevant or incorrect
+
+          Score 3: About half the generated points are relevant and correct
+
+          Score 4: Most generated points are relevant and supported by the reference
+
+          Score 5: All generated points are precisely entailed by the reference'
+        score_min: 1
+        score_max: 5
+  aidanbench:
+    task_description: Task for aidanbench
+    paper_link: https://openreview.net/forum?id=fz969ahcvJ
+    metrics:
+      coherence_score:
+        source: '[PAPER]'
+        rubric: 'Rate the response on a scale of 0-100 for coherence, quality, and appropriateness.
+
+
+          Score 0: Completely incoherent or off-topic
+
+          Score 25: Vaguely related but poorly argued
+
+          Score 50: Adequate surface-level response
+
+          Score 75: Good quality with solid reasoning
+
+          Score 100: Exceptional, perfectly articulated response'
+        score_min: 0
+        score_max: 100
+  alpaca_eval_2:
+    task_description: Task for alpaca_eval_2
+    paper_link: https://arxiv.org/abs/2404.04475
+    metrics:
+      win_rate:
+        source: '[GENERATED]'
+        rubric: 'Compare the generated response against a reference for instruction-following quality.
+
+
+          Score 1: Significantly worse than reference
+
+          Score 2: Somewhat worse than reference
+
+          Score 3: Roughly equal to reference
+
+          Score 4: Somewhat better than reference
+
+          Score 5: Significantly better than reference'
+        score_min: 1
+        score_max: 5
+  arastories:
+    task_description: Generate an Arabic story from a structured prompt and score it on the five AraStories judge criteria.
+    paper_link: https://arxiv.org/abs/2407.07551
+    metrics:
+      fluency:
+        source: 'Paper + repo notebook; HELM adaptation evaluates one criterion per judge call'
+        rubric: 'Fluency: How smooth and natural the text is, including appropriate grammar, vocabulary, and sentence structure. Return only a 1-5 score with no explanation.'
+        score_min: 1
+        score_max: 5
+      coherence:
+        source: 'Paper + repo notebook; HELM adaptation evaluates one criterion per judge call'
+        rubric: 'Coherence: The logical connection and flow of sentences and ideas, making the text easy to understand. Return only a 1-5 score with no explanation.'
+        score_min: 1
+        score_max: 5
+      following_instructions:
+        source: 'Paper + repo notebook; HELM adaptation evaluates one criterion per judge call'
+        rubric: 'Following Instructions: How well the text adheres to the provided instructions or task requirements. Return only a 1-5 score with no explanation.'
+        score_min: 1
+        score_max: 5
+      consistency:
+        source: 'Paper + repo notebook; HELM adaptation evaluates one criterion per judge call'
+        rubric: 'Consistency: How consistently accurate and uniform the information and style are throughout the text. Return only a 1-5 score with no explanation.'
+        score_min: 1
+        score_max: 5
+      variety:
+        source: 'Paper + repo notebook; HELM adaptation evaluates one criterion per judge call'
+        rubric: 'Variety: How well does the model generate story in the required Arabic variety. Return only a 1-5 score with no explanation.'
+        score_min: 1
+        score_max: 5
+  arena_hard_creative:
+    task_description: Task for arena_hard_creative
+    paper_link: https://arxiv.org/abs/2406.11939
+    metrics:
+      win_rate:
+        source: '[GENERATED]'
+        rubric: 'Evaluate creative response quality versus reference.
+
+
+          Score 1: Significantly worse in creativity and quality
+
+          Score 2: Somewhat weaker in creative elements
+
+          Score 3: Roughly equal creative quality
+
+          Score 4: Better creativity and writing quality
+
+          Score 5: Significantly more creative and higher quality'
+        score_min: 1
+        score_max: 5
+  arena_hard_v01:
+    task_description: Task for arena_hard_v01
+    paper_link: https://arxiv.org/abs/2406.11939
+    metrics:
+      win_rate:
+        source: '[GENERATED]'
+        rubric: 'Evaluate response quality versus reference.
+
+
+          Score 1: Significantly worse than reference
+
+          Score 2: Somewhat worse than reference
+
+          Score 3: Roughly equivalent quality
+
+          Score 4: Somewhat better than reference
+
+          Score 5: Significantly better than reference'
+        score_min: 1
+        score_max: 5
+  artinsight:
+    task_description: Task for artinsight
+    paper_link: https://arxiv.org/abs/2502.19263
+    metrics:
+      rubric_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate art analysis quality based on rubric criteria.
+
+
+          Score 1: No meaningful insight or analysis
+
+          Score 2: Minimal insight with significant gaps
+
+          Score 3: Adequate analysis covering basic elements
+
+          Score 4: Thoughtful analysis showing good art knowledge
+
+          Score 5: Exceptional insight with deep understanding and original perspective'
+        score_min: 1
+        score_max: 5
+  banner_request_400:
+    task_description: Task for banner_request_400
+    paper_link: https://arxiv.org/abs/2503.11060
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of generated banner/advertisement copy.
+
+
+          Score 1: Incomprehensible or entirely unsuitable
+
+          Score 2: Poor quality with major messaging issues
+
+          Score 3: Adequate; communicates basic message
+
+          Score 4: Good quality, clear and appropriately creative
+
+          Score 5: Excellent, highly creative and persuasive'
+        score_min: 1
+        score_max: 5
+  calligrapher:
+    task_description: Task for calligrapher
+    paper_link: https://arxiv.org/abs/2506.24123
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of generated calligraphy/self-referential text.
+
+
+          Score 1: No meaningful self-referential or aesthetic quality
+
+          Score 2: Weak self-reference with poor quality
+
+          Score 3: Adequate self-referential text with some merit
+
+          Score 4: Good quality with strong aesthetic properties
+
+          Score 5: Excellent self-referential text with outstanding quality'
+        score_min: 1
+        score_max: 5
+  conceptual_design:
+    task_description: Task for conceptual_design
+    paper_link: https://arxiv.org/abs/2306.01779
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of the generated conceptual design solution.
+
+
+          Score 1: Irrelevant, infeasible, or missing
+
+          Score 2: Weak with major gaps
+
+          Score 3: Adequate, addresses core requirements
+
+          Score 4: Good, creative and mostly complete
+
+          Score 5: Excellent, highly creative and fully feasible'
+        score_min: 1
+        score_max: 5
+  cpers:
+    task_description: Task for cpers
+    paper_link: https://arxiv.org/abs/2509.18401
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of generated Persian literary text.
+
+
+          Score 1: No literary merit or relevance
+
+          Score 2: Below average with limited literary elements
+
+          Score 3: Average quality with some craftsmanship
+
+          Score 4: Good literary quality with strong elements
+
+          Score 5: Exceptional quality demonstrating mastery'
+        score_min: 1
+        score_max: 5
+  creai_cps:
+    task_description: Task for creai_cps
+    paper_link: null
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the creative problem solution.
+
+
+          Score 1: Completely predictable and unoriginal
+
+          Score 2: Mostly conventional with minimal creativity
+
+          Score 3: Some creative elements but largely conventional
+
+          Score 4: Genuinely creative with notable originality
+
+          Score 5: Highly creative demonstrating exceptional divergent thinking'
+        score_min: 1
+        score_max: 5
+  creation_mmbench:
+    task_description: Task for creation_mmbench
+    paper_link: https://arxiv.org/abs/2503.14478
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of creative content generated from a visual prompt.
+
+
+          Score 1: No relation to visual prompt or incoherent
+
+          Score 2: Weak connection with poor quality
+
+          Score 3: Adequate, relates to visual at basic level
+
+          Score 4: Good quality, meaningfully engages with visual
+
+          Score 5: Excellent creative content responding insightfully to visual'
+        score_min: 1
+        score_max: 5
+  creative_process:
+    task_description: Embedding-based process-analysis benchmark for verbal-fluency and alternate-uses response sequences
+    paper_link: https://arxiv.org/abs/2405.00899
+    metrics: {}
+  creativemath:
+    task_description: Generate a novel mathematical solution and score it with
+      the paper's staged correctness/coarse-novelty/fine-novelty YES/NO judge
+      pipeline.
+    paper_link: https://arxiv.org/abs/2410.18336
+    metrics:
+      creativemath_correctness_ratio:
+        source: "CreativeMath stage-1 correctness prompt with unanimous YES voting across three judges"
+        rubric: "Output YES iff the new solution leads to the same result as the reference solutions."
+        score_min: 0
+        score_max: 1
+      creativemath_novelty_ratio:
+        source: "CreativeMath stage-2 coarse novelty prompt with majority YES voting across three judges"
+        rubric: "Output YES iff the new solution is novel relative to the shown k solutions."
+        score_min: 0
+        score_max: 1
+      creativemath_novel_unknown_ratio:
+        source: "CreativeMath stage-3 fine novelty prompt with majority YES voting across three judges"
+        rubric: "Output YES iff the new solution is novel relative to the withheld human solutions."
+        score_min: 0
+        score_max: 1
+  creatset:
+    task_description: Task for creatset
+    paper_link: https://arxiv.org/abs/2505.19236
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the generated creative text.
+
+
+          Score 1: Completely formulaic and uncreative
+
+          Score 2: Mostly generic with minimal creativity
+
+          Score 3: Some creative elements but largely conventional
+
+          Score 4: Genuinely creative with strong original elements
+
+          Score 5: Highly creative, original, and imaginatively expressed'
+        score_min: 1
+        score_max: 5
+  critics_story:
+    task_description: Pairwise CritiCS-style story-plan comparison
+    paper_link: https://arxiv.org/abs/2410.02428
+    metrics:
+      repo_pairwise_prompt:
+        source: '[PAPER+REPO]'
+        rubric: 'The default runnable surface uses the repo''s pairwise
+          `persona_comparision` prompt, which asks for four final verdicts:
+          interestingness, coherence, creativity, and premise closeness.'
+        score_min: 0
+        score_max: 1
+  crowd_vote:
+    task_description: Task for crowd_vote
+    paper_link: https://arxiv.org/abs/2509.09702
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of the response as crowd evaluators would rate it.
+
+
+          Score 1: Rated very poorly by most evaluators
+
+          Score 2: Below-average ratings
+
+          Score 3: Average crowd ratings
+
+          Score 4: Above-average crowd ratings
+
+          Score 5: Rated excellent by the vast majority'
+        score_min: 1
+        score_max: 5
+  cs4:
+    task_description: Task for cs4
+    paper_link: https://arxiv.org/abs/2410.04197
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of generated content for creative self-supervised story scenario.
+
+
+          Score 1: No creative elements; formulaic
+
+          Score 2: Minimal creativity, mostly conventional
+
+          Score 3: Some creative elements mixed with conventional
+
+          Score 4: Notably creative with strong original narrative
+
+          Score 5: Highly creative, imaginative storytelling'
+        score_min: 1
+        score_max: 5
+  cue_word_story:
+    task_description: Task for cue_word_story
+    paper_link: https://arxiv.org/abs/2411.02316
+    metrics:
+      llm_judge_creativity:
+        source: '[PAPER]'
+        rubric: 'Evaluate the CREATIVITY of the generated short story.
+
+
+          Consider the overall creative quality, including inventive cue-word use,
+          novel imagery, and whether the story feels fresh rather than formulaic.
+
+
+          Score 1: Completely conventional or formulaic story
+
+          Score 2: Mostly conventional with little imaginative use of the cue words
+
+          Score 3: Some creative elements and acceptable use of the cue words
+
+          Score 4: Genuinely creative story with strong imaginative use of the cue words
+
+          Score 5: Highly creative, novel, and memorable story with especially inventive cue-word use'
+        score_min: 1
+        score_max: 5
+      llm_judge_originality:
+        source: '[PAPER]'
+        rubric: 'Evaluate the ORIGINALITY of the generated short story.
+
+
+          Consider how unique, fresh, and unconventional the story concept is.
+
+
+          Score 1: Highly derivative or clichéd; the cue words are used in the most obvious way
+
+          Score 2: Mostly familiar ideas with only a small twist
+
+          Score 3: Some original elements, but the story is still largely conventional
+
+          Score 4: Notably original and uncommon use of the cue words
+
+          Score 5: Exceptionally original, fresh, and unconventional story concept'
+        score_min: 1
+        score_max: 5
+      llm_judge_surprise:
+        source: '[PAPER]'
+        rubric: 'Evaluate the SURPRISE of the generated short story.
+
+
+          Consider how unexpected the story is, including twists, reversals, and unusual transitions between ideas.
+
+
+          Score 1: Completely predictable; no unexpected turns
+
+          Score 2: Mostly predictable with almost no surprise
+
+          Score 3: Some mildly unexpected ideas or transitions
+
+          Score 4: Clearly surprising with at least one strong twist or reversal
+
+          Score 5: Highly surprising and inventive with memorable unexpected turns'
+        score_min: 1
+        score_max: 5
+      llm_judge_effectiveness:
+        source: '[PAPER]'
+        rubric: 'Evaluate the EFFECTIVENESS of the generated short story.
+
+
+          Consider whether the story is coherent, easy to follow, and enjoyable to read.
+
+
+          Score 1: Hard to follow, dull, or fails to work as a story
+
+          Score 2: Weakly effective with awkward flow or low engagement
+
+          Score 3: Adequately effective but not especially engaging
+
+          Score 4: Well-structured, coherent, and enjoyable
+
+          Score 5: Highly effective story that is both coherent and engaging'
+        score_min: 1
+        score_max: 5
+  dat_creative_writing:
+    task_description: Task for dat_creative_writing
+    paper_link: https://doi.org/10.1038/s41562-024-02046-9
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the creative writing for a Divergent Association Task.
+
+
+          Score 1: No creative or divergent thinking in connecting concepts
+
+          Score 2: Minimal creative connection; mostly obvious associations
+
+          Score 3: Some creative connections but mostly conventional
+
+          Score 4: Creative writing with notably divergent connections
+
+          Score 5: Highly creative writing with exceptional novel connections'
+        score_min: 1
+        score_max: 5
+  dialogue_diversity:
+    task_description: Task for dialogue_diversity
+    paper_link: https://arxiv.org/abs/2412.03343
+    metrics:
+      coherence_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the COHERENCE of the generated dialogue response.
+
+
+          Score 1: Completely incoherent or off-topic
+
+          Score 2: Major coherence issues with the conversation
+
+          Score 3: Somewhat coherent with noticeable gaps
+
+          Score 4: Coherent and follows naturally
+
+          Score 5: Perfectly coherent, natural, and contextually appropriate'
+        score_min: 1
+        score_max: 5
+  discovery_bench:
+    task_description: Task for discovery_bench
+    paper_link: https://arxiv.org/abs/2407.01725
+    metrics:
+      llm_judge_correctness:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CORRECTNESS of the generated scientific hypothesis.
+
+
+          Score 1: Completely incorrect or scientifically invalid
+
+          Score 2: Mostly incorrect with fundamental flaws
+
+          Score 3: Partially correct with some valid reasoning
+
+          Score 4: Mostly correct with minor errors
+
+          Score 5: Fully correct, valid, and well-supported'
+        score_min: 1
+        score_max: 5
+  dpt:
+    task_description: Task for dpt
+    paper_link: https://arxiv.org/abs/2502.03253
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the divergent production task response.
+
+
+          Score 1: Only obvious, predictable responses
+
+          Score 2: Mostly conventional with slight variations
+
+          Score 3: Mix of conventional and somewhat original
+
+          Score 4: Notably creative with original unexpected ideas
+
+          Score 5: Highly creative, diverse, exceptional divergent thinking'
+        score_min: 1
+        score_max: 5
+  eqbench_creative_writing_v3:
+    task_description: Task for eqbench_creative_writing_v3
+    paper_link: null
+    metrics:
+      elo_rating:
+        source: '[GENERATED]'
+        rubric: 'Compare the creative writing piece against reference for relative quality.
+
+
+          Score 1: Substantially inferior literary quality
+
+          Score 2: Somewhat weaker creative craft
+
+          Score 3: Roughly equal creative quality
+
+          Score 4: Stronger creative craft and quality
+
+          Score 5: Substantially superior literary excellence'
+        score_min: 1
+        score_max: 5
+      rubric_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the creative writing piece according to the EQBench rubric.
+
+
+          Score 1: Fails on nearly all rubric criteria
+
+          Score 2: Meets only minimal rubric criteria
+
+          Score 3: Meets most rubric criteria adequately
+
+          Score 4: Meets all rubric criteria well
+
+          Score 5: Exceeds all rubric criteria with exceptional quality'
+        score_min: 1
+        score_max: 5
+  fscg8:
+    task_description: Task for fscg8
+    paper_link: https://arxiv.org/abs/2408.02226
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate quality of generated fine-grained story completion.
+
+
+          Score 1: Incoherent or contradicts story context
+
+          Score 2: Poor completion with major inconsistencies
+
+          Score 3: Adequate, fits story at basic level
+
+          Score 4: Good quality, consistent and engaging
+
+          Score 5: Excellent, seamlessly continues story with high creativity'
+        score_min: 1
+        score_max: 5
+  future_ideas:
+    task_description: Task for future_ideas
+    paper_link: https://arxiv.org/abs/2409.06185
+    metrics:
+      llm_judge_novelty:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the NOVELTY of the generated future scientific/technological idea.
+
+
+          Score 1: Entirely conventional or already widely known
+
+          Score 2: Mostly incremental with minimal novelty
+
+          Score 3: Somewhat novel with some original elements
+
+          Score 4: Notably novel beyond current common thinking
+
+          Score 5: Highly novel, unprecedented, exceptional forward-thinking'
+        score_min: 1
+        score_max: 5
+      llm_judge_relevance:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the RELEVANCE of the generated future idea to the given domain.
+
+
+          Score 1: No relevance to specified domain
+
+          Score 2: Minimal relevance with major off-topic elements
+
+          Score 3: Somewhat relevant with notable gaps
+
+          Score 4: Mostly relevant and well-aligned
+
+          Score 5: Perfectly relevant and highly focused'
+        score_min: 1
+        score_max: 5
+      llm_judge_feasibility:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the FEASIBILITY of the generated future idea.
+
+
+          Score 1: Infeasible or scientifically implausible
+
+          Score 2: Major feasibility problems or missing prerequisites
+
+          Score 3: Partially feasible with notable practical gaps
+
+          Score 4: Mostly feasible with reasonable methods or assumptions
+
+          Score 5: Highly feasible, well-grounded, and realistic to investigate'
+        score_min: 1
+        score_max: 5
+  fuxibench:
+    task_description: Task for fuxibench
+    paper_link: https://arxiv.org/abs/2503.15837
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate quality of generated Chinese creative text (poetry, couplet, etc.).
+
+
+          Score 1: Fails all formal constraints with no literary merit
+
+          Score 2: Meets few constraints with poor creative quality
+
+          Score 3: Meets some constraints with adequate quality
+
+          Score 4: Meets most constraints with good quality
+
+          Score 5: Perfectly adheres to all constraints with excellent quality'
+        score_min: 1
+        score_max: 5
+  gauss:
+    task_description: Task for gauss
+    paper_link: https://arxiv.org/abs/2509.18122
+    metrics:
+      rubric_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the mathematical solution using the problem-specific rubric.
+
+
+          Score 0: No understanding, completely wrong
+
+          Score 1-2: Minimal understanding with fundamental errors
+
+          Score 3-4: Partial understanding with some correct steps
+
+          Score 5-6: Mostly correct with minor errors
+
+          Score 7+: Fully correct demonstrating complete mastery'
+        score_min: 0
+        score_max: 10
+  geo_story:
+    task_description: Task for geo_story
+    paper_link: https://arxiv.org/abs/2411.07320
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the generated geographical story.
+
+
+          Score 1: No creative use of geographical elements
+
+          Score 2: Minimal creativity, uses geography predictably
+
+          Score 3: Some creative storytelling with conventional elements
+
+          Score 4: Creatively engages geography with original narrative
+
+          Score 5: Highly creative, imaginatively weaves geography into original narrative'
+        score_min: 1
+        score_max: 5
+  grapheval_ai_researcher:
+    task_description: Task for grapheval_ai_researcher
+    paper_link: https://arxiv.org/abs/2503.12600
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of the AI researcher decision/analysis.
+
+
+          Score 1: Incorrect, irrelevant, or shows no research understanding
+
+          Score 2: Poor analysis with major gaps
+
+          Score 3: Adequate analysis meeting basic criteria
+
+          Score 4: Good analysis with sound reasoning
+
+          Score 5: Excellent analysis demonstrating expert-level judgment'
+        score_min: 1
+        score_max: 5
+  grapheval_iclr:
+    task_description: Task for grapheval_iclr
+    paper_link: https://arxiv.org/abs/2503.12600
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of the ICLR review/paper assessment.
+
+
+          Score 1: Inaccurate or shows no technical understanding
+
+          Score 2: Poor with major gaps in technical reasoning
+
+          Score 3: Adequate meeting basic review criteria
+
+          Score 4: Good technical review with useful insights
+
+          Score 5: Excellent demonstrating expert-level technical judgment'
+        score_min: 1
+        score_max: 5
+  grapheval_review_advisor:
+    task_description: Review_Advisor decision prediction with the released GraphEval baseline prompt
+    paper_link: https://arxiv.org/abs/2503.12600
+    metrics:
+      decision_accuracy:
+        source: '[PAPER+REPO]'
+        rubric: 'The released GraphEval prompt asks the model to output one of four
+          decision classes: Reject, Accept (Poster), Accept (Oral), or Accept
+          (Spotlight). Local HELM scoring parses that decision and reports
+          decision accuracy together with macro precision, macro recall, macro
+          F1, and score-level Spearman correlation against the released
+          reviewer ratings.'
+  historical_analogy:
+    task_description: Task for historical_analogy
+    paper_link: https://arxiv.org/abs/2409.14820
+    metrics:
+      paper_abstract_similarity_nondefault:
+        source: '[PAPER+REPO]'
+        rubric: 'The paper''s non-default automatic scorer asks GPT-4 to rate
+          abstract-level analogy similarity on a 1-4 scale, focusing on topic,
+          background, process, and result while explicitly discounting surface
+          overlap and self-analogy.'
+        score_min: 1
+        score_max: 4
+  hummus:
+    task_description: Task for hummus
+    paper_link: https://arxiv.org/abs/2504.02983
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of generated humor/comedy content.
+
+
+          Score 1: Not humorous, offensive, or fails as comedy
+
+          Score 2: Weakly humorous with poor execution
+
+          Score 3: Mildly amusing with some comedic elements
+
+          Score 4: Genuinely funny with good execution
+
+          Score 5: Highly funny, original with excellent comedic craft'
+        score_min: 1
+        score_max: 5
+  hypobench:
+    task_description: Hypothesis generation benchmark scored primarily by held-out hypothesis-based inference accuracy/F1 on the 7 released real-world tasks.
+    paper_link: https://arxiv.org/abs/2504.11524
+    metrics: {}
+  hypogen:
+    task_description: Task for hypogen
+    paper_link: https://arxiv.org/abs/2409.04109
+    metrics:
+      llm_judge_novelty:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the NOVELTY of the generated hypothesis flipping a conventional assumption.
+
+
+          Score 1: No novel thinking; follows the conventional assumption
+
+          Score 2: Minimal novelty; slight modifications only
+
+          Score 3: Somewhat novel with partial inversion
+
+          Score 4: Notably novel, clearly inverting in interesting way
+
+          Score 5: Highly novel, completely original and insightful inversion'
+        score_min: 1
+        score_max: 5
+  layoutsam_eval:
+    task_description: Task for layoutsam_eval
+    paper_link: https://arxiv.org/abs/2412.03859
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate quality of the generated layout description.
+
+
+          Score 1: Spatially inaccurate or fails to describe layout
+
+          Score 2: Poor with major spatial or completeness gaps
+
+          Score 3: Adequate capturing basic layout elements
+
+          Score 4: Good with accurate spatial relations
+
+          Score 5: Excellent with high spatial accuracy and comprehensive coverage'
+        score_min: 1
+        score_max: 5
+  litbench:
+    task_description: Task for litbench
+    paper_link: https://arxiv.org/abs/2507.00769
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of the generated literary response.
+
+
+          Score 1: No literary understanding or capability
+
+          Score 2: Superficial with minimal literary insight
+
+          Score 3: Adequate covering basic literary elements
+
+          Score 4: Good with solid insight and analysis
+
+          Score 5: Excellent demonstrating deep and sophisticated analysis'
+        score_min: 1
+        score_max: 5
+  liveideabench:
+    task_description: Task for liveideabench
+    paper_link: https://arxiv.org/abs/2412.17596
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the generated idea for a live ideation task.
+
+
+          Score 1: Completely conventional and unoriginal
+
+          Score 2: Mostly unoriginal with minor variations
+
+          Score 3: Somewhat creative with some original elements
+
+          Score 4: Genuinely creative with original thinking
+
+          Score 5: Highly creative, original, exceptional generative thinking'
+        score_min: 1
+        score_max: 5
+  llm_review_focus:
+    task_description: Task for llm_review_focus
+    paper_link: https://arxiv.org/abs/2502.17086
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate quality of the generated LLM review focus proposal.
+
+
+          Score 1: Vague, irrelevant, or scientifically unsound
+
+          Score 2: Poor quality with major gaps
+
+          Score 3: Adequate with reasonably clear focus
+
+          Score 4: Good quality with clear focus and scientific merit
+
+          Score 5: Excellent with exceptional clarity, rigor, and potential impact'
+        score_min: 1
+        score_max: 5
+  llm_srbench:
+    task_description: Task for llm_srbench
+    paper_link: https://arxiv.org/abs/2504.10415
+    metrics:
+      llm_judge_correctness:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CORRECTNESS of the generated symbolic regression expression.
+
+
+          Score 1: Mathematically invalid or completely wrong
+
+          Score 2: Mostly incorrect with fundamental formula errors
+
+          Score 3: Partially correct with some valid structure
+
+          Score 4: Mostly correct with minor errors
+
+          Score 5: Fully correct, accurately captures the data pattern'
+        score_min: 1
+        score_max: 5
+  macgyver:
+    task_description: Task for macgyver
+    paper_link: https://arxiv.org/abs/2311.09682
+    metrics:
+      llm_judge_correctness:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CORRECTNESS of the MacGyver-style creative solution.
+
+
+          Score 1: Physically impossible or uses unavailable materials
+
+          Score 2: Major feasibility issues
+
+          Score 3: Plausible in principle but with significant practical gaps
+
+          Score 4: Mostly correct and feasible with given materials
+
+          Score 5: Fully correct, physically plausible, and creative within constraints'
+        score_min: 1
+        score_max: 5
+  matdesign:
+    task_description: Task for matdesign
+    paper_link: https://arxiv.org/abs/2501.13299
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate quality of the generated materials design proposal.
+
+
+          Score 1: Scientifically inaccurate or non-feasible
+
+          Score 2: Poor with major scientific gaps
+
+          Score 3: Adequate with reasonable scientific basis
+
+          Score 4: Good with solid scientific reasoning
+
+          Score 5: Excellent demonstrating deep knowledge and innovative thinking'
+        score_min: 1
+        score_max: 5
+  mineanybuild:
+    task_description: Task for mineanybuild
+    paper_link: https://arxiv.org/abs/2505.20148
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the Minecraft building blueprint.
+
+
+          Score 1: Completely generic with no creative elements
+
+          Score 2: Minimal creativity, basic conventional design
+
+          Score 3: Some creative elements mixed with conventional
+
+          Score 4: Notably creative with original architectural elements
+
+          Score 5: Highly creative, innovative design with exceptional imagination'
+        score_min: 1
+        score_max: 5
+  mops:
+    task_description: Task for mops
+    paper_link: https://arxiv.org/abs/2406.05690
+    metrics:
+      llm_judge_fascination:
+        source: '[GENERATED]'
+        rubric: 'Evaluate how FASCINATING the generated movie premise is.
+
+
+          Score 1: Dull, boring, and completely unengaging
+
+          Score 2: Mostly uninteresting with minimal appeal
+
+          Score 3: Somewhat interesting with moderate appeal
+
+          Score 4: Genuinely fascinating engaging most audiences
+
+          Score 5: Exceptionally fascinating with broad compelling appeal'
+        score_min: 1
+        score_max: 5
+      llm_judge_originality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the ORIGINALITY of the generated movie premise.
+
+
+          Score 1: Direct copy or cliche of existing films
+
+          Score 2: Mostly derivative with only minor original elements
+
+          Score 3: Some original elements mixed with familiar patterns
+
+          Score 4: Notably original concept standing out from existing films
+
+          Score 5: Highly original, unprecedented with exceptional novelty'
+        score_min: 1
+        score_max: 5
+  permpst:
+    task_description: Task for permpst
+    paper_link: https://arxiv.org/abs/2310.03304
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the quality of the generated permuted sentence reconstruction.
+
+
+          Score 1: Incoherent or completely fails
+
+          Score 2: Poor with major coherence or accuracy issues
+
+          Score 3: Adequate forming mostly sensible text
+
+          Score 4: Good quality that is coherent and well-written
+
+          Score 5: Excellent, perfectly coherent, fluent, and high quality'
+        score_min: 1
+        score_max: 5
+  poetmt:
+    task_description: Task for poetmt
+    paper_link: https://arxiv.org/abs/2408.09945
+    metrics:
+      llm_judge_beauty_of_sound:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the BEAUTY OF SOUND in the translated Chinese classical poem.
+
+
+          Score 1: No phonetic beauty; sounds harsh or discordant
+
+          Score 2: Minimal phonetic qualities with poor rhythm
+
+          Score 3: Some phonetic appeal with moderate rhythm
+
+          Score 4: Good phonetic beauty with pleasing sound patterns
+
+          Score 5: Excellent phonetic beauty with outstanding rhythm and musicality'
+        score_min: 1
+        score_max: 5
+      llm_judge_beauty_of_form:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the BEAUTY OF FORM in the translated Chinese classical poem.
+
+
+          Score 1: Ignores all formal constraints of the original
+
+          Score 2: Minimal formal fidelity with poor structure
+
+          Score 3: Some formal elements maintained with adequate structure
+
+          Score 4: Good formal fidelity with clear structural elegance
+
+          Score 5: Excellent formal beauty with perfect adherence to poetic structure'
+        score_min: 1
+        score_max: 5
+      llm_judge_beauty_of_meaning:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the BEAUTY OF MEANING in the translated Chinese classical poem.
+
+
+          Score 1: Completely loses the meaning and imagery
+
+          Score 2: Minimal meaning preserved with major losses
+
+          Score 3: Core meaning preserved with some loss of nuance
+
+          Score 4: Good meaning fidelity with most imagery preserved
+
+          Score 5: Excellent semantic beauty fully capturing depth and imagery'
+        score_min: 1
+        score_max: 5
+  pollux_creativity:
+    task_description: Task for pollux_creativity
+    paper_link: https://arxiv.org/abs/2505.24616
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the generated response.
+
+
+          Score 1: Completely uncreative and formulaic
+
+          Score 2: Minimal creativity with mostly conventional expression
+
+          Score 3: Some creative elements with moderate originality
+
+          Score 4: Genuinely creative with strong original elements
+
+          Score 5: Highly creative with exceptional originality'
+        score_min: 1
+        score_max: 5
+      llm_judge_originality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the ORIGINALITY of the generated response.
+
+
+          Score 1: No original ideas; completely derivative
+
+          Score 2: Slightly varied but largely unoriginal
+
+          Score 3: Some original elements within conventional thinking
+
+          Score 4: Notably original ideas that clearly stand out
+
+          Score 5: Exceptionally original with novel, unprecedented ideas'
+        score_min: 1
+        score_max: 5
+  pron_vs_prompt:
+    task_description: Task for pron_vs_prompt
+    paper_link: https://arxiv.org/abs/2407.01119
+    metrics:
+      llm_judge_attractiveness:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the ATTRACTIVENESS of the generated promotional text.
+
+
+          Score 1: Unappealing, fails to attract attention
+
+          Score 2: Minimally attractive with poor engagement
+
+          Score 3: Moderately attractive with some appealing elements
+
+          Score 4: Genuinely attractive engaging the target audience
+
+          Score 5: Highly attractive with excellent audience appeal'
+        score_min: 1
+        score_max: 5
+      llm_judge_originality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the ORIGINALITY of the generated promotional text.
+
+
+          Score 1: Cliche or generic copy with no originality
+
+          Score 2: Minimal originality; uses common tropes
+
+          Score 3: Some original elements within conventional language
+
+          Score 4: Notably original standing out from typical advertising
+
+          Score 5: Highly original, innovative with exceptional creative freshness'
+        score_min: 1
+        score_max: 5
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the generated promotional text.
+
+
+          Score 1: No creative elements; completely mechanical
+
+          Score 2: Minimal creativity with standard language
+
+          Score 3: Some creative elements with moderate imagination
+
+          Score 4: Genuinely creative with strong original elements
+
+          Score 5: Highly creative with exceptional advertising originality'
+        score_min: 1
+        score_max: 5
+  pun_eval:
+    task_description: Judge whether the generated sentence is actually a pun using the released PunEval binary detection prompt.
+    paper_link: https://arxiv.org/abs/2404.13599
+    metrics:
+      pun_detection_rate:
+        source: '[NOTEBOOK]'
+        rubric: '<*Definition*>
+
+
+          Puns are a form of wordplay exploiting different meanings of a word or similar-sounding words, while non-puns are jokes or statements that do not rely on such linguistic ambiguities.
+
+
+          <*Instruction*>
+
+
+          Determine whether the given Text is a pun. You should either say "The given text is a pun" or say "The given text is a non-pun". You must output the current status in a parsable JSON format as {"Choice": "The given text is a XXX"}.'
+        score_min: 0
+        score_max: 1
+  rebus_puzzle:
+    task_description: Task for rebus_puzzle
+    paper_link: null
+    metrics:
+      llm_judge_correctness:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CORRECTNESS of the rebus puzzle answer.
+
+
+          Score 1: Completely fails to decode the rebus
+
+          Score 2: Major errors in rebus interpretation
+
+          Score 3: Partially decodes the rebus correctly
+
+          Score 4: Mostly correct with minor decoding errors
+
+          Score 5: Perfectly and completely decodes the rebus'
+        score_min: 1
+        score_max: 5
+  research_idea_execution:
+    task_description: Task for research_idea_execution
+    paper_link: https://arxiv.org/abs/2506.20803
+    metrics:
+      llm_judge_novelty:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the NOVELTY of the research idea execution plan.
+
+
+          Score 1: Entirely conventional with no novel elements
+
+          Score 2: Minimal novelty; mostly standard approaches
+
+          Score 3: Some novel elements within conventional framework
+
+          Score 4: Notably novel with genuinely original elements
+
+          Score 5: Highly novel with exceptional originality and innovation'
+        score_min: 1
+        score_max: 5
+      llm_judge_feasibility:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the FEASIBILITY of the research idea execution plan.
+
+
+          Score 1: Completely infeasible with impossible methods
+
+          Score 2: Mostly infeasible with major practical obstacles
+
+          Score 3: Partially feasible with significant challenges
+
+          Score 4: Mostly feasible with reasonable, achievable goals
+
+          Score 5: Highly feasible with realistic well-planned execution'
+        score_min: 1
+        score_max: 5
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the overall QUALITY of the research idea execution plan.
+
+
+          Score 1: Very poor quality with major gaps
+
+          Score 2: Low quality with significant weaknesses
+
+          Score 3: Adequate quality meeting basic criteria
+
+          Score 4: Good quality with strong rigor and clarity
+
+          Score 5: Excellent quality with exceptional rigor and potential impact'
+        score_min: 1
+        score_max: 5
+  rpgbench:
+    task_description: Task for rpgbench
+    paper_link: https://arxiv.org/abs/2502.00595
+    metrics:
+      interestingness:
+        source: '[PAPER]'
+        rubric: 'Evaluate the INTERESTINGNESS of the generated RPG game content.
+
+
+          Score 1: Completely boring with no interesting elements
+
+          Score 2: Minimally interesting with poor engagement
+
+          Score 3: Moderately interesting with some engaging elements
+
+          Score 4: Genuinely interesting engaging most players
+
+          Score 5: Highly interesting with exceptional player engagement value'
+        score_min: 1
+        score_max: 5
+  showerthoughts:
+    task_description: Standalone Showerthought generation rated on the paper's six survey axes
+    paper_link: https://aclanthology.org/2024.starsem-1.23/
+    metrics:
+      llm_judge_general_score:
+        source: 'Paper Appendix A.3.2 survey statement: "I like this Showerthought."'
+        rubric: 'Rate the statement "I like this Showerthought." on the paper''s six-point Likert scale.
+
+
+          Score 1: Strongly disagree / very poor
+
+          Score 2: Disagree / poor
+
+          Score 3: Somewhat disagree / below average
+
+          Score 4: Somewhat agree / above average
+
+          Score 5: Agree / good
+
+          Score 6: Strongly agree / excellent'
+        score_min: 1
+        score_max: 6
+      llm_judge_logical_validity:
+        source: 'Paper Appendix A.3.2 survey statement: "It makes a true/valid/logical statement."'
+        rubric: 'Rate the statement "It makes a true/valid/logical statement." on the paper''s six-point Likert scale.
+
+
+          Score 1: Strongly disagree / very poor
+
+          Score 2: Disagree / poor
+
+          Score 3: Somewhat disagree / below average
+
+          Score 4: Somewhat agree / above average
+
+          Score 5: Agree / good
+
+          Score 6: Strongly agree / excellent'
+        score_min: 1
+        score_max: 6
+      llm_judge_creativity:
+        source: 'Paper Appendix A.3.2 survey statement: "It is creative."'
+        rubric: 'Rate the statement "It is creative." on the paper''s six-point Likert scale.
+
+
+          Score 1: Strongly disagree / very poor
+
+          Score 2: Disagree / poor
+
+          Score 3: Somewhat disagree / below average
+
+          Score 4: Somewhat agree / above average
+
+          Score 5: Agree / good
+
+          Score 6: Strongly agree / excellent'
+        score_min: 1
+        score_max: 6
+      llm_judge_humor:
+        source: 'Paper Appendix A.3.2 survey statement: "It is funny."'
+        rubric: 'Rate the statement "It is funny." on the paper''s six-point Likert scale.
+
+
+          Score 1: Strongly disagree / very poor
+
+          Score 2: Disagree / poor
+
+          Score 3: Somewhat disagree / below average
+
+          Score 4: Somewhat agree / above average
+
+          Score 5: Agree / good
+
+          Score 6: Strongly agree / excellent'
+        score_min: 1
+        score_max: 6
+      llm_judge_cleverness:
+        source: 'Paper Appendix A.3.2 survey statement: "It is clever."'
+        rubric: 'Rate the statement "It is clever." on the paper''s six-point Likert scale.
+
+
+          Score 1: Strongly disagree / very poor
+
+          Score 2: Disagree / poor
+
+          Score 3: Somewhat disagree / below average
+
+          Score 4: Somewhat agree / above average
+
+          Score 5: Agree / good
+
+          Score 6: Strongly agree / excellent'
+        score_min: 1
+        score_max: 6
+      llm_judge_real_person_likelihood:
+        source: 'Paper Appendix A.3.2 survey statement: "I believe this Showerthought has been written by a real person."'
+        rubric: 'Rate the statement "I believe this Showerthought has been written by a real person." on the paper''s six-point Likert scale.
+
+
+          Score 1: Strongly disagree / very poor
+
+          Score 2: Disagree / poor
+
+          Score 3: Somewhat disagree / below average
+
+          Score 4: Somewhat agree / above average
+
+          Score 5: Agree / good
+
+          Score 6: Strongly agree / excellent'
+        score_min: 1
+        score_max: 6
+  slang_generation:
+    task_description: Task for slang_generation
+    paper_link: https://arxiv.org/abs/2502.00000
+    metrics:
+      llm_judge_creativity:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the generated slang term.
+
+
+          Score 1: Entirely conventional or already widely used
+
+          Score 2: Minimal creativity; slight variation on existing slang
+
+          Score 3: Somewhat creative with some novel elements
+
+          Score 4: Genuinely creative, inventive slang term
+
+          Score 5: Highly creative with exceptional linguistic inventiveness'
+        score_min: 1
+        score_max: 5
+      llm_judge_relevance:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the RELEVANCE of the generated slang term to target meaning.
+
+
+          Score 1: No relevance to the intended meaning
+
+          Score 2: Minimally relevant with poor semantic connection
+
+          Score 3: Somewhat relevant with moderate semantic alignment
+
+          Score 4: Mostly relevant with good semantic connection
+
+          Score 5: Perfectly relevant; precisely and cleverly captures intended meaning'
+        score_min: 1
+        score_max: 5
+  speak_to_structure:
+    task_description: Task for speak_to_structure
+    paper_link: https://arxiv.org/abs/2412.14642
+    metrics:
+      llm_judge_correctness:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CORRECTNESS of the generated structured representation.
+
+
+          Score 1: Completely incorrect or invalid
+
+          Score 2: Mostly incorrect with major structural errors
+
+          Score 3: Partially correct with some valid elements
+
+          Score 4: Mostly correct with minor errors
+
+          Score 5: Fully correct, perfectly captures the input meaning'
+        score_min: 1
+        score_max: 5
+  ss_gen:
+    task_description: Title-to-social-story generation for children and teens with autism
+    paper_link: https://arxiv.org/abs/2406.15695
+    metrics:
+      llm_judge_coherence:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the COHERENCE of the generated Social Story.
+
+
+          Score 1: Completely incoherent with the title or internal story flow
+
+          Score 2: Poor coherence with major narrative inconsistencies
+
+          Score 3: Adequate coherence with some flow issues
+
+          Score 4: Good coherence maintaining narrative consistency
+
+          Score 5: Excellent coherence with perfect narrative flow'
+        score_min: 1
+        score_max: 5
+      llm_judge_descriptiveness:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the DESCRIPTIVENESS of the generated Social Story.
+
+
+          Score 1: Mostly vague, directive, or lacking meaningful description
+
+          Score 2: Limited descriptiveness with too little situational explanation
+
+          Score 3: Moderately descriptive with some clear contextual detail
+
+          Score 4: Strong descriptiveness with clear, supportive explanation
+
+          Score 5: Exceptionally descriptive, clear, and well-contextualized'
+        score_min: 1
+        score_max: 5
+      llm_judge_empathy:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the EMPATHY of the generated Social Story for children and
+          teens with autism.
+
+
+          Score 1: Tone is insensitive, harsh, or poorly suited to the audience
+
+          Score 2: Limited empathy with noticeable tone or audience-fit problems
+
+          Score 3: Adequately empathetic but uneven in supportiveness or tone
+
+          Score 4: Clearly empathetic, patient, and appropriate for the audience
+
+          Score 5: Highly empathetic, reassuring, and exceptionally well-tailored'
+        score_min: 1
+        score_max: 5
+      llm_judge_grammaticality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the GRAMMATICALITY of the generated Social Story.
+
+
+          Score 1: Severe grammatical problems that make the story hard to understand
+
+          Score 2: Frequent grammatical or fluency problems
+
+          Score 3: Understandable with some noticeable grammatical issues
+
+          Score 4: Mostly grammatical and fluent with only minor issues
+
+          Score 5: Grammatically strong, fluent, and polished throughout'
+        score_min: 1
+        score_max: 5
+      llm_judge_relevance:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the RELEVANCE of the generated Social Story to the requested
+          title and intervention goal.
+
+
+          Score 1: Off-topic or fails to address the requested title
+
+          Score 2: Weak relevance with major gaps in topic alignment
+
+          Score 3: Moderately relevant but with some drift or missing focus
+
+          Score 4: Clearly relevant and well-aligned with the requested topic
+
+          Score 5: Highly relevant, focused, and directly responsive'
+        score_min: 1
+        score_max: 5
+  tinyfabulist:
+    task_description: Generate age-group-B fables from the released 100-prompt TinyFabulist benchmark and score them with the upstream literary-critic evaluator.
+    paper_link: https://arxiv.org/abs/2504.20605
+    metrics:
+      grammar_score:
+        source: '[PAPER]'
+        rubric: 'Evaluate the GRAMMAR AND STYLE of the generated fable.
+
+
+          Score 1-3: Significant grammatical errors impeding understanding
+
+          Score 4-6: Some errors but generally readable
+
+          Score 7-10: Clean, polished writing with appropriate fable style'
+        score_min: 1
+        score_max: 10
+      creativity_score:
+        source: '[PAPER]'
+        rubric: 'Evaluate the CREATIVITY AND ORIGINALITY of the generated fable.
+
+
+          Score 1-3: Derivative, predictable, or clichéd
+
+          Score 4-6: Contains some original elements but follows familiar patterns
+
+          Score 7-10: Fresh perspective, innovative approach maintaining classic fable structure'
+        score_min: 1
+        score_max: 10
+      moral_clarity_score:
+        source: '[PAPER]'
+        rubric: 'Evaluate the MORAL CLARITY of the generated fable.
+
+
+          Score 1-3: Moral absent, confused, or contradictory
+
+          Score 4-6: Moral present but underdeveloped or lacking impact
+
+          Score 7-10: Clear, meaningful moral that provides genuine insight'
+        score_min: 1
+        score_max: 10
+      adherence_to_prompt_score:
+        source: '[PAPER]'
+        rubric: 'Evaluate ADHERENCE TO PROMPT for the generated fable.
+
+
+          Score 1-3: Missing multiple required prompt elements
+
+          Score 4-6: Covers the main elements but overlooks some instructions
+
+          Score 7-10: Thoroughly addresses all prompt requirements while maintaining narrative cohesion'
+        score_min: 1
+        score_max: 10
+      age_group_fit:
+        source: '[PAPER]'
+        rubric: 'Classify the fable into the best-fitting age group A-E based on vocabulary simplicity, thematic maturity, syntactic complexity, and content appropriateness.'
+        score_min: 1
+        score_max: 5
+  tinystories:
+    task_description: Task for tinystories
+    paper_link: https://arxiv.org/abs/2305.07759
+    metrics:
+      grammar_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the GRAMMAR quality of the generated children''s story.
+
+
+          Score 1: Severe grammatical errors making text unreadable
+
+          Score 2: Frequent errors impeding comprehension
+
+          Score 3: Some issues but generally understandable
+
+          Score 4: Minor issues with mostly correct language
+
+          Score 5: Perfect grammar for children''s literature'
+        score_min: 1
+        score_max: 5
+      creativity_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CREATIVITY of the generated children''s short story.
+
+
+          Score 1: Completely generic and predictable
+
+          Score 2: Minimal creativity, follows common clichés
+
+          Score 3: Some creative elements mixed with convention
+
+          Score 4: Genuinely creative with original plot or characters
+
+          Score 5: Highly creative, imaginative, delightful for children'
+        score_min: 1
+        score_max: 5
+      consistency_score:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the CONSISTENCY of the generated children''s short story.
+
+
+          Score 1: Major inconsistencies in characters, plot, or setting
+
+          Score 2: Multiple inconsistencies disrupting reading experience
+
+          Score 3: Generally consistent with some minor issues
+
+          Score 4: Consistent with at most one minor inconsistency
+
+          Score 5: Perfectly consistent story throughout'
+        score_min: 1
+        score_max: 5
+  thenextchapter:
+    task_description: Conditional story continuation scored on the five The Next Chapter human-evaluation axes.
+    paper_link: https://arxiv.org/abs/2301.09790
+    metrics:
+      thenextchapter_fluency:
+        source: 'Paper Section 5 + released HumanEvaluation JSON; local HELM uses a no-reference single-dimension judge'
+        rubric: 'Evaluate the FLUENCY of the generated story continuation. Grammatical correctness, readability, and natural language flow. Return only one integer score from 1 to 5.'
+        score_min: 1
+        score_max: 5
+      thenextchapter_coherence:
+        source: 'Paper Section 5 + released HumanEvaluation JSON; local HELM uses a no-reference single-dimension judge'
+        rubric: 'Evaluate the COHERENCE of the generated story continuation. Internal consistency and narrative flow across the continuation. Return only one integer score from 1 to 5.'
+        score_min: 1
+        score_max: 5
+      thenextchapter_relatedness:
+        source: 'Paper Section 5 + released HumanEvaluation JSON; local HELM uses a no-reference single-dimension judge'
+        rubric: 'Evaluate the RELATEDNESS of the generated story continuation. How well the continuation follows from and stays connected to the given condition. Return only one integer score from 1 to 5.'
+        score_min: 1
+        score_max: 5
+      thenextchapter_logicality:
+        source: 'Paper Section 5 + released HumanEvaluation JSON; local HELM uses a no-reference single-dimension judge'
+        rubric: 'Evaluate the LOGICALITY of the generated story continuation. Plausibility of events and cause-and-effect relationships. Return only one integer score from 1 to 5.'
+        score_min: 1
+        score_max: 5
+      thenextchapter_interestingness:
+        source: 'Paper Section 5 + released HumanEvaluation JSON; local HELM uses a no-reference single-dimension judge'
+        rubric: 'Evaluate the INTERESTINGNESS of the generated story continuation. Creativity, engagement, and entertainment value. Return only one integer score from 1 to 5.'
+        score_min: 1
+        score_max: 5
+  webnovelbench:
+    task_description: Task for webnovelbench
+    paper_link: https://arxiv.org/abs/2505.14818
+    metrics:
+      llm_judge_literary_devices:
+        source: '[GENERATED]'
+        rubric: 'Evaluate use of LITERARY DEVICES in the web novel passage.
+
+
+          Score 1: No literary devices; plain unadorned prose
+
+          Score 2: Minimal use with poor execution
+
+          Score 3: Some devices used with moderate effectiveness
+
+          Score 4: Good use of devices that enhance narrative
+
+          Score 5: Excellent, sophisticated use greatly enriching prose'
+        score_min: 1
+        score_max: 5
+      llm_judge_character_consistency:
+        source: '[GENERATED]'
+        rubric: 'Evaluate CHARACTER CONSISTENCY in the web novel passage.
+
+
+          Score 1: Characters behave inconsistently or contradict established traits
+
+          Score 2: Multiple character consistency issues
+
+          Score 3: Characters generally consistent with some minor issues
+
+          Score 4: Characters well-maintained with good consistency
+
+          Score 5: Perfect character consistency with authentic characterization'
+        score_min: 1
+        score_max: 5
+  writingbench:
+    task_description: Task for writingbench
+    paper_link: https://arxiv.org/abs/2503.05244
+    metrics:
+      llm_judge_quality:
+        source: '[GENERATED]'
+        rubric: 'Evaluate the overall QUALITY of the generated writing based on the given task.
+
+
+          Score 1: Completely fails requirements with very poor quality
+
+          Score 2: Meets minimal requirements with significant issues
+
+          Score 3: Adequately meets requirements with acceptable quality
+
+          Score 4: Well meets requirements with good quality and creativity
+
+          Score 5: Excellently meets all requirements with exceptional quality'
+        score_min: 1
+        score_max: 5

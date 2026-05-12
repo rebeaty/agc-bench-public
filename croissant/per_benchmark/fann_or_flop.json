@@ -1,0 +1,147 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "prov": "http://www.w3.org/ns/prov#",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "name": "AGC-Bench/fann_or_flop",
+  "alternateName": "Fann or Flop",
+  "description": "Onboarded scenario for the source benchmark 'Fann or Flop' in the AGC-Bench released model set. Domain: Story / Narrative. Source paper: https://arxiv.org/abs/2505.18152. Source repository: https://github.com/mbzuai-oryx/FannOrFlop. The AGC-Bench release preserves the source paper's prompt template, generation configuration, and canonical scoring metric. This Croissant manifest documents the AGC-Bench scenario file and the per-(model, item) outputs produced by the release evaluation. The original benchmark license applies to the underlying source data; the AGC-Bench scenario code is released under Apache-2.0.",
+  "url": "https://arxiv.org/abs/2505.18152",
+  "version": "1.0.0",
+  "datePublished": "2026-04-30",
+  "license": "See source paper for benchmark license; scenario code Apache-2.0.",
+  "citeAs": "See source paper at https://arxiv.org/abs/2505.18152 for the original benchmark citation.",
+  "creator": {
+    "@type": "Organization",
+    "name": "AGC-Bench (anonymous; camera-ready will identify the lab)"
+  },
+  "keywords": [
+    "creativity",
+    "evaluation",
+    "language models",
+    "story / narrative"
+  ],
+  "rai:dataLimitations": "Per-instance scoring fidelity depends on the source benchmark's evaluation protocol. The release set is frozen at the AGC-Bench submission cutoff; results may differ from later evaluations.",
+  "rai:dataBiases": "Inherits any biases of the source benchmark's task design and reference annotations; consult the source paper for details.",
+  "rai:personalSensitiveInformation": "The source benchmark's stance on personal/sensitive information is documented in the source paper. The AGC-Bench release does not introduce additional personal data.",
+  "rai:dataUseCases": "Use as part of the AGC-Bench evaluation suite for creativity benchmarking, c-factor estimation, and intervention experiments. Not validated for: clinical, educational, or employment decisions; ranking individual humans for creativity in deployment settings.",
+  "rai:dataSocialImpact": "This per-benchmark manifest inherits the social-impact profile of AGC-Bench as an evaluation-only research artifact. Positive uses include transparent comparison of model creativity on a documented source task. Risks include over-interpreting one benchmark as a complete measure of creativity or applying release-set-relative scores outside their validation context.",
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://arxiv.org/abs/2505.18152"
+    },
+    {
+      "@id": "https://github.com/mbzuai-oryx/FannOrFlop"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Source benchmark selection",
+      "sc:description": "Source benchmark drawn from the AGC-Bench PRISMA catalog (3,101 candidate papers screened, 497 unique benchmarks identified). This benchmark's primary reference is https://arxiv.org/abs/2505.18152.",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "prov:label": "Anonymous AGC-Bench curation team"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Per-item model scoring",
+      "sc:description": "Per-(model, item) outputs are scored under the source paper's canonical metric, applied verbatim from the source paper's released materials. For LLM-judge metrics, three frontier vendor judges (google/gemini-3-flash-preview, x-ai/grok-4.1-fast, openai/gpt-4.1-mini) rate each item under the AGC-Bench planned-missing 2-of-3 design with Bayesian Graded Response Model calibration (Judge Response Theory).",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q109719325"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "AGC-Bench scoring scripts"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "LLM judges for JRT-scored cells"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Per-item model response generation",
+      "sc:description": "Per-(model, item) responses on this benchmark are synthetic by construction: language-model generations from the AGC-Bench release-set evaluation.",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "AGC-Bench evaluation harness"
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "prov:label": "Release-set language models"
+        }
+      ]
+    }
+  ],
+  "rai:hasSyntheticData": true,
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "fann_or_flop-scenario",
+      "name": "fann_or_flop_scenario.py",
+      "description": "AGC-Bench scenario file for fann_or_flop.",
+      "contentUrl": "https://huggingface.co/datasets/agcbench-2026/AGC-Bench/resolve/main/scenarios/fann_or_flop_scenario.py",
+      "encodingFormat": "text/x-python",
+      "sha256": "7e0ac02bd632ac553a6020831103a57633c0c6e5bca97d7ad39b272dbc50f48d"
+    }
+  ]
+}
